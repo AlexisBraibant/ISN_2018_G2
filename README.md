@@ -4,4 +4,3 @@
 # Benoît Chauviere
 # Jonathan Baslilar
 # Diana Razafindrabe
-# Autre test git bash windows
