@@ -20,4 +20,5 @@ Scénario normal
 		3. le jeu choisit la position des cases spéciales sur le labyrinthe
 
 scénario exceptionnel
-		E1. aucune case n'est à générer 
+		E1. aucune case n'est à générer
+
