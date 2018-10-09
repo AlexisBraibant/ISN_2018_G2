@@ -1,0 +1,30 @@
+Titre
+	Générer un héros.
+
+Résumé
+	Le jeux génère un héros.
+
+Auteur
+	Alexis
+
+Responsable
+	Alexis
+
+Acteurs concernés
+	Le jeu
+
+Pré-condition
+	Le labyrinthe est généré
+
+Post-condition
+	Le héros est apparu sur le labyrinthe
+
+Scénario normal
+	1. le jeu choisit le nombre de vie du héros
+	2. le jeu le place à sa position initial
+
+Scénario alternatif
+	--
+
+Scénario exceptionnel
+	E2. le héros n'est pas à la position initiale choisie
