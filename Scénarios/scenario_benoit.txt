@@ -1,0 +1,30 @@
+Titre
+	Générer un labyrinthe
+
+Résumé
+	Le jeu génère le labyrinthe à partir d'un fichier txt
+
+Auteur
+	Benoît Chauviere
+
+Responsable
+	Benoît Chauviere
+
+Acteurs concernés
+	Le jeu
+
+Pré-condition
+	Un niveau est selectionné
+
+Post-condition
+	Le labyrinthe est généré
+
+Scénario normal
+	1. lecture du fichier txt
+	2. le jeu affiche le labyrinthe en fonction de ce qu'il a lu
+
+Scénario alternatif
+	--
+
+Scénario exceptionnel
+	Le labyrinthe n'est pas généré, il faut relancer le jeu.
