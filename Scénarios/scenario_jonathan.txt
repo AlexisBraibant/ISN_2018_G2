@@ -1,0 +1,45 @@
+Titre
+	Générer différents types de monstres.
+
+
+Résumé
+	Le jeu doit générer différents types de monstres avec des 
+caractéristiques différentes les uns des autres en fonction du niveau du 
+joueur.
+
+
+Auteur
+	Jonathan.
+
+
+Responsable
+	Jonathan.
+
+
+Acteurs concernés
+	Le jeu et le joueur.
+
+
+Pré-condition
+	Il existe une base de données de monstres.
+
+
+Post-condition
+	Un ou plusieurs monstres de différents types sont générés et 
+présents sur le labyrinthe.
+
+
+Scénario normal
+	1.Le joueur vient de lancer une partie.
+	2. Le jeu génère X types de monstres différents en fonction du 
+niveau du joueur.
+	3.1 Le joueur gagne la partie et les monstres ne l'ont pas tué 
+avant.
+	3.2 Les monstres ont tué le héros et le joueur perd la partie.
+
+
+Scénario exceptionnel
+	Le jeu bugg : aucun ou bien un seul type de monstre est généré.
+
+
+
