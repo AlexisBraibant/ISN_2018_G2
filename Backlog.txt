@@ -1,0 +1,32 @@
+﻿Backlog
+A. Héros
+	1. Le héros est placé sur le plateau de jeu et peut s'y déplacer à l'intérieur.
+	2. Le héros active les cases spéciales en se trouvant dessus.
+	3. Le héros meurt s’il n’a plus de point de vie.
+B. Labyrinthe
+	1. Le labyrinthe est généré par défaut - le héros et les monstres ne peuvent pas traverser les murs.
+	2. Le labyrinthe est généré à partir d'un fichier.
+	3. Le labyrinthe est généré en fonction du niveau sélectionné.
+	4. Certaines cases du labyrinthe sont spéciales :
+		* trésor : si le héros arrive sur la case il a gagné le jeu.
+		* pièges : quand un personnage arrive sur la case il subit des dégâts.
+		* magiques : si un personnage arrive sur la case un effet est déclenché.
+		* passages : un personnage qui arrive sur la case est téléporté à un autre endroit.
+	1. Les monstres et joueurs ne peuvent pas passer à travers les murs.
+	2. Le labyrinthe est généré avec une interface graphique.
+	3. Menu de sélection des niveaux.
+	4. Le labyrinthe possède des murs cassables.
+	5. Le labyrinthe possède un niveau généré aléatoirement.
+C. Monstres
+	1. Des monstres sont placés de manière aléatoire dans le labyrinthe.
+	2. Les monstres se déplacent de manière aléatoire.
+	3. Les monstres se déplacent de manière intelligente en essayant d'attraper le héros.
+	4. Les fantômes sont des monstres qui peuvent traverser les murs.
+	5. Les monstres meurent s’il n’ont plus de point de vie.
+	6. Les monstres réapparaissent de manière aléatoire.
+D. Attaques
+	1. Le héros est tué au contact d'un monstre.
+	2. Le héros peut attaquer les montres avec lequel il est en contact - les deux perdent des points de vie.
+	3. Le héros peut attaquer les montres sur la case adjacente.
+	4. Le héros peut attaquer dans une direction donnée.
+	5. Différents type d’arme (dégâts différents).
