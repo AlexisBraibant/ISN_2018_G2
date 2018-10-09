@@ -2,6 +2,6 @@
 
 # Alexis Braibant
 # Benoît Chauviere
-# Jonathan Baslilar
+# Jonathan Basillar
 # Diana Razafindrabe
 
