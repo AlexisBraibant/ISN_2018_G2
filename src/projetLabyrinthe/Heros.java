@@ -7,16 +7,26 @@ public class Heros
 
 	boolean enVie;
 
-	int coorX;
-	int coorY;
+	int coorX = -1;
+	int coorY = -1;
 
-	public Heros(int entreeX, int entreeY)
+	public Heros(LabyFichier Lab)
 	{
 		this.pointDeVie = 3;
 		this.degat = 1;
 		this.enVie = true;
-		this.coorX = entreeX;
-		this.coorY = entreeY;
+
+		for (int i = 0; i < Lab.map.length; i++)
+		{
+			for (int j = 0; j < Lab.map[0].length; j++)
+			{
+				if (Lab.map[i][j] == 2)
+				{
+					this.coorX = i;
+					this.coorY = j;
+				}
+			}
+		}
 	}
 
 	public void deplacement(char direction, LabyFichier Labyrinthe)
@@ -47,18 +57,20 @@ public class Heros
 	{
 		// Dimension du labyrrinthe : 7 lignes, 10 colonnes
 
-		int largeur = Labyrinthe.LARGEUR;
-		int hauteur = Labyrinthe.HAUTEUR;
-
 		int xApres = this.coorX;
 		int yApres = this.coorY;
 
-		if (direction == 'z') yApres += 1;
-		if (direction == 's') yApres -= 1;
-		if (direction == 'q') xApres -= 1;
-		if (direction == 'd') xApres += 1;
+		if (direction == 'z')
+			yApres += 1;
+		if (direction == 's')
+			yApres -= 1;
+		if (direction == 'q')
+			xApres -= 1;
+		if (direction == 'd')
+			xApres += 1;
 
-		if (Labyrinthe.map[xApres][yApres] == 1)
+		if (Labyrinthe.map[xApres][yApres] == 1 || xApres < 0 || xApres > Labyrinthe.LARGEUR || yApres < 0
+				|| yApres > Labyrinthe.HAUTEUR)
 			return false;
 		return true;
 	}
