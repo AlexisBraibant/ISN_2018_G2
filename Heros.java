@@ -10,13 +10,13 @@ public class Heros
 	int coorX;
 	int coorY;
 
-	public Heros()
+	public Heros(int entreeX, int entreeY)
 	{
 		this.pointDeVie = 3;
 		this.degat = 1;
 		this.enVie = true;
-		this.coorX = 0;
-		this.coorY = 0;
+		this.coorX = entreeX;
+		this.coorY = entreeY;
 	}
 
 	public void deplacement(char direction)
@@ -45,6 +45,10 @@ public class Heros
 
 	private boolean deplacementPossible(char direction)
 	{
-		return true;
+		// Dimension du labyrrinthe : 7 lignes, 10 colonnes
+		if ((direction == 'z' && this.coorY + 1 < 7) && (direction == 's' && this.coorY - 1 > 0)
+				&& (direction == 'q' && this.coorX - 1 > 0) && (direction == 'd' && this.coorX < 10))
+			return true;
+		return false;
 	}
 }
