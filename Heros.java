@@ -1,3 +1,5 @@
+package projetLabyrinthe;
+
 public class Heros
 {
 	int pointDeVie;
