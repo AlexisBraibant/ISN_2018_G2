@@ -9,31 +9,71 @@ import java.util.Arrays;
 public class LabyFichier
 {
 	public static int compteur = 0;
+	public static final int LARGEUR = 10;
+	public static final int HAUTEUR = 7;
+	public char[][] map;
+
+	public LabyFichier(String nomFichier) throws IOException {
+		map=fileToArray("laby1.txt"); 
+	}
 	
-	public static String[] affichageFichier(String nomFichier) throws IOException {
-		
-		String[] raw = lireFichier(nomFichier).split("");
-		String[] res = {};
-		for (int i = 0; i < raw.length; i++)
+	public void afficheLaby()
+	{
+		for (int i = 0; i < this.map.length; i++)
 		{
-			System.out.println(i);
-			System.out.println(raw[i]);
-			if (raw[i].equals("1"))
+			for (int j = 0; j < this.map[0].length; j++)
 			{
-				res[i]="#";
-			} else if (raw[i].equals("0")) {
-				res[i]=" ";
-			} else if (raw[i].equals("2")) {
-				res[i]="E";
+				System.out.print(this.map[i][j]);
 			}
+			System.out.println();
 		}
-		System.out.println(Arrays.toString(res));
-		return res;
 	}
 	
 	
-	
-	public static String lireFichier(String nomFichier) throws IOException
+	public static char[][] fileToArray(String nomFichier) throws IOException
+	{
+		String[] raw = lireFichier(nomFichier).split("\n");
+		char[][] res = new char[raw.length][raw[0].split("").length];
+		// System.out.println(Arrays.toString(raw));
+		//System.out.println("raw.length: " + raw.length);
+		for (int i = 0; i < raw.length; i++)
+		{
+			String[] ligne = raw[i].split("");
+			// System.out.println(raw[i]);
+			// System.out.println("ligne[i].length: "+ligne.length);
+			for (int j = 0; j < ligne.length; j++)
+			{
+				// System.out.println(ligne);
+				// res[i][j] = '1'; //test
+				// ************************
+				switch (ligne[j])
+				{
+				case "1":
+					res[i][j] = '#';
+					break;
+				case "0":
+					res[i][j] = ' ';
+					break;
+				case "2":
+					res[i][j] = 'E';
+					break;
+//				case "\n":
+//					// j++
+//					break;
+				default:
+					break;
+				}
+
+				// ***********************
+			}
+		}
+		return res;
+	}
+
+
+
+
+	private static String lireFichier(String nomFichier) throws IOException
 	{
 		File f = new File(nomFichier);
 		BufferedReader fR = new BufferedReader(new FileReader(f));
@@ -47,8 +87,7 @@ public class LabyFichier
 			{
 				chaine_totale += chaine + "\n";
 			}
-		}
-		while (chaine != null);
+		} while (chaine != null);
 		fR.close();
 		compteur--;
 		return (chaine_totale);
