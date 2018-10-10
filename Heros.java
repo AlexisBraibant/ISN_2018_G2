@@ -37,6 +37,8 @@ public class Heros
 				case 'd':
 					coorX += +1;
 					break;
+				default:
+					System.out.println("Mauvais input");
 			}
 		}
 	}
