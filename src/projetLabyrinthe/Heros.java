@@ -19,9 +19,9 @@ public class Heros
 		this.coorY = entreeY;
 	}
 
-	public void deplacement(char direction)
+	public void deplacement(char direction, LabyFichier Labyrinthe)
 	{
-		if (deplacementPossible(direction))
+		if (deplacementPossible(direction, Labyrinthe))
 		{
 			switch (direction)
 			{
@@ -43,12 +43,23 @@ public class Heros
 		}
 	}
 
-	private boolean deplacementPossible(char direction)
+	private boolean deplacementPossible(char direction, LabyFichier Labyrinthe)
 	{
 		// Dimension du labyrrinthe : 7 lignes, 10 colonnes
-		if ((direction == 'z' && this.coorY + 1 < 7) && (direction == 's' && this.coorY - 1 > 0)
-				&& (direction == 'q' && this.coorX - 1 > 0) && (direction == 'd' && this.coorX < 10))
-			return true;
-		return false;
+
+		int largeur = Labyrinthe.LARGEUR;
+		int hauteur = Labyrinthe.HAUTEUR;
+
+		int xApres = this.coorX;
+		int yApres = this.coorY;
+
+		if (direction == 'z') yApres += 1;
+		if (direction == 's') yApres -= 1;
+		if (direction == 'q') xApres -= 1;
+		if (direction == 'd') xApres += 1;
+
+		if (Labyrinthe.map[xApres][yApres] == 1)
+			return false;
+		return true;
 	}
 }
