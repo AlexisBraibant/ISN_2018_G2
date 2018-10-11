@@ -18,19 +18,17 @@ public class Heros
 		this.degat = 1;
 		this.enVie = true;
 
-		for (int i = 0; i < Lab.map.length; i++)
+		for (int i = 0; i < Lab.getMap().length; i++)
 		{
-			for (int j = 0; j < Lab.map[0].length; j++)
+			for (int j = 0; j < Lab.getMap()[0].length; j++)
 			{
-
-				System.out.println(i + "\n" + j);
-				if (Lab.map[i][j] == 2)
+				if (Lab.getMap()[i][j] == 'E')
 				{
 					this.coorX = i;
 					this.coorY = j;
 
-					tile = Lab.map[i][j];
-					Lab.map[i][j] = 'H';
+					tile = Lab.getMap()[i][j];
+					Lab.setMap(i, j, 'H');
 				}
 			}
 		}
@@ -48,60 +46,67 @@ public class Heros
 
 	public void deplacement(char direction, LabyFichier Labyrinthe)
 	{
+		char[][] map = Labyrinthe.getMap();
+
 		if (deplacementPossible(direction, Labyrinthe))
 		{
 			switch (direction)
 			{
 				case 'z':
-					Labyrinthe.map[this.coorX][this.coorY] = tile;
-					coorY += 1;
-					tile = Labyrinthe.map[this.coorX][this.coorY];
-					Labyrinthe.map[this.coorX][this.coorY] = 'H';
+					map[this.coorX][this.coorY] = tile;
+					coorX += -1;
+					tile = map[this.coorX][this.coorY];
+					map[this.coorX][this.coorY] = 'H';
 					break;
 				case 's':
-					Labyrinthe.map[this.coorX][this.coorY] = tile;
-					coorY += -1;
-					tile = Labyrinthe.map[this.coorX][this.coorY];
-					Labyrinthe.map[this.coorX][this.coorY] = 'H';
+					map[this.coorX][this.coorY] = tile;
+					coorX += 1;
+					tile = map[this.coorX][this.coorY];
+					map[this.coorX][this.coorY] = 'H';
 					break;
 				case 'q':
-					Labyrinthe.map[this.coorX][this.coorY] = tile;
-					coorX += -1;
-					tile = Labyrinthe.map[this.coorX][this.coorY];
-					Labyrinthe.map[this.coorX][this.coorY] = 'H';
+					map[this.coorX][this.coorY] = tile;
+					coorY += -1;
+					tile = map[this.coorX][this.coorY];
+					map[this.coorX][this.coorY] = 'H';
 					break;
 				case 'd':
-					Labyrinthe.map[this.coorX][this.coorY] = tile;
-					coorX += +1;
-					tile = Labyrinthe.map[this.coorX][this.coorY];
-					Labyrinthe.map[this.coorX][this.coorY] = 'H';
+					map[this.coorX][this.coorY] = tile;
+					coorY += +1;
+					tile = map[this.coorX][this.coorY];
+					map[this.coorX][this.coorY] = 'H';
 					break;
 				default:
 					System.out.println("Mauvais input");
+					Labyrinthe.setMap(map);
 			}
 		}
 	}
 
 	private boolean deplacementPossible(char direction, LabyFichier Labyrinthe)
 	{
-		// Dimension du labyrrinthe : 7 lignes, 10 colonnes
-
 		int xApres = this.coorX;
 		int yApres = this.coorY;
 
 		if (direction == 'z')
-			yApres += 1;
-		if (direction == 's')
-			yApres -= 1;
-		if (direction == 'q')
 			xApres -= 1;
-		if (direction == 'd')
+		if (direction == 's')
 			xApres += 1;
+		if (direction == 'q')
+			yApres -= 1;
+		if (direction == 'd')
+			yApres += 1;
 
-		if (Labyrinthe.map[xApres][yApres] == 1 || xApres < 0
-				|| xApres > Labyrinthe.LARGEUR || yApres < 0
-				|| yApres > Labyrinthe.HAUTEUR)
+		if (xApres < 0 || xApres >= Labyrinthe.HAUTEUR || yApres < 0
+				|| yApres >= Labyrinthe.LARGEUR)
+		{
 			return false;
+		}
+		System.out.println();
+		if (Labyrinthe.getMap()[xApres][yApres] == '#')
+		{
+			return false;
+		}
 		return true;
 	}
 }
