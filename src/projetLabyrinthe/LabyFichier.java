@@ -16,6 +16,16 @@ public class LabyFichier
 	{
 		map = fileToArray("laby1.txt");
 	}
+	
+	public char[][] getMap()
+	{
+		return map;
+	}
+	
+	public void setMap(char[][] map)
+	{
+		this.map = map;
+	}
 
 	public void afficheLaby()
 	{
@@ -87,19 +97,18 @@ public class LabyFichier
 		return (chaine_totale);
 	}
 
-	public char[][] getMap()
-	{
-		return map;
-	}
+	
 
-	public void setMap(int abscisse, int ordonnee, char carac)
+	public void setMap (int abscisse, int ordonnee, char carac) // change un caractère de la map
 	{
 		// le caractère en haut à gauche est le [0][0]
 		if (abscisse>=0 && ordonnee>=0 && abscisse<this.HAUTEUR && ordonnee<this.LARGEUR)
 		{
 			this.map[abscisse][ordonnee]=carac;
 		} else System.out.println("setMap: Veuillez entrer une abscisse et une ordonnée valide !");
-		
-		
 	}
+
+	
+	
+	 
 }
