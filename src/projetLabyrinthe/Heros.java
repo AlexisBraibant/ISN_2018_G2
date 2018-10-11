@@ -78,6 +78,7 @@ public class Heros
 					break;
 				case 'm':
 					this.enVie = false;
+					System.out.println("\n\nLa partie est terminée");
 					break;
 				default:
 					System.out.println("~~~ Mauvais input ~~~\n");
