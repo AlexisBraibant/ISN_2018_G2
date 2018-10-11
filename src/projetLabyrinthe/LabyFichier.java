@@ -94,10 +94,11 @@ public class LabyFichier
 
 	public void setMap(int abscisse, int ordonnee, char carac)
 	{
+		// le caractère en haut à gauche est le [0][0]
 		if (abscisse>=0 && ordonnee>=0 && abscisse<this.HAUTEUR && ordonnee<this.LARGEUR)
 		{
 			this.map[abscisse][ordonnee]=carac;
-		} else System.out.println("setMap: Veuillez entrer une abscise et une ordonnée valide !");
+		} else System.out.println("setMap: Veuillez entrer une abscisse et une ordonnée valide !");
 		
 		
 	}
