@@ -2,13 +2,15 @@ package projetLabyrinthe;
 
 public class Heros
 {
-	int pointDeVie;
-	int degat;
+	private int pointDeVie;
+	private int degat;
 
-	boolean enVie;
+	private boolean enVie;
 
-	int coorX = -1;
-	int coorY = -1;
+	private int coorX = -1;
+	private int coorY = -1;
+
+	private char tile;
 
 	public Heros(LabyFichier Lab)
 	{
@@ -20,13 +22,28 @@ public class Heros
 		{
 			for (int j = 0; j < Lab.map[0].length; j++)
 			{
+
+				System.out.println(i + "\n" + j);
 				if (Lab.map[i][j] == 2)
 				{
 					this.coorX = i;
 					this.coorY = j;
+
+					tile = Lab.map[i][j];
+					Lab.map[i][j] = 'H';
 				}
 			}
 		}
+	}
+
+	public boolean isDead()
+	{
+		return !this.enVie;
+	}
+
+	public char getTile()
+	{
+		return this.tile;
 	}
 
 	public void deplacement(char direction, LabyFichier Labyrinthe)
@@ -36,16 +53,28 @@ public class Heros
 			switch (direction)
 			{
 				case 'z':
+					Labyrinthe.map[this.coorX][this.coorY] = tile;
 					coorY += 1;
+					tile = Labyrinthe.map[this.coorX][this.coorY];
+					Labyrinthe.map[this.coorX][this.coorY] = 'H';
 					break;
 				case 's':
+					Labyrinthe.map[this.coorX][this.coorY] = tile;
 					coorY += -1;
+					tile = Labyrinthe.map[this.coorX][this.coorY];
+					Labyrinthe.map[this.coorX][this.coorY] = 'H';
 					break;
 				case 'q':
+					Labyrinthe.map[this.coorX][this.coorY] = tile;
 					coorX += -1;
+					tile = Labyrinthe.map[this.coorX][this.coorY];
+					Labyrinthe.map[this.coorX][this.coorY] = 'H';
 					break;
 				case 'd':
+					Labyrinthe.map[this.coorX][this.coorY] = tile;
 					coorX += +1;
+					tile = Labyrinthe.map[this.coorX][this.coorY];
+					Labyrinthe.map[this.coorX][this.coorY] = 'H';
 					break;
 				default:
 					System.out.println("Mauvais input");
@@ -69,7 +98,8 @@ public class Heros
 		if (direction == 'd')
 			xApres += 1;
 
-		if (Labyrinthe.map[xApres][yApres] == 1 || xApres < 0 || xApres > Labyrinthe.LARGEUR || yApres < 0
+		if (Labyrinthe.map[xApres][yApres] == 1 || xApres < 0
+				|| xApres > Labyrinthe.LARGEUR || yApres < 0
 				|| yApres > Labyrinthe.HAUTEUR)
 			return false;
 		return true;
