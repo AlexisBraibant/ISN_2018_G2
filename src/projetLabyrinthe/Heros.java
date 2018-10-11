@@ -77,7 +77,7 @@ public class Heros
 					map[this.coorX][this.coorY] = 'H';
 					break;
 				default:
-					System.out.println("Mauvais input");
+					System.out.println("~~~ Mauvais input ~~~\n");
 					Labyrinthe.setMap(map);
 			}
 		}
@@ -97,8 +97,7 @@ public class Heros
 		if (direction == 'd')
 			yApres += 1;
 
-		if (xApres < 0 || xApres >= Labyrinthe.HAUTEUR || yApres < 0
-				|| yApres >= Labyrinthe.LARGEUR)
+		if (xApres < 0 || xApres >= Labyrinthe.HAUTEUR || yApres < 0 || yApres >= Labyrinthe.LARGEUR)
 		{
 			return false;
 		}
