@@ -13,16 +13,14 @@ public class Principale
 		boolean jouer = true;
 
 		LabyFichier Labyrinthe = new LabyFichier("../../laby1.txt");
-
 		Heros H = new Heros(Labyrinthe);
-		Labyrinthe.afficheLaby();
 
 		while (!H.isDead())
 		{
+			Labyrinthe.afficheLaby();
 			System.out.println("");
 			char direction = Lecture.lireCaractere("Dans quel direction aller?(zqsd) : ");
 			H.deplacement(direction, Labyrinthe, jouer);
-			Labyrinthe.afficheLaby();
 		}
 	}
 }
