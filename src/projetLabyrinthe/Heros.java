@@ -77,7 +77,8 @@ public class Heros
 					map[this.coorX][this.coorY] = 'H';
 					break;
 				case 'm':
-					jouer = false;
+					this.enVie = false;
+					break;
 				default:
 					System.out.println("~~~ Mauvais input ~~~\n");
 					Labyrinthe.setMap(map);

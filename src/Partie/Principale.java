@@ -17,12 +17,10 @@ public class Principale
 		Heros H = new Heros(Labyrinthe);
 		Labyrinthe.afficheLaby();
 
-		while (!H.isDead() || jouer)
+		while (!H.isDead())
 		{
 			System.out.println("");
 			char direction = Lecture.lireCaractere("Dans quel direction aller?(zqsd) : ");
-			if (direction == 'm') // Retourner sur le menu, dans un premier quitte le jeu
-				jouer = false;
 			H.deplacement(direction, Labyrinthe, jouer);
 			Labyrinthe.afficheLaby();
 		}
