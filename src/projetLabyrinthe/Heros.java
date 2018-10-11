@@ -44,7 +44,7 @@ public class Heros
 		return this.tile;
 	}
 
-	public void deplacement(char direction, LabyFichier Labyrinthe)
+	public void deplacement(char direction, LabyFichier Labyrinthe, boolean jouer)
 	{
 		char[][] map = Labyrinthe.getMap();
 
@@ -76,6 +76,8 @@ public class Heros
 					tile = map[this.coorX][this.coorY];
 					map[this.coorX][this.coorY] = 'H';
 					break;
+				case 'm':
+					jouer = false;
 				default:
 					System.out.println("~~~ Mauvais input ~~~\n");
 					Labyrinthe.setMap(map);
