@@ -1,8 +1,11 @@
+v1.0 11/10/2018
+
 Titre
 	Générer un héros.
 
 Résumé
-	Le jeux génère un héros.
+	Le jeux génère un héros: il possède un certain nombre de point 
+	de vie et est placé à l'entrée du labyrinthe.
 
 Auteur
 	Alexis
@@ -14,17 +17,19 @@ Acteurs concernés
 	Le jeu
 
 Pré-condition
-	Le labyrinthe est généré
+	Le labyrinthe est généré.
 
 Post-condition
-	Le héros est apparu sur le labyrinthe
+	Le héros est apparu à l'entrée du labyrinthe.
 
 Scénario normal
-	1. le jeu choisit le nombre de vie du héros
-	2. le jeu le place à sa position initial
+	1. génération du nombre de vie du héros
+	2. placement du héros à l'entré du labyrinthe
 
 Scénario alternatif
-	--
+	A1. Le héros n'a pas le bon nombre de point de vie, retour à 1.
+	A2. Le héros n'est pas à l'entrée du labyrinthe lors de son 
+	    apparition, retour à 2.
 
 Scénario exceptionnel
-	E2. le héros n'est pas à la position initiale choisie
+	E1. Le héros n'est pas apparu, retour à 1.

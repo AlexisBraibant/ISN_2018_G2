@@ -9,14 +9,15 @@ import java.util.Arrays;
 public class LabyFichier
 {
 	public static int compteur = 0;
-	public static final int LARGEUR = 10;
-	public static final int HAUTEUR = 7;
+	public final int LARGEUR = 10;
+	public final int HAUTEUR = 7;
 	public char[][] map;
 
-	public LabyFichier(String nomFichier) throws IOException {
-		map=fileToArray("laby1.txt"); 
+	public LabyFichier(String nomFichier) throws IOException
+	{
+		map = fileToArray("laby1.txt");
 	}
-	
+
 	public void afficheLaby()
 	{
 		for (int i = 0; i < this.map.length; i++)
@@ -28,14 +29,13 @@ public class LabyFichier
 			System.out.println();
 		}
 	}
-	
-	
-	public static char[][] fileToArray(String nomFichier) throws IOException
+
+	private static char[][] fileToArray(String nomFichier) throws IOException
 	{
 		String[] raw = lireFichier(nomFichier).split("\n");
 		char[][] res = new char[raw.length][raw[0].split("").length];
 		// System.out.println(Arrays.toString(raw));
-		//System.out.println("raw.length: " + raw.length);
+		// System.out.println("raw.length: " + raw.length);
 		for (int i = 0; i < raw.length; i++)
 		{
 			String[] ligne = raw[i].split("");
@@ -57,9 +57,9 @@ public class LabyFichier
 				case "2":
 					res[i][j] = 'E';
 					break;
-//				case "\n":
-//					// j++
-//					break;
+				// case "\n":
+				// // j++
+				// break;
 				default:
 					break;
 				}
@@ -69,9 +69,6 @@ public class LabyFichier
 		}
 		return res;
 	}
-
-
-
 
 	private static String lireFichier(String nomFichier) throws IOException
 	{
