@@ -8,10 +8,9 @@ import java.util.Arrays;
 
 public class LabyFichier
 {
-	public static int compteur = 0;
 	public final int LARGEUR = 10;
 	public final int HAUTEUR = 7;
-	public char[][] map;
+	private char[][] map;
 
 	public LabyFichier(String nomFichier) throws IOException
 	{
@@ -78,7 +77,6 @@ public class LabyFichier
 		String chaine_totale = "";
 		do
 		{
-			compteur++;
 			chaine = fR.readLine();
 			if (chaine != null)
 			{
@@ -86,7 +84,21 @@ public class LabyFichier
 			}
 		} while (chaine != null);
 		fR.close();
-		compteur--;
 		return (chaine_totale);
+	}
+
+	public char[][] getMap()
+	{
+		return map;
+	}
+
+	public void setMap(int abscisse, int ordonnee, char carac)
+	{
+		if (abscisse>=0 && ordonnee>=0 && abscisse<this.HAUTEUR && ordonnee<this.LARGEUR)
+		{
+			this.map[abscisse][ordonnee]=carac;
+		} else System.out.println("setMap: Veuillez entrer une abscise et une ordonnée valide !");
+		
+		
 	}
 }
