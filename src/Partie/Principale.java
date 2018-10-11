@@ -18,7 +18,7 @@ public class Principale
 		while (!H.isDead())
 		{
 			System.out.println("");
-			char direction = Lecture.lireCaractere("Dans quel direction aller?(zqsd)\n");
+			char direction = Lecture.lireCaractere("Dans quel direction aller?(zqsd) : ");
 			H.deplacement(direction, Labyrinthe);
 			Labyrinthe.afficheLaby();
 		}
