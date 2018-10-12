@@ -1,0 +1,16 @@
+Sprint 1 v1.0
+Date de création: 12/10/2018
+Dernière modification: 12/10/2018
+Fin du sprint: 24/10/2018
+
+Alexis
+	Générer un labyrinthe
+
+Benoit 
+	Générer un héros
+
+Diana
+	Test "Générer un labyrinthe"
+
+Jonathan 
+	Test "Générer un héros"
