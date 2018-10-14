@@ -1,0 +1,30 @@
+Titre
+		générer des cases spéciales
+Résumé
+		le jeu génère des cases spéciales dans certaines cases choisies par le système
+Auteur
+		Diana
+Responsable
+		Diana
+Date de création
+		09/10/2018 (version A)
+Versions existantes:
+		version A 09/10/2018
+		version B 14/10/2018 (version actuelle)
+Acteur concerné
+		le système
+Pré-condition
+		le labyrinthe est généré
+Post-condition
+		 une case spéciale apparaît sur le labyrinthe
+Scénario normal
+		1. le système choisit le nombre de cases spéciales suivant les instructions des créateurs du jeu
+		2. le système choisit un type de case à poser sur le labyrinthe parmi le choix de cases proposé
+		3. le système choisit la position des cases spéciales sur le labyrinthe d'après les indications des créateurs
+Scénario alternatif
+		A1.aucune case n'est à générer : retour 1. (nombre de case à 0)
+		A2.le type de classe choisi n'existe pas : retour 2.
+		A3.la position choisie est hors du labyrinthe : retour 3.
+scénario exceptionnel
+
+
