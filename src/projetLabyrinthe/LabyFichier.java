@@ -79,7 +79,7 @@ public class LabyFichier
 		return res;
 	}
 
-	private static String lireFichier(String nomFichier) throws IOException
+	public static String lireFichier(String nomFichier) throws IOException
 	{
 		File f = new File(nomFichier);
 		BufferedReader fR = new BufferedReader(new FileReader(f));
@@ -99,13 +99,13 @@ public class LabyFichier
 
 	
 
-	public void setMap (int abscisse, int ordonnee, char carac) // change un caractère de la map
+	public void setMap (int abscisse, int ordonnee, char carac) // change un caractï¿½re de la map
 	{
-		// le caractère en haut à gauche est le [0][0]
+		// le caractï¿½re en haut ï¿½ gauche est le [0][0]
 		if (abscisse>=0 && ordonnee>=0 && abscisse<this.HAUTEUR && ordonnee<this.LARGEUR)
 		{
 			this.map[abscisse][ordonnee]=carac;
-		} else System.out.println("setMap: Veuillez entrer une abscisse et une ordonnée valide !");
+		} else System.out.println("setMap: Veuillez entrer une abscisse et une ordonnï¿½e valide !");
 	}
 
 	
