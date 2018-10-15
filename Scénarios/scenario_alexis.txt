@@ -1,4 +1,4 @@
-v1.0 11/10/2018
+Version B
 
 Titre
 	Générer un héros.
@@ -15,7 +15,11 @@ Responsable
 
 Date de création
 	09/10/2018
-	
+
+Versions
+	09/10/2018 Version A
+	11/10/2018 Version B (Actuelle)
+
 Acteurs concernés
 	Le jeu
 
