@@ -12,7 +12,7 @@ Benoit
         
 
 Diana
-        
+	Test sur les cases spéciales et sur le héros        
 
 Jonathan
         
