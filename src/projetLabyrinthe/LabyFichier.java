@@ -14,7 +14,7 @@ public class LabyFichier
 
 	public LabyFichier(String nomFichier) throws IOException
 	{
-		map = fileToArray("laby1.txt");
+		map = fileToArray(nomFichier);
 	}
 	
 	public char[][] getMap()
@@ -57,18 +57,36 @@ public class LabyFichier
 				// ************************
 				switch (ligne[j])
 				{
+				//mur
 				case "1":
 					res[i][j] = '#';
 					break;
-				case "0":
+				//emplacement vide
+				case "0": 
 					res[i][j] = ' ';
 					break;
-				case "2":
+				//entree du laby
+				case "2": 
 					res[i][j] = 'E';
 					break;
-				// case "\n":
-				// // j++
-				// break;
+				//case piege
+				case "3":
+					res[i][j] = 'X';
+					break;
+				//case passage
+				case "4":
+					res[i][j] = 'O';
+					break;
+				//case magique 
+				case "5":
+					res[i][j] = '*';
+					break;
+				//case trésor
+				case "6":
+					res[i][j] = '$';
+					break;
+				
+					
 				default:
 					break;
 				}
@@ -101,7 +119,7 @@ public class LabyFichier
 
 	public void setMap (int abscisse, int ordonnee, char carac) // change un caractï¿½re de la map
 	{
-		// le caractï¿½re en haut ï¿½ gauche est le [0][0]
+		// le caractere en haut a gauche est le [0][0]
 		if (abscisse>=0 && ordonnee>=0 && abscisse<this.HAUTEUR && ordonnee<this.LARGEUR)
 		{
 			this.map[abscisse][ordonnee]=carac;
