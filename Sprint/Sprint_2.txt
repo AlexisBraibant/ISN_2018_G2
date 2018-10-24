@@ -12,6 +12,7 @@ Benoit
         
 
 Diana
+	Montrer que le test sur la gestion des fichiers fonctionnent
 	Test sur les cases spéciales et sur le héros        
 
 Jonathan

@@ -10,7 +10,7 @@ public class UsageTest {
 		//testLabyFichier
 		boolean test_non_vide=testLabyFichier.TestFichierVide("laby1.txt");
 		System.out.println("Le test pour le fichier non vide doit renvoyer False, il renvoit : "+test_non_vide);
-		
+		System.out.println();
 		boolean test_vide=testLabyFichier.TestFichierVide("laby_vide.txt");
 		System.out.println("Le test pour le fichier vide doit renvoyer une erreur, il renvoit : "+test_vide);
 	}
