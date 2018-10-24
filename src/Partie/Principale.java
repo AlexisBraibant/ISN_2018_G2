@@ -12,7 +12,7 @@ public class Principale
 	{
 		boolean jouer = true;
 
-		LabyFichier Labyrinthe = new LabyFichier("../../laby1.txt");
+		LabyFichier Labyrinthe = new LabyFichier("laby_special.txt");
 		Heros H = new Heros(Labyrinthe);
 
 		while (!H.isDead())
