@@ -12,7 +12,7 @@ Benoit
         
 
 Diana
-	Générer des monstres        
+	Placement des de manière aléatoire dans le labyrinthe.        
 
 Jonathan
         
