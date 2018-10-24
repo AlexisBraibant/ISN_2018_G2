@@ -1,0 +1,19 @@
+
+Sprint 2 v1.0
+Date de création: 24/10/2018
+Dernière modification: 24/10/2018
+Fin du sprint: 07/11/2018 20:00
+
+Alexis
+	Implementation des cases spéciales et de l'affichage graphique 
+	du labyrinthe.	
+
+Benoit
+        
+
+Diana
+        
+
+Jonathan
+        
+
