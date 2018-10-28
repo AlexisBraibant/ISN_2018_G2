@@ -108,6 +108,7 @@ public class Heros
 		System.out.println();
 		if (Labyrinthe.getMap()[xApres][yApres] == '#')
 		{
+			System.out.println("Collision mur");
 			return false;
 		}
 		return true;
