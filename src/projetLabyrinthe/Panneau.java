@@ -24,13 +24,13 @@ public class Panneau extends JPanel
 			char[][] map = laby.getMap();
 			System.out.println("Labyrinthe affiché:");
 			laby.afficheLaby();
-			Image mur = ImageIO.read(new File("mur.png"));
-			Image vide = ImageIO.read(new File("vide.png"));
-			Image entree = ImageIO.read(new File("entree.png"));
-			Image tresor = ImageIO.read(new File("tresor.png"));
-			Image passage = ImageIO.read(new File("passage.png"));
-			Image piege = ImageIO.read(new File("piege.png"));
-			Image magique = ImageIO.read(new File("magique.png"));
+			Image mur = ImageIO.read(new File("./Textures/mur.png"));
+			Image vide = ImageIO.read(new File("./Textures/vide.png"));
+			Image entree = ImageIO.read(new File("./Textures/entree.png"));
+			Image tresor = ImageIO.read(new File("./Textures/tresor.png"));
+			Image passage = ImageIO.read(new File("./Textures/passage.png"));
+			Image piege = ImageIO.read(new File("./Textures/piege.png"));
+			Image magique = ImageIO.read(new File("./Textures/magique.png"));
 			// g.drawImage(mur, 0, 0, imgSize, imgSize, this);
 
 			for (int i = 0; i < map.length; i++)
