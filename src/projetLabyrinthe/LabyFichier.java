@@ -14,7 +14,7 @@ public class LabyFichier
 
 	public LabyFichier(String nomFichier) throws IOException
 	{
-		map = fileToArray(nomFichier);
+		map = fileToArray("./Map/"+nomFichier);
 	}
 	
 	public char[][] getMap()
