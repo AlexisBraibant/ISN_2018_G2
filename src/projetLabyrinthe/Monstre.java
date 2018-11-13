@@ -2,59 +2,40 @@ package projetLabyrinthe;
 
 public class Monstre extends Personnage{
 
-	private boolean fantome;
 	
 	public Monstre() {
 		super(0,0,0,0);
-		setFantome(false);
 	}
 	
-	public Monstre(int h,int v, boolean f){
+	public Monstre(int h,int v, LabyFichier Lab ){
 		super(0,0,h,v);
-		fantome=f;
+		this.tile = Lab.getMap()[coorX][coorY];
 	}
 	
-	public Monstre (int xx, int yy, int h, int v, boolean f){
+	public Monstre (int xx, int yy, int h, int v, LabyFichier Lab){
 		this.coorX=xx;
 		this.coorY=yy;
 		this.hp=h;
 		this.vie=v;
-		fantome=f;
-
+		this.tile = Lab.getMap()[coorX][coorY];
 	}
 	
-	public void setFantome(boolean fantome) {
-		this.fantome = fantome;
+	
+	public char directionAleatoire() {
+		char[] liste_dir= { 'z','q','s','d'};
+		int aleat = (int) (Math.random()*4); 
+		return liste_dir[aleat];
 	}
 	
-	public void directionAlea(boolean init,LabyFichier Labyrinthe){
-		int voiesLibre=0;
-		int haut=0;
-		int bas=0;
-		int droite=0;
-		int gauche=0;
-		char [][] carte = Labyrinthe.getMap();
-		int n=carte.length;
-		int a =(this.coorX)/n;
-		int b =(this.coorY)/n;
-		int c =(this.coorX+28)/n;
-		int d =(this.coorY+28)/n;
-		if(carte[b-1][a]!='1'){					// voie du haut libre ou non
-			voiesLibre++;
-			haut=1;
-		}
-		if(carte[b+1][a]!='1'){					// voie du bas libre ou non
-			voiesLibre++;
-			bas=1;
-		}
-		if(carte[b][a-1]!='1'){					// voie de gauche libre ou non
-			voiesLibre++;
-			gauche=1;
-		}
-		if(carte[b][a+1]!='1'){					// voie de droite libre ou non
-			voiesLibre++;
-			droite=1;
-		}
+	//permet de changer de direction si le deplacement n'est pas possible
+	public char deplacementAleatoirePo( LabyFichier Labyrinthe) {
+		char dir_al;
+		boolean deplPoss;
+		do {
+			dir_al=this.directionAleatoire();
+			deplPoss=this.deplacementPossible(dir_al,Labyrinthe);
+		}while (!deplPoss);
+		return dir_al;
 	}
 	
 
