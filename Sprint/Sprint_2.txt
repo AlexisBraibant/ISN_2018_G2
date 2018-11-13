@@ -9,7 +9,7 @@ Alexis
 	du labyrinthe.	
 
 Benoit
-        
+	test JUnit pour le placement des monstres dans le labyrinthe        
 
 Diana
 	Placement des de manière aléatoire dans le labyrinthe.        
