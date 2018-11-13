@@ -5,17 +5,18 @@ import java.io.IOException;
 import projetLabyrinthe.Fenetre;
 import projetLabyrinthe.Heros;
 import projetLabyrinthe.LabyFichier;
+import projetLabyrinthe.Monstre;
 import utilensemjava.Lecture;
 
 public class Principale
 {
 	public static void main(String[] args) throws IOException
 	{
-		testSprint2_AffichageLaby();
+		testSprint2_Monstre();
 	}
 	
 	private static void testSprint1() throws IOException {
-		System.out.println("--- testSprint1: affichage console du laby + d�placement h�ros ---");
+		System.out.println("--- testSprint1: affichage console du laby + déplacement héros ---");
 		boolean jouer = true;
 
 		LabyFichier Labyrinthe = new LabyFichier("laby_special.txt");
@@ -26,7 +27,7 @@ public class Principale
 			Labyrinthe.afficheLaby();
 			System.out.println("");
 			char direction = Lecture.lireCaractere("Dans quel direction aller?(zqsd) : ");
-			H.deplacement(direction, Labyrinthe, jouer);
+			H.deplacement(direction, Labyrinthe, jouer,'H');
 		}
 	}
 	
@@ -35,5 +36,25 @@ public class Principale
 		Fenetre fen = new Fenetre("laby_special.txt");
 		
 				
+	}
+	
+	private static void testSprint2_Monstre() throws IOException {
+		System.out.println("--- testSprint1: affichage console du laby + déplacement héros ---");
+		boolean jouer = true;
+
+		LabyFichier Labyrinthe = new LabyFichier("./Map/laby_special.txt");
+		Heros H = new Heros(Labyrinthe);
+
+		Monstre M = new Monstre(5,5,4,4,Labyrinthe);
+
+		System.out.println(H.isDead());
+		while (!H.isDead())
+		{
+			Labyrinthe.afficheLaby();
+			System.out.println("");
+			char direction = Lecture.lireCaractere("Dans quel direction aller?(zqsd) : ");
+			H.deplacement(direction, Labyrinthe, jouer,'H');
+			M.deplacement(M.deplacementAleatoirePo(Labyrinthe), Labyrinthe, jouer, 'M');
+		}
 	}
 }
