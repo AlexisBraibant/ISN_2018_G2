@@ -2,7 +2,7 @@
 
 # Alexis Braibant
 # Benoît Chauvière
-# Jonathan Basillar
+# Jonathan Baslilar
 # Diana Razafindrabe
 
 # Execution du jeu
