@@ -22,4 +22,10 @@ public class Zombie extends Monstre
 		} while (!deplPoss);
 		return dir_al;
 	}
+
+	public char deplacementIntelligent(LabyFichier Lab)
+	{
+		// Not yet implemented
+		return (Character) null;
+	}
 }
