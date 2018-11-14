@@ -37,13 +37,15 @@ public class testHeros {
 		try {
 			LabyFichier Labyrinthe = new LabyFichier("laby_special.txt");
 			Heros H = new Heros(Labyrinthe);
-			//H.setVie(0);
+			H.setVie(0);
 			H.setHp(0);
 			assertTrue(H.isDead());
 		}catch (IOException e) {
 			fail();
 		}
 	}
+	
+	//tester attaques SPRINT 3
 	
 	@Test
 	public void testPositionInit() {
