@@ -54,7 +54,8 @@ public class Principale
 		{
 			Labyrinthe.afficheLaby();
 			System.out.println("");
-			char direction = Lecture.lireCaractere("Dans quel direction aller?(zqsd) : ");
+			String dir = Lecture.lireChaine("Dans quel direction aller?(zqsd) : ");
+			char direction = dir.charAt(0);
 			H.deplacement(direction, Labyrinthe, jouer, 'H');
 			M.deplacement(M.deplacementAleatoirePo(Labyrinthe), Labyrinthe, jouer, 'M');
 		}
