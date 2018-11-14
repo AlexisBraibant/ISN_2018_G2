@@ -56,6 +56,11 @@ public class Personnage
 		return coorY;
 	}
 
+	public char getTile()
+	{
+		return tile;
+	}
+
 	protected boolean deplacementPossible(char direction, LabyFichier Labyrinthe)
 	{
 		int xApres = this.coorX;
@@ -125,4 +130,8 @@ public class Personnage
 		}
 	}
 
+	public boolean isDead()
+	{
+		return !this.enVie;
+	}
 }
