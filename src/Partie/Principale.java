@@ -42,7 +42,7 @@ public class Principale
 		System.out.println("--- testSprint1: affichage console du laby + déplacement héros ---");
 		boolean jouer = true;
 
-		LabyFichier Labyrinthe = new LabyFichier("./Map/laby_special.txt");
+		LabyFichier Labyrinthe = new LabyFichier("laby_special.txt");
 		Heros H = new Heros(Labyrinthe);
 
 		Monstre M = new Monstre(5,5,4,4,Labyrinthe);
