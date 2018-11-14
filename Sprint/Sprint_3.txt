@@ -1,0 +1,14 @@
+Sprint 3.0
+Alexis
+	Dans l'affichage graphique: affichage du héros en graphique et implémenter le changement de niveau.	
+
+Benoit
+	gestion des attaques des monstres, et deplacement intelligent
+-tests Monstre
+
+Diana
+	- Implémenter les fantômes :  des monstres qui peuvent traverser les murs.
+
+Jonathan
+	- tests sur le héros et le labyrinthe + cases spéciales
+	
