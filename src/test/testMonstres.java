@@ -33,6 +33,11 @@ public class testMonstres
 	{
 	}
 
+	// Pas de coor négative
+	// pas de coor > au borne du terrain
+	// Pas être sur un mur (faire experes d'être sur un mur)
+	// test de ce qui ne devrait pas être normal
+
 	@Test
 	public void testConstructeurDefault()
 	{

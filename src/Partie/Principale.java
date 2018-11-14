@@ -5,7 +5,6 @@ import java.io.IOException;
 import projetLabyrinthe.Fenetre;
 import projetLabyrinthe.Heros;
 import projetLabyrinthe.LabyFichier;
-import projetLabyrinthe.Monstre;
 import projetLabyrinthe.Zombie;
 import utilensemjava.Lecture;
 
@@ -45,12 +44,12 @@ public class Principale
 	{
 		System.out.println("--- testSprint1: affichage console du laby + déplacement héros ---");
 		boolean jouer = true;
-
+	
 		LabyFichier Labyrinthe = new LabyFichier("laby_special.txt");
 		Heros H = new Heros(Labyrinthe);
-
+	
 		Monstre M = new Monstre(5, 5, 4, 4, Labyrinthe);
-
+	
 		System.out.println(H.isDead());
 		while (!H.isDead())
 		{
@@ -83,5 +82,10 @@ public class Principale
 			H.deplacement(direction, Labyrinthe, jouer, 'H');
 			Z.deplacement(Z.deplacementAleatoire(Labyrinthe), Labyrinthe, jouer, Z.getTilePerso());
 		}
+	}
+
+	private static void testSprint3_1Zombie() throws IOException
+	{
+		// Créer une liste de monstres et tester qu'on les tue et qu'ils disparaissent.
 	}
 }
