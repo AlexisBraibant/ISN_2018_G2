@@ -38,5 +38,6 @@ public class Monstre extends Personnage{
 		return dir_al;
 	}
 	
+	
 
 }
