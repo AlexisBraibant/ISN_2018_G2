@@ -3,11 +3,13 @@ package projetLabyrinthe;
 public class Heros extends Personnage
 {
 
-
 	public Heros(LabyFichier Lab)
 	{
-		super(-1,-1,10,10);
+		super(-1, -1, 10, 10); // On met le héros au position -1 -1 et apres on le remet sur l'entrée du niveau
+								// qui est un E (ici ligne 18)
 		this.degat = 1;
+		this.enVie = true;
+		this.tilePerso = 'H';
 
 		for (int i = 0; i < Lab.getMap().length; i++)
 		{
@@ -19,23 +21,9 @@ public class Heros extends Personnage
 					this.coorY = j;
 
 					this.tile = Lab.getMap()[i][j];
-					Lab.setMap(i, j, 'H');
+					Lab.setMap(i, j, tilePerso);
 				}
 			}
 		}
 	}
-
-	public boolean isDead()
-	{
-		return !this.enVie;
-	}
-
-	public char getTile()
-	{
-		return this.tile;
-	}
-
-	
-
-	
 }

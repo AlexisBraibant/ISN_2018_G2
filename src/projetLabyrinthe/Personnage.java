@@ -1,6 +1,6 @@
 package projetLabyrinthe;
 
-public class Personnage
+public abstract class Personnage
 {
 	protected int hp;
 	protected int vie;
@@ -9,6 +9,7 @@ public class Personnage
 	protected int degat;
 	protected boolean enVie;
 	protected char tile; // enregistre la case dans laquelle le personnage se trouve
+	protected char tilePerso; // valeur à afficher qui est l'image du personnage
 
 	public Personnage()
 	{
@@ -26,24 +27,24 @@ public class Personnage
 		this.enVie = true;
 	}
 
-	public int getHp()
-	{
-		return hp;
-	}
-
 	public void setHp(int hp)
 	{
 		this.hp = hp;
 	}
 
-	public int getVie()
-	{
-		return vie;
-	}
-
 	public void setVie(int vie)
 	{
 		this.vie = vie;
+	}
+
+	public int getHp()
+	{
+		return hp;
+	}
+
+	public int getVie()
+	{
+		return vie;
 	}
 
 	public int getCoorX()
@@ -56,9 +57,24 @@ public class Personnage
 		return coorY;
 	}
 
+	public int getDegat()
+	{
+		return degat;
+	}
+
+	public boolean isDead()
+	{
+		return !this.enVie;
+	}
+
 	public char getTile()
 	{
 		return tile;
+	}
+
+	public char getTilePerso()
+	{
+		return tilePerso;
 	}
 
 	protected boolean deplacementPossible(char direction, LabyFichier Labyrinthe)
@@ -128,10 +144,5 @@ public class Personnage
 					Labyrinthe.setMap(map);
 			}
 		}
-	}
-
-	public boolean isDead()
-	{
-		return !this.enVie;
 	}
 }
