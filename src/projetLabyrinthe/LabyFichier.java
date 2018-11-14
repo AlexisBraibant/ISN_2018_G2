@@ -17,6 +17,10 @@ public class LabyFichier
 		map = fileToArray("./Map/"+nomFichier);
 	}
 	
+	public LabyFichier() {
+		
+	}
+	
 	public char[][] getMap()
 	{
 		return map;
