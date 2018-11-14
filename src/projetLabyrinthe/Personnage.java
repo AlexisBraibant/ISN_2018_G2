@@ -145,4 +145,16 @@ public abstract class Personnage
 			}
 		}
 	}
+
+	public void attaquer(Personnage autre)
+	{
+		autre.recevoirDegat(this.getDegat());
+	}
+
+	public void recevoirDegat(int MontantDeDegat)
+	{
+		this.hp -= MontantDeDegat;
+		if (hp <= 0)
+			this.enVie = false;
+	}
 }
