@@ -4,10 +4,11 @@ package projetLabyrinthe;
 
 public class Zombie extends Monstre
 {
-	Zombie(LabyFichier Lab)
+	public Zombie(int x, int y, int h, int v, LabyFichier Lab)
 	{
-		super(1, 1, 2, 2, Lab);
+		super(x, y, h, v, Lab);
 		this.tilePerso = 'Z';
+		Lab.setMap(x, y, this.tilePerso);
 	}
 
 	public char deplacementAleatoire(LabyFichier Lab)
