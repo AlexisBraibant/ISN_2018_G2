@@ -36,10 +36,10 @@ public class testLabyFichier {
 
 	//Test qui dit si le fichier vide est bien pris en compte 
 	@Test
-	public void TestFichierVide(String nomFichier) {
+	public void TestFichierVide() {
 		String lecture_f;
 		try {
-			lecture_f = LabyFichier.lireFichier(nomFichier);
+			lecture_f = LabyFichier.lireFichier("laby_special.txt");
 			boolean test=false;
 			if (lecture_f==""){
 				test=true;
@@ -53,7 +53,19 @@ public class testLabyFichier {
 	
 	@Test
 	public void testCaracteresValides() {
-		
+		String lecture_f;
+		try {
+			lecture_f = LabyFichier.lireFichier("laby_special.txt");
+			boolean test=true;
+			for (int i=0; i<lecture_f.length() ;i++) {
+				if ((lecture_f.charAt(i)!='0')||(lecture_f.charAt(i)!='1')||(lecture_f.charAt(i)!='2')||(lecture_f.charAt(i)!='3')||(lecture_f.charAt(i)!='4')||(lecture_f.charAt(i)!='5')||(lecture_f.charAt(i)!='6')||(lecture_f.charAt(i)!='\n')) {
+					test=false;
+				}
+			}
+			assertTrue(test);
+		} catch (IOException e) {
+			fail();
+		}
 	}
 
 }
