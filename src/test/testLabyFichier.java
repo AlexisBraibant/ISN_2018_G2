@@ -50,6 +50,11 @@ public class testLabyFichier {
 		}
 		
 	}
+	
+	@Test
+	public void testCaracteresValides() {
+		
+	}
 
 }
 

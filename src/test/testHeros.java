@@ -46,15 +46,16 @@ public class testHeros {
 	}
 	
 	@Test
-	public void testConstructeur() {
+	public void testPositionInit() {
 		try {
 			LabyFichier Labyrinthe = new LabyFichier("laby_special.txt");
 			Heros H = new Heros(Labyrinthe);
 			char position = H.getTile();
 			assertTrue((position=='E'));
-			}  catch (ErreurHeros e) {
+			}  catch (IOException e) {
 				fail();
 			}
 	}
+	
 
 }
