@@ -40,7 +40,7 @@ public class Principale
 
 	}
 
-	private static void testSprint2_Monstre() throws IOException
+	/*private static void testSprint2_Monstre() throws IOException
 	{
 		System.out.println("--- testSprint1: affichage console du laby + déplacement héros ---");
 		boolean jouer = true;
@@ -58,9 +58,9 @@ public class Principale
 			String dir = Lecture.lireChaine("Dans quel direction aller?(zqsd) : ");
 			char direction = dir.charAt(0);
 			H.deplacement(direction, Labyrinthe, jouer, 'H');
-			M.deplacement(M.deplacementAleatoirePo(Labyrinthe), Labyrinthe, jouer, 'M');
+			//M.deplacement(M.deplacementAleatoirePo(Labyrinthe), Labyrinthe, jouer, 'M');
 		}
-	}
+	}*/
 
 	private static void testSprint3_Zombie() throws IOException
 	{
