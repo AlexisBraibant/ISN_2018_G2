@@ -11,6 +11,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+
 import projetLabyrinthe.LabyFichier;
 import utilensemjava.Fichier;
 
@@ -51,7 +52,27 @@ public class testLabyFichier {
 		
 	}
 	
-	@Test
+	//tester quand fichier n'existe pas/taille non valide
+	
+	@Test ( expected = IOException.class )
+	public void testCaracteresNonValides() {
+		String lecture_f;
+		try {
+			lecture_f = LabyFichier.lireFichier("labynonval.txt");
+			boolean test=true;
+			for (int i=0; i<lecture_f.length() ;i++) {
+				if ((lecture_f.charAt(i)!='0')||(lecture_f.charAt(i)!='1')||(lecture_f.charAt(i)!='2')||(lecture_f.charAt(i)!='3')||(lecture_f.charAt(i)!='4')||(lecture_f.charAt(i)!='5')||(lecture_f.charAt(i)!='6')||(lecture_f.charAt(i)!='\n')) {
+					test=false;
+				}
+			}
+			assertTrue(test);
+		} catch (IOException e) {
+			fail();
+		}
+	}
+	
+	@Test //( expected = IOException.class )
+	//retourne une erreur PREVENIR Alexis
 	public void testCaracteresValides() {
 		String lecture_f;
 		try {
@@ -68,6 +89,9 @@ public class testLabyFichier {
 		}
 	}
 
+	//cases speciales == tests spécifiques
+	//creer un laby qui regarde si c'est bien une case spé dans un fichier
+	
 }
 
 

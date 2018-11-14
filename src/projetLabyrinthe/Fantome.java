@@ -5,20 +5,21 @@ package projetLabyrinthe;
 public class Fantome extends Monstre
 {
 	// A refaire propre
-	public Fantome()
+	public Fantome(int xx, int yy, int h, int v, LabyFichier Lab)
 	{
-		super();
+		super(xx,yy,h,v,Lab);
+		this.tilePerso='F';
 	}
 
-	// Edit du deplacement de Personnage
+	/*// Edit du deplacement de Personnage
 	public boolean deplacementPossible(char direction, LabyFichier Labyrinthe)
 	{
 
-	}
+	}*/
 
 	// A faire
-	public char deplacementIntelligent()
+	/*public char deplacementIntelligent()
 	{
 
-	}
+	}*/
 }

@@ -12,7 +12,8 @@ public class Principale
 {
 	public static void main(String[] args) throws IOException
 	{
-		testSprint3_Zombie();
+		//testSprint3_Zombie();
+		testSprint2_AffichageLaby();
 	}
 
 	private static void testSprint1() throws IOException
