@@ -31,12 +31,10 @@ public class Panneau extends JPanel
 			Image passage = ImageIO.read(new File("./Textures/passage.png"));
 			Image piege = ImageIO.read(new File("./Textures/piege.png"));
 			Image magique = ImageIO.read(new File("./Textures/magique.png"));
-			// g.drawImage(mur, 0, 0, imgSize, imgSize, this);
 
+			//dessin de la map
 			for (int i = 0; i < map.length; i++)
 			{
-				// System.out.println(raw[i]);
-				// System.out.println("ligne[i].length: "+ligne.length);
 				for (int j = 0; j < map[i].length; j++)
 				{
 					switch (map[i][j])
@@ -66,8 +64,6 @@ public class Panneau extends JPanel
 					default:
 						break;
 					}
-
-					// ***********************
 				}
 			}
 
