@@ -36,13 +36,19 @@ public class testLabyFichier {
 
 	//Test qui dit si le fichier vide est bien pris en compte 
 	@Test
-	public static boolean TestFichierVide(String nomFichier) throws ErreurFichier, IOException {
-		String lecture_f=LabyFichier.lireFichier(nomFichier);
-		boolean test=false;
-		if (lecture_f==""){
-			test=true;
+	public void TestFichierVide(String nomFichier) {
+		String lecture_f;
+		try {
+			lecture_f = LabyFichier.lireFichier(nomFichier);
+			boolean test=false;
+			if (lecture_f==""){
+				test=true;
+			}
+			assertTrue(test);
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
-		return test;
+		
 	}
 
 }

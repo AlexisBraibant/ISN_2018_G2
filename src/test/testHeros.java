@@ -10,7 +10,6 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import fr.udl.acl.conteneur.ErreurConteneur;
 import projetLabyrinthe.Heros;
 import projetLabyrinthe.LabyFichier;
 
@@ -33,16 +32,29 @@ public class testHeros {
 	}
 
 	@Test
-	public void testSetHp() throws IOException {
-		LabyFichier Labyrinthe = new LabyFichier("laby_special.txt");
-		Heros H = new Heros(Labyrinthe);
+	public void testSetHp() {
+		
 		try {
+			LabyFichier Labyrinthe = new LabyFichier("laby_special.txt");
+			Heros H = new Heros(Labyrinthe);
 			//H.setVie(0);
 			H.setHp(0);
 			assertTrue(H.isDead());
-		}catch (ErreurHeros e) {
+		}catch (IOException e) {
 			fail();
 		}
+	}
+	
+	@Test
+	public void testConstructeur() {
+		try {
+			LabyFichier Labyrinthe = new LabyFichier("laby_special.txt");
+			Heros H = new Heros(Labyrinthe);
+			char position = H.getTile();
+			assertTrue((position=='E'));
+			}  catch (ErreurHeros e) {
+				fail();
+			}
 	}
 
 }
