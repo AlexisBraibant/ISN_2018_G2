@@ -36,7 +36,7 @@ public class Principale
 	private static void testSprint2_AffichageLaby() throws IOException
 	{
 		System.out.println("--- testSprint2_AffichageLaby ---");
-		Fenetre fen = new Fenetre("laby_special.txt");
+		Fenetre fen = new Fenetre();
 
 	}
 
