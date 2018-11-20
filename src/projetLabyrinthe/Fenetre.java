@@ -85,7 +85,7 @@ public class Fenetre extends JFrame
 		numNextMap++;
 
 		System.out.println("numNextMap : " + numNextMap);
-		if (numNextMap < '3' && numNextMap != '/' ) //incrémentation du niveau
+		if (numNextMap < '6' && numNextMap != '/' ) //incrémentation du niveau, il faut dire le nb de map
 		{
 			this.pan.setMapName("niv" + numNextMap + ".txt");
 		} else //affichage map de la victoire
