@@ -1,0 +1,10 @@
+Sprint 3
+
+Alexis
+	-Affichage vie du héros et implémentation menu selection niveau
+
+Benoit
+
+Diana
+
+Jonathan
