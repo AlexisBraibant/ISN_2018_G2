@@ -37,7 +37,6 @@ public class Principale
 	{
 		System.out.println("--- testSprint2_AffichageLaby ---");
 		Fenetre fen = new Fenetre();
-
 	}
 
 	/*private static void testSprint2_Monstre() throws IOException
