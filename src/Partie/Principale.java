@@ -69,7 +69,7 @@ public class Principale
 				"--- testSprint3: affichage console du laby + déplacement héros + deplacement zombie (sans gestion de collision)");
 		boolean jouer = true;
 
-		LabyFichier Labyrinthe = new LabyFichier("laby1.txt");
+		LabyFichier Labyrinthe = new LabyFichier("niv1.txt");
 
 		Heros H = new Heros(Labyrinthe);
 		Zombie Z = new Zombie(5, 5, 4, 4, Labyrinthe);
@@ -91,7 +91,7 @@ public class Principale
 				"--- testSprint3: affichage console du laby + déplacement héros + deplacement fantome (sans gestion de collision)");
 		boolean jouer = true;
 
-		LabyFichier Labyrinthe = new LabyFichier("laby1.txt");
+		LabyFichier Labyrinthe = new LabyFichier("niv1.txt");
 
 		Heros H = new Heros(Labyrinthe);
 		Fantome F = new Fantome(5, 5, 4, 4, Labyrinthe);
