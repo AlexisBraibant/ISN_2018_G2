@@ -1,5 +1,7 @@
 package projetLabyrinthe;
 
+import java.util.ArrayList;
+
 public abstract class Personnage
 {
 	protected int hp;
@@ -103,37 +105,147 @@ public abstract class Personnage
 		return true;
 	}
 
-	public void deplacement(char direction, LabyFichier Labyrinthe, boolean jouer, char lettre_perso)
+	public void deplacement(char direction, LabyFichier Labyrinthe, boolean jouer, char lettre_perso,
+			ArrayList<Personnage> ListPersonnage)
 	{
 		char[][] map = Labyrinthe.getMap();
 
-		if (deplacementPossible(direction, Labyrinthe))
+		if (!this.isDead() && deplacementPossible(direction, Labyrinthe))
 		{
+			boolean laCaseEstVide = true;
 			switch (direction)
 			{
 				case 'z':
-					map[this.coorX][this.coorY] = tile;
-					coorX += -1;
-					tile = map[this.coorX][this.coorY];
-					map[this.coorX][this.coorY] = lettre_perso;
+					for (int i = 0; i < ListPersonnage.size(); i++)
+					{
+						if (this.getNom() == "Heros")
+						{
+							if (ListPersonnage.get(i).coorX == this.coorX - 1
+									&& ListPersonnage.get(i).coorY == this.coorY)
+							{
+								this.attaquer(ListPersonnage.get(i), map, Labyrinthe);
+								if (ListPersonnage.get(i).isDead())
+								{
+									laCaseEstVide = true;
+								} else
+									laCaseEstVide = false;
+							}
+						}
+						if (this.getNom() == "Monstre")
+						{
+							if (ListPersonnage.get(0).coorX == this.coorX - 1
+									&& ListPersonnage.get(0).coorY == this.coorY)
+							{
+								this.attaquer(ListPersonnage.get(0), map, Labyrinthe);
+							}
+						}
+					}
+					if (laCaseEstVide)
+					{
+						map[this.coorX][this.coorY] = tile;
+						coorX += -1;
+						tile = map[this.coorX][this.coorY];
+						map[this.coorX][this.coorY] = lettre_perso;
+					}
 					break;
 				case 's':
-					map[this.coorX][this.coorY] = tile;
-					coorX += 1;
-					tile = map[this.coorX][this.coorY];
-					map[this.coorX][this.coorY] = lettre_perso;
+					for (int i = 0; i < ListPersonnage.size(); i++)
+					{
+						if (this.getNom() == "Heros")
+						{
+							if (ListPersonnage.get(i).coorX == this.coorX + 1
+									&& ListPersonnage.get(i).coorY == this.coorY)
+							{
+								this.attaquer(ListPersonnage.get(i), map, Labyrinthe);
+								if (ListPersonnage.get(i).isDead())
+								{
+									laCaseEstVide = true;
+								} else
+									laCaseEstVide = false;
+							}
+						}
+						if (this.getNom() == "Monstre")
+						{
+							if (ListPersonnage.get(0).coorX == this.coorX + 1
+									&& ListPersonnage.get(0).coorY == this.coorY)
+							{
+								this.attaquer(ListPersonnage.get(0), map, Labyrinthe);
+							}
+						}
+					}
+					if (laCaseEstVide)
+					{
+						map[this.coorX][this.coorY] = tile;
+						coorX += 1;
+						tile = map[this.coorX][this.coorY];
+						map[this.coorX][this.coorY] = lettre_perso;
+					}
 					break;
 				case 'q':
-					map[this.coorX][this.coorY] = tile;
-					coorY += -1;
-					tile = map[this.coorX][this.coorY];
-					map[this.coorX][this.coorY] = lettre_perso;
+					for (int i = 0; i < ListPersonnage.size(); i++)
+					{
+						if (this.getNom() == "Heros")
+						{
+							if (ListPersonnage.get(i).coorX == this.coorX
+									&& ListPersonnage.get(i).coorY == this.coorY - 1)
+							{
+								this.attaquer(ListPersonnage.get(i), map, Labyrinthe);
+								if (ListPersonnage.get(i).isDead())
+								{
+									laCaseEstVide = true;
+								} else
+									laCaseEstVide = false;
+							}
+						}
+						if (this.getNom() == "Monstre")
+						{
+							if (ListPersonnage.get(0).coorX == this.coorX
+									&& ListPersonnage.get(0).coorY == this.coorY - 1)
+							{
+								this.attaquer(ListPersonnage.get(0), map, Labyrinthe);
+							}
+						}
+					}
+					if (laCaseEstVide)
+					{
+						map[this.coorX][this.coorY] = tile;
+						coorY += -1;
+						tile = map[this.coorX][this.coorY];
+						map[this.coorX][this.coorY] = lettre_perso;
+					}
 					break;
 				case 'd':
-					map[this.coorX][this.coorY] = tile;
-					coorY += +1;
-					tile = map[this.coorX][this.coorY];
-					map[this.coorX][this.coorY] = lettre_perso;
+					for (int i = 0; i < ListPersonnage.size(); i++)
+					{
+						if (this.getNom() == "Heros")
+						{
+							if (ListPersonnage.get(i).coorX == this.coorX
+									&& ListPersonnage.get(i).coorY == this.coorY + 1)
+							{
+								this.attaquer(ListPersonnage.get(i), map, Labyrinthe);
+								if (ListPersonnage.get(i).isDead())
+								{
+									laCaseEstVide = true;
+								} else
+									laCaseEstVide = false;
+							}
+						}
+						if (this.getNom() == "Monstre")
+						{
+							if (ListPersonnage.get(0).coorX == this.coorX
+									&& ListPersonnage.get(0).coorY == this.coorY + 1)
+							{
+								this.attaquer(ListPersonnage.get(0), map, Labyrinthe);
+							}
+						}
+					}
+					if (laCaseEstVide)
+					{
+						map[this.coorX][this.coorY] = tile;
+						coorY += +1;
+						tile = map[this.coorX][this.coorY];
+						map[this.coorX][this.coorY] = lettre_perso;
+					}
 					break;
 				case 'm':
 					this.enVie = false;
@@ -146,15 +258,24 @@ public abstract class Personnage
 		}
 	}
 
-	public void attaquer(Personnage autre)
+	public void attaquer(Personnage autre, char[][] map, LabyFichier Lab)
 	{
-		autre.recevoirDegat(this.getDegat());
+		autre.recevoirDegat(this.getDegat(), map, Lab);
 	}
 
-	public void recevoirDegat(int MontantDeDegat)
+	public void recevoirDegat(int MontantDeDegat, char[][] map, LabyFichier Lab)
 	{
 		this.hp -= MontantDeDegat;
 		if (hp <= 0)
 			this.enVie = false;
+		this.tilePerso = ' ';
+		this.tile = ' ';
+		map[this.coorX][this.coorY] = ' ';
+		Lab.setMap(map);
+	}
+
+	public String getNom()
+	{
+		return null;
 	}
 }

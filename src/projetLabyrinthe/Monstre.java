@@ -22,4 +22,8 @@ public abstract class Monstre extends Personnage
 		return liste_dir[aleat];
 	}
 
+	public String getNom()
+	{
+		return "Monstre";
+	}
 }

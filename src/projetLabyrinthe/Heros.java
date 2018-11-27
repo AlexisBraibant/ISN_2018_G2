@@ -26,7 +26,7 @@ public class Heros extends Personnage
 			}
 		}
 	}
-	
+
 	public Heros(LabyFichier Lab, int hp, int vie)
 	{
 		super(-1, -1, hp, vie); // On met le héros au position -1 -1 et apres on le remet sur l'entrée du niveau
@@ -49,5 +49,10 @@ public class Heros extends Personnage
 				}
 			}
 		}
+	}
+
+	public String getNom()
+	{
+		return "Heros";
 	}
 }

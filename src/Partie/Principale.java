@@ -1,11 +1,13 @@
 package Partie;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import projetLabyrinthe.Fantome;
 import projetLabyrinthe.Fenetre;
 import projetLabyrinthe.Heros;
 import projetLabyrinthe.LabyFichier;
+import projetLabyrinthe.Personnage;
 import projetLabyrinthe.Zombie;
 import utilensemjava.Lecture;
 
@@ -13,9 +15,10 @@ public class Principale
 {
 	public static void main(String[] args) throws IOException
 	{
-		//testSprint3_Zombie();
-		testSprint2_AffichageLaby();
-		//testSprint3_Fantome();
+		// testSprint3_Zombie();
+		// testSprint2_AffichageLaby();
+		// testSprint3_Fantome();
+		testSprint4_2Zombie();
 	}
 
 	private static void testSprint1() throws IOException
@@ -111,8 +114,40 @@ public class Principale
 		}
 	}
 
-	private static void testSprint3_1Zombie() throws IOException
+	private static void testSprint4_2Zombie() throws IOException
 	{
 		// Créer une liste de monstres et tester qu'on les tue et qu'ils disparaissent.
+		ArrayList<Personnage> ListPersonnage = new ArrayList<Personnage>();
+		ArrayList<Fantome> ListFantome = new ArrayList<Fantome>();
+		ArrayList<Zombie> ListZombie = new ArrayList<Zombie>();
+		boolean jouer = true;
+
+		LabyFichier Labyrinthe = new LabyFichier("niv1.txt");
+
+		Heros H = new Heros(Labyrinthe);
+		Zombie Z1 = new Zombie(5, 5, 1, 1, Labyrinthe);
+		Zombie Z2 = new Zombie(3, 3, 1, 1, Labyrinthe);
+
+		ListZombie.add(Z1);
+		ListZombie.add(Z2);
+
+		ListPersonnage.add(H);
+		ListPersonnage.add(Z1);
+		ListPersonnage.add(Z2);
+
+		while (!H.isDead())
+		{
+			Labyrinthe.afficheLaby();
+			System.out.println("");
+			String dir = Lecture.lireChaine("Dans quel direction aller?(zqsd) : ");
+			char direction = dir.charAt(0);
+			H.deplacement(direction, Labyrinthe, jouer, 'H', ListPersonnage);
+			for (int i = 0; i < ListZombie.size(); i++)
+			{
+				Zombie nom = ListZombie.get(i);
+				nom.deplacement(nom.deplacementAleatoire(Labyrinthe), Labyrinthe, jouer, nom.getTilePerso(),
+						ListPersonnage);
+			}
+		}
 	}
 }
