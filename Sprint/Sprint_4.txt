@@ -6,5 +6,5 @@ Alexis
 Benoit
 	-Ajout des collisions et degat entre le héros et les monstres
 Diana
-
+	-Creation de points de vie pour monstres
 Jonathan
