@@ -86,6 +86,8 @@ public class LabyFichier extends JPanel
 			Image piege = ImageIO.read(new File("./Textures/piege.png"));
 			Image magique = ImageIO.read(new File("./Textures/magique.png"));
 			Image hero = ImageIO.read(new File("./Textures/hero.png"));
+			Image fantome = ImageIO.read(new File("./Textures/fantome.png"));
+			Image zombie = ImageIO.read(new File("./Textures/zombie.png"));
 
 			//dessin de la map
 			for (int i = 0; i < map.length; i++)
@@ -132,6 +134,11 @@ public class LabyFichier extends JPanel
 					case 'H':
 						g.drawImage(hero, j * imgSize, i * imgSize, imgSize, imgSize, this);
 						break;
+					case 'F':
+						g.drawImage(fantome, j * imgSize, i * imgSize, imgSize, imgSize, this);
+						break;
+					case 'Z':
+						g.drawImage(zombie, j * imgSize, i * imgSize, imgSize, imgSize, this);
 					default:
 						break;
 					}

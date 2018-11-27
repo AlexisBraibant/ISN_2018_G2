@@ -14,8 +14,8 @@ public class Principale
 	public static void main(String[] args) throws IOException
 	{
 		//testSprint3_Zombie();
-		//testSprint2_AffichageLaby();
-		testSprint3_Fantome();
+		testSprint2_AffichageLaby();
+		//testSprint3_Fantome();
 	}
 
 	private static void testSprint1() throws IOException
@@ -69,7 +69,7 @@ public class Principale
 				"--- testSprint3: affichage console du laby + déplacement héros + deplacement zombie (sans gestion de collision)");
 		boolean jouer = true;
 
-		LabyFichier Labyrinthe = new LabyFichier("laby1.txt");
+		LabyFichier Labyrinthe = new LabyFichier("niv1.txt");
 
 		Heros H = new Heros(Labyrinthe);
 		Zombie Z = new Zombie(5, 5, 4, 4, Labyrinthe);
@@ -91,7 +91,11 @@ public class Principale
 				"--- testSprint3: affichage console du laby + déplacement héros + deplacement fantome (sans gestion de collision)");
 		boolean jouer = true;
 
+<<<<<<< HEAD
 		LabyFichier Labyrinthe = new LabyFichier("niv5.txt");
+=======
+		LabyFichier Labyrinthe = new LabyFichier("niv1.txt");
+>>>>>>> refs/remotes/origin/master
 
 		Heros H = new Heros(Labyrinthe);
 		Fantome F = new Fantome(5, 5, 4, 4, Labyrinthe);

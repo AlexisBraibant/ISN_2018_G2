@@ -20,15 +20,18 @@ public class Fenetre extends JFrame
 	JButton button = new JButton("Start");
 	LabyFichier pan;
 	Heros H;
+	Fantome F;
 
 
 
 	public Fenetre() throws IOException
 	{
 		
+		//**********
 		this.pan = new LabyFichier("niv0.txt");
-		this.pan.add(button);
 		this.init();
+		this.pan.add(button);
+		
 		//ecouter clavier
 		this.pan.setFocusable(true);
 		this.pan.addKeyListener(new EcouteurClavier());
@@ -71,10 +74,10 @@ public class Fenetre extends JFrame
 		this.revalidate();	
 		//----------------------------
 		H = new Heros(this.pan);
-		
 		System.out.println("**************************");
 
 		//--------------------------------------
+		
 	}
 
 	//incrementation de la map
@@ -98,9 +101,28 @@ public class Fenetre extends JFrame
 		this.revalidate();
 		
 		//reaparition du hero:
-		H = new  Heros(this.pan, H.hp, H.vie );
-		
-		
+		H = new  Heros(this.pan, H.hp, H.vie );		
+	}
+	
+	private void deplacementHero(KeyEvent e) {
+		// TODO Auto-generated method stub
+					char key = e.getKeyChar();
+					System.out.println("key : "+key);
+//					Fenetre.this.pan.afficheLaby();
+					System.out.println("");
+					char direction = key;
+					H.deplacement(direction, Fenetre.this.pan, true, 'H');
+					//ariver sur le passage
+					if (H.getTile()=='O')
+					{
+						try
+						{
+							Fenetre.this.changerMap();
+						} catch (IOException e1)
+						{
+							e1.printStackTrace();
+						}
+					}
 	}
 
 	// Ecouteur du bouton
@@ -142,25 +164,9 @@ public class Fenetre extends JFrame
 		@Override
 		public void keyPressed(KeyEvent e)
 		{
-			// TODO Auto-generated method stub
-			char key = e.getKeyChar();
-			System.out.println("key : "+key);
-//			Fenetre.this.pan.afficheLaby();
-			System.out.println("");
-			char direction = key;
-			H.deplacement(direction, Fenetre.this.pan, true, 'H');
-			//ariver sur le passage
-			if (H.getTile()=='O')
-			{
-				try
-				{
-					Fenetre.this.changerMap();
-				} catch (IOException e1)
-				{
-					e1.printStackTrace();
-				}
-			}
-			
+			Fenetre.this.deplacementHero(e);
+			//TODO déplacement monstres
+
 			//rafraichissement
 			Fenetre.this.setContentPane(pan);
 			Fenetre.this.revalidate();
