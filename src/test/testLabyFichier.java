@@ -37,7 +37,7 @@ public class testLabyFichier {
 
 	//Test qui dit si le fichier vide est bien pris en compte 
 	@Test
-	public void TestFichierVide() {
+	public static void TestFichierVide() {
 		String lecture_f;
 		try {
 			lecture_f = LabyFichier.lireFichier("laby_special.txt");

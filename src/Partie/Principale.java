@@ -2,6 +2,7 @@ package Partie;
 
 import java.io.IOException;
 
+import projetLabyrinthe.Fantome;
 import projetLabyrinthe.Fenetre;
 import projetLabyrinthe.Heros;
 import projetLabyrinthe.LabyFichier;
@@ -13,7 +14,8 @@ public class Principale
 	public static void main(String[] args) throws IOException
 	{
 		//testSprint3_Zombie();
-		testSprint2_AffichageLaby();
+		//testSprint2_AffichageLaby();
+		testSprint3_Fantome();
 	}
 
 	private static void testSprint1() throws IOException
@@ -80,6 +82,28 @@ public class Principale
 			char direction = dir.charAt(0);
 			H.deplacement(direction, Labyrinthe, jouer, 'H');
 			Z.deplacement(Z.deplacementAleatoire(Labyrinthe), Labyrinthe, jouer, Z.getTilePerso());
+		}
+	}
+
+	private static void testSprint3_Fantome() throws IOException
+	{
+		System.out.println(
+				"--- testSprint3: affichage console du laby + déplacement héros + deplacement fantome (sans gestion de collision)");
+		boolean jouer = true;
+
+		LabyFichier Labyrinthe = new LabyFichier("laby1.txt");
+
+		Heros H = new Heros(Labyrinthe);
+		Fantome F = new Fantome(5, 5, 4, 4, Labyrinthe);
+
+		while (!H.isDead())
+		{
+			Labyrinthe.afficheLaby();
+			System.out.println("");
+			String dir = Lecture.lireChaine("Dans quel direction aller?(zqsd) : ");
+			char direction = dir.charAt(0);
+			H.deplacement(direction, Labyrinthe, jouer, 'H');
+			F.deplacement(F.deplacementAleatoire(Labyrinthe), Labyrinthe, jouer, F.getTilePerso());
 		}
 	}
 
