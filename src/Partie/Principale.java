@@ -17,11 +17,11 @@ public class Principale
 	{
 		// testSprint3_Zombie();
 		// testSprint2_AffichageLaby();
-		// testSprint3_Fantome();
-		testSprint4_2Zombie();
+		 testSprint3_Fantome();
+		//testSprint4_2Zombie();
 	}
 
-	private static void testSprint1() throws IOException
+	/*private static void testSprint1() throws IOException
 	{
 		System.out.println("--- testSprint1: affichage console du laby + déplacement héros ---");
 		boolean jouer = true;
@@ -36,7 +36,7 @@ public class Principale
 			char direction = Lecture.lireCaractere("Dans quel direction aller?(zqsd) : ");
 			H.deplacement(direction, Labyrinthe, jouer, 'H');
 		}
-	}
+	}*/
 
 	private static void testSprint2_AffichageLaby() throws IOException
 	{
@@ -66,7 +66,7 @@ public class Principale
 		}
 	}*/
 
-	private static void testSprint3_Zombie() throws IOException
+	/*private static void testSprint3_Zombie() throws IOException
 	{
 		System.out.println(
 				"--- testSprint3: affichage console du laby + déplacement héros + deplacement zombie (sans gestion de collision)");
@@ -86,19 +86,15 @@ public class Principale
 			H.deplacement(direction, Labyrinthe, jouer, 'H');
 			Z.deplacement(Z.deplacementAleatoire(Labyrinthe), Labyrinthe, jouer, Z.getTilePerso());
 		}
-	}
+	}*/
 
 	private static void testSprint3_Fantome() throws IOException
 	{
 		System.out.println(
 				"--- testSprint3: affichage console du laby + déplacement héros + deplacement fantome (sans gestion de collision)");
 		boolean jouer = true;
-
-<<<<<<< HEAD
-		LabyFichier Labyrinthe = new LabyFichier("niv5.txt");
-=======
 		LabyFichier Labyrinthe = new LabyFichier("niv1.txt");
->>>>>>> refs/remotes/origin/master
+
 
 		Heros H = new Heros(Labyrinthe);
 		Fantome F = new Fantome(5, 5, 4, 4, Labyrinthe);

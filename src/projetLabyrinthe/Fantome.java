@@ -20,33 +20,17 @@ public class Fantome extends Monstre
 		//traitement du sens du déplacement et si c'est un mur
 		if (direction == 'z') 
 			xApres -= 1;
-			if (Labyrinthe.getMap()[xApres][yApres] == '#')
-			{
-				xApres -= 1;
-			}
 			
 		
 		if (direction == 's')
 			xApres += 1;
-			if (Labyrinthe.getMap()[xApres][yApres] == '#')
-			{
-				xApres += 1;
-			}
 			
 		if (direction == 'q')
 			yApres -= 1;
-			if (Labyrinthe.getMap()[xApres][yApres] == '#')
-			{
-				yApres -= 1;
-			}
 			
 			
 		if (direction == 'd')
 			yApres += 1;
-		if (Labyrinthe.getMap()[xApres][yApres] == '#')
-		{
-			yApres += 1;
-		}
 		
 		if (xApres < 0 || xApres >= Labyrinthe.HAUTEUR || yApres < 0 || yApres >= Labyrinthe.LARGEUR)
 		{
