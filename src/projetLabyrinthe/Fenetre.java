@@ -74,7 +74,6 @@ public class Fenetre extends JFrame
 		this.revalidate();	
 		//----------------------------
 		H = new Heros(this.pan);
-		F = new Fantome(5, 5, 4, 4, this.pan);
 		System.out.println("**************************");
 
 		//--------------------------------------
