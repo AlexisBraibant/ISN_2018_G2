@@ -26,9 +26,11 @@ public class Fenetre extends JFrame
 	public Fenetre() throws IOException
 	{
 		
+		//**********
 		this.pan = new LabyFichier("niv0.txt");
-		this.pan.add(button);
 		this.init();
+		this.pan.add(button);
+		
 		//ecouter clavier
 		this.pan.setFocusable(true);
 		this.pan.addKeyListener(new EcouteurClavier());
