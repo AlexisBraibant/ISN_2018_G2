@@ -20,6 +20,7 @@ public class Fenetre extends JFrame
 	JButton button = new JButton("Start");
 	LabyFichier pan;
 	Heros H;
+	Fantome F;
 
 
 
@@ -73,10 +74,11 @@ public class Fenetre extends JFrame
 		this.revalidate();	
 		//----------------------------
 		H = new Heros(this.pan);
-		
+		F = new Fantome(5, 5, 4, 4, this.pan);
 		System.out.println("**************************");
 
 		//--------------------------------------
+		
 	}
 
 	//incrementation de la map
@@ -162,7 +164,8 @@ public class Fenetre extends JFrame
 					e1.printStackTrace();
 				}
 			}
-			
+			//déplacement monstres
+			F.deplacement(F.deplacementAleatoire(pan), pan, true, F.getTilePerso());
 			//rafraichissement
 			Fenetre.this.setContentPane(pan);
 			Fenetre.this.revalidate();

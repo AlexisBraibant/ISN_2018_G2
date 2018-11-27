@@ -14,8 +14,8 @@ public class Principale
 	public static void main(String[] args) throws IOException
 	{
 		//testSprint3_Zombie();
-		//testSprint2_AffichageLaby();
-		testSprint3_Fantome();
+		testSprint2_AffichageLaby();
+		//testSprint3_Fantome();
 	}
 
 	private static void testSprint1() throws IOException
