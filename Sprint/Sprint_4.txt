@@ -4,7 +4,7 @@ Alexis
 	-Affichage vie du héros et implémentation menu selection niveau
 
 Benoit
-
+	-Ajout des collisions et degat entre le héros et les monstres
 Diana
 
 Jonathan
