@@ -1,5 +1,7 @@
 package projetLabyrinthe;
 
+import java.util.ArrayList;
+
 public abstract class Monstre extends Personnage
 {
 
@@ -25,5 +27,19 @@ public abstract class Monstre extends Personnage
 	public String getNom()
 	{
 		return "Monstre";
+	}
+
+	public void deplacementDesMonstre(LabyFichier Labyrinthe, boolean jouer, ArrayList<Zombie> listeZombie,
+			ArrayList<Fantome> listeFantome, ArrayList<Personnage> listePersonnage)
+	{
+		for (int i = 0; i < listeZombie.size(); i++)
+		{
+			this.deplacementCollision(this.directionAleatoire(), Labyrinthe, jouer, this.tilePerso, listePersonnage);
+		}
+
+		for (int i = 0; i < listeFantome.size(); i++)
+		{
+			this.deplacementCollision(this.directionAleatoire(), Labyrinthe, jouer, this.tilePerso, listePersonnage);
+		}
 	}
 }
