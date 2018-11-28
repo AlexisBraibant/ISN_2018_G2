@@ -24,6 +24,8 @@ public class Fenetre extends JFrame
 	Fantome F;
 	boolean jouer;
 	ArrayList<Personnage> listePersonnages = new ArrayList<Personnage>();
+	ArrayList<Zombie> listeZombie = new ArrayList<Zombie>();
+	ArrayList<Fantome> listeFantome = new ArrayList<Fantome>();
 
 	public Fenetre() throws IOException
 	{
@@ -63,9 +65,13 @@ public class Fenetre extends JFrame
 
 	public void genererPersos()
 	{
-		listePersonnages.add(new Heros(this.pan));
-		listePersonnages.add(new Zombie(3, 3, 1, 1, this.pan));
-		listePersonnages.add(new Zombie(5, 5, 1, 1, this.pan));
+		listePersonnages.add(H);
+		Zombie Z1 = new Zombie(3, 3, 1, 1, this.pan);
+		Zombie Z2 = new Zombie(5, 5, 1, 1, this.pan);
+		listeZombie.add(Z1);
+		listeZombie.add(Z2);
+		listePersonnages.add(Z1);
+		listePersonnages.add(Z2);
 	}
 
 	// TODO gérer le key listener
@@ -84,8 +90,9 @@ public class Fenetre extends JFrame
 		this.setContentPane(pan);
 		this.revalidate();
 		// ----------------------------
-		// genererPersos();
+		// generation des personnages
 		H = new Heros(this.pan);
+		//genererPersos();
 		this.pan.setVieHero(H.hp);
 		System.out.println("**************************");
 
@@ -119,13 +126,16 @@ public class Fenetre extends JFrame
 
 	private void deplacementHero(KeyEvent e)
 	{
+		
 		// TODO Auto-generated method stub
 		char key = e.getKeyChar();
 		System.out.println("key : " + key);
 		// Fenetre.this.pan.afficheLaby();
 		System.out.println("");
 		char direction = key;
-		H.deplacement(direction, Fenetre.this.pan, jouer, 'H');
+		// gestion vie
+		this.pan.setVieHero(H.getHp());
+		H.deplacementCollision(direction, this.pan, jouer, 'H', listePersonnages);
 		// ariver sur le passage
 		if (H.getTile() == 'O')
 		{
@@ -138,6 +148,41 @@ public class Fenetre extends JFrame
 			}
 		}
 	}
+
+
+	// ecouteur clavier
+	public class EcouteurClavier implements KeyListener
+	{
+
+		@Override
+		public void keyPressed(KeyEvent e)
+		{
+			Fenetre.this.deplacementHero(e);
+			// TODO déplacement monstres
+			Monstre.deplacementDesMonstre(Fenetre.this.pan, jouer, listeZombie, listeFantome, listePersonnages);
+			// rafraichissement
+			Fenetre.this.setContentPane(pan);
+			Fenetre.this.revalidate();
+		}
+
+		@Override
+		public void keyReleased(KeyEvent e)
+		{
+			// TODO Auto-generated method stub
+			// char key = e.getKeyChar();
+			// System.out.println("key : "+key);
+
+		}
+
+		@Override
+		public void keyTyped(KeyEvent e)
+		{
+			// TODO Auto-generated method stub
+
+		}
+
+	}
+	
 
 	// Ecouteur du bouton
 	public class EcouteurBoutonChanger implements ActionListener
@@ -170,38 +215,5 @@ public class Fenetre extends JFrame
 			}
 
 		}
-	}
-
-	// ecouteur clavier
-	public class EcouteurClavier implements KeyListener
-	{
-
-		@Override
-		public void keyPressed(KeyEvent e)
-		{
-			Fenetre.this.deplacementHero(e);
-			// TODO déplacement monstres
-
-			// rafraichissement
-			Fenetre.this.setContentPane(pan);
-			Fenetre.this.revalidate();
-		}
-
-		@Override
-		public void keyReleased(KeyEvent e)
-		{
-			// TODO Auto-generated method stub
-			// char key = e.getKeyChar();
-			// System.out.println("key : "+key);
-
-		}
-
-		@Override
-		public void keyTyped(KeyEvent e)
-		{
-			// TODO Auto-generated method stub
-
-		}
-
 	}
 }

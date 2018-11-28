@@ -148,7 +148,7 @@ public class LabyFichier extends JPanel
 			// affichage de la vie du heros:
 			for (int i = 0; i < vieHero; i++)
 			{
-				g.drawImage(coeur, 10,  i*imgSize , imgSize/2, imgSize/2, this);
+				g.drawImage(coeur, 10,  i*imgSize/4 , imgSize/4, imgSize/4, this);
 			}
 
 		} catch (IOException e)

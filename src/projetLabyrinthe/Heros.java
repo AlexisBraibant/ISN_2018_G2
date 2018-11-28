@@ -1,4 +1,4 @@
-package projetLabyrinthe;
+	package projetLabyrinthe;
 
 public class Heros extends Personnage
 {
