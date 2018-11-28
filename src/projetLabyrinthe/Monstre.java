@@ -29,7 +29,7 @@ public abstract class Monstre extends Personnage
 		return "Monstre";
 	}
 
-	public void deplacementDesMonstre(LabyFichier Labyrinthe, boolean jouer, ArrayList<Zombie> listeZombie,
+	public static void deplacementDesMonstre(LabyFichier Labyrinthe, boolean jouer, ArrayList<Zombie> listeZombie,
 			ArrayList<Fantome> listeFantome, ArrayList<Personnage> listePersonnage)
 	{
 		for (int i = 0; i < listeZombie.size(); i++)
