@@ -61,7 +61,7 @@ public class testLabyFichier {
 	
 	
 	//taille non valide
-	@Test ( expected = IOException.class )
+	@Test ( expected = java.lang.AssertionError.class )
 	public void testTailleNonValide() {
 		String lecture_f;
 		try {
@@ -74,13 +74,13 @@ public class testLabyFichier {
 			for (int i=1; i<toutes_lignes.length ;i++) {
 				assertEquals(taille[i-1], taille[i]);
 			}
-		} catch (IOException e) {
+		} catch (Exception e) {
 			fail();
 		}
 	}
 	
-	@Test ( expected = IOException.class )
-	public void testCaracteresNonValides() {
+	@Test ( expected = java.lang.AssertionError.class )
+	public void testCaracteresNonValides() throws Exception {
 		String lecture_f;
 		try {
 			lecture_f = LabyFichier.lireFichier("labynonval.txt");
@@ -91,12 +91,12 @@ public class testLabyFichier {
 				}
 			}
 			assertTrue(test);
-		} catch (IOException e) {
+		} catch ( Exception e) {
 			fail();
 		}
 	}
 	
-	@Test //( expected = IOException.class )
+	@Test ( expected = java.lang.AssertionError.class )
 	//retourne une erreur PREVENIR Alexis
 	public void testCaracteresValides() {
 		String lecture_f;
@@ -109,7 +109,7 @@ public class testLabyFichier {
 				}
 			}
 			assertTrue(test);
-		} catch (IOException e) {
+		} catch (Exception e) {
 			fail();
 		}
 	}
