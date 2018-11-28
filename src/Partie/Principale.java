@@ -98,7 +98,7 @@ public class Principale
 		LabyFichier Labyrinthe = new LabyFichier("niv1.txt");
 
 		Heros H = new Heros(Labyrinthe);
-		Fantome F = new Fantome(3, 4, 4, 4, Labyrinthe);
+		Fantome F = new Fantome(1, 1, 4, 4, Labyrinthe);
 
 		while (!H.isDead())
 		{
