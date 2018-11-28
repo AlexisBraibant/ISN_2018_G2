@@ -239,7 +239,6 @@ public class LabyFichier extends JPanel
 			}
 		} while (chaine != null);
 		fR.close();
-		System.out.println(chaine_totale.length());
 		return (chaine_totale);
 	}
 
