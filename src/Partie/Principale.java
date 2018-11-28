@@ -16,11 +16,11 @@ public class Principale
 	public static void main(String[] args) throws IOException
 	{
 		// testSprint3_Zombie();
-		 testSprint3_Fantome();
-		//testSprint4_2Zombie();
-		 //testSprint2_AffichageLaby();
-		 //System.out.println("abc");
-		 //LabyFichier.lireFichier("./Map/laby_vide.txt");
+		// testSprint3_Fantome();
+		testSprint4_2Zombie();
+		// testSprint2_AffichageLaby();
+		// System.out.println("abc");
+		// LabyFichier.lireFichier("./Map/laby_vide.txt");
 	}
 
 	/*private static void testSprint1() throws IOException
