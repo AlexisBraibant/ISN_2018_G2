@@ -50,22 +50,20 @@ public class testLabyFichier {
 		
 	}
 	
-	/*
+
 	//tester quand fichier n'existe pas
-	@Test
+	@Test (expected = java.io.FileNotFoundException.class)
 	public void TestFichierNonExist() {
 		File f = new File(nomFichier);
 		BufferedReader fR = new BufferedReader(new FileReader(f));
 		try {
-			lecture_f = LabyFichier.lireFichier("laby1.txt");
-			boolean test=false;
-			assertTrue(test);
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		
 	}
-	*/
+	
 	
 	//taille non valide
 	@Test ( expected = IOException.class )

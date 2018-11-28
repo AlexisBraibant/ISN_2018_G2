@@ -1,7 +1,7 @@
 package test;
 
 import static org.junit.Assert.assertTrue;
-
+import static org.junit.Assert.*;
 import java.io.IOException;
 
 import org.junit.After;
@@ -78,10 +78,24 @@ public class testMonstres
 	
 	//2 tests pour fantomes mur bord et mur laby
 	@Test
+	public void testPassageMurLabyFantome() throws IOException 
+	{
+		LabyFichier laby = new LabyFichier("niv1.txt");
+		Fantome fantomeTest = new Fantome(3, 4, 8, 10, laby);
+		char[][] Maplb = laby.getMap();
+		assertEquals(Maplb[fantomeTest.getCoorX()][fantomeTest.getCoorY()],'#');
+	}
+	
+	//on fait le déplacement du fantome et on montre que le fantome ne se déplace pas
+	@Test
 	public void testNonPassageMurLabyFantome() throws IOException 
 	{
-		LabyFichier laby = new LabyFichier("./Map/niv1.txt");
-		Fantome fantomeTest = new Fantome(3, 4, 8, 10, laby);
-		
+		LabyFichier laby = new LabyFichier("niv1.txt");
+		Fantome fantomeTest = new Fantome(1, 1, 8, 10, laby);
+		char direction = 'q';
+		fantomeTest.deplacement(direction, laby, true, fantomeTest.getTilePerso());
+		char[][] Maplb = laby.getMap();
+		assertEquals(fantomeTest.getCoorX(),1);
+		assertEquals(fantomeTest.getCoorY(),1);
 	}
 }
