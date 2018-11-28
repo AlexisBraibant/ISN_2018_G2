@@ -104,8 +104,10 @@ public class Principale
 			System.out.println("");
 			String dir = Lecture.lireChaine("Dans quel direction aller?(zqsd) : ");
 			char direction = dir.charAt(0);
-			H.deplacement(direction, Labyrinthe, jouer, 'H');
-			F.deplacement(F.deplacementAleatoire(Labyrinthe), Labyrinthe, jouer, F.getTilePerso());
+			ArrayList<Personnage> ListPersonnage = new ArrayList<Personnage>();
+			ArrayList<Personnage> ListFantome = new ArrayList<Personnage>();
+			H.deplacement(direction, Labyrinthe, jouer, 'H',ListPersonnage);
+			F.deplacement(F.deplacementAleatoire(Labyrinthe), Labyrinthe, jouer, F.getTilePerso(),ListFantome);
 		}
 	}
 
