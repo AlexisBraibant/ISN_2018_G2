@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -53,15 +54,9 @@ public class testLabyFichier {
 
 	//tester quand fichier n'existe pas
 	@Test (expected = java.io.FileNotFoundException.class)
-	public void TestFichierNonExist() {
-		File f = new File(nomFichier);
-		BufferedReader fR = new BufferedReader(new FileReader(f));
-		try {
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
+	public void TestFichierNonExist() throws FileNotFoundException {
+		File f = new File("laby_nonex");
+		BufferedReader fR = new BufferedReader(new FileReader(f));	
 	}
 	
 	
