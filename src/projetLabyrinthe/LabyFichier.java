@@ -38,7 +38,7 @@ public class LabyFichier extends JPanel
 
 	
 	public LabyFichier() {
-		//juste utile pour récupérer largeur et hauteur 
+		//juste utile pour rï¿½cupï¿½rer largeur et hauteur 
 	}
 	
 	public char[][] getMap()
@@ -76,7 +76,7 @@ public class LabyFichier extends JPanel
 		{
 			
 			char[][] map = this.getMap();
-			System.out.println("Labyrinthe affiché:");
+			System.out.println("Labyrinthe affichï¿½:");
 			this.afficheLaby();
 			Image mur = ImageIO.read(new File("./Textures/mur.png"));
 			Image vide = ImageIO.read(new File("./Textures/vide.png"));
@@ -199,7 +199,7 @@ public class LabyFichier extends JPanel
 				case "5":
 					res[i][j] = '*';
 					break;
-				//case trésor
+				//case trï¿½sor
 				case "6":
 					res[i][j] = '$';
 					break;
@@ -230,6 +230,7 @@ public class LabyFichier extends JPanel
 			}
 		} while (chaine != null);
 		fR.close();
+		System.out.println(chaine_totale.length());
 		return (chaine_totale);
 	}
 

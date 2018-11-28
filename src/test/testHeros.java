@@ -46,6 +46,8 @@ public class testHeros {
 		}
 	}
 	
+	//CORRIGER POINTS DE VIE
+	
 	//tester attaques SPRINT 3
 	
 	@Test

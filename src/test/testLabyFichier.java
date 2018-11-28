@@ -2,7 +2,9 @@ package test;
 
 import static org.junit.Assert.*;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 
 import org.junit.After;
@@ -36,26 +38,24 @@ public class testLabyFichier {
 	}
 
 	//Test qui dit si le fichier vide est bien pris en compte 
-	@Test
-	public static void TestFichierVide() {
+	@Test 
+	public void TestFichierVide() {
 		String lecture_f;
 		try {
-			lecture_f = LabyFichier.lireFichier("laby_vide.txt");
-			boolean test=false;
-			if (lecture_f==""){
-				test=true;
-			}
-			assertTrue(test);
+			lecture_f = LabyFichier.lireFichier("./Map/laby_vide.txt");
+			assertEquals(lecture_f.length(),0);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		
 	}
 	
+	/*
 	//tester quand fichier n'existe pas
 	@Test
-	public static void TestFichierNonExist() {
-		String lecture_f;
+	public void TestFichierNonExist() {
+		File f = new File(nomFichier);
+		BufferedReader fR = new BufferedReader(new FileReader(f));
 		try {
 			lecture_f = LabyFichier.lireFichier("laby1.txt");
 			boolean test=false;
@@ -65,6 +65,7 @@ public class testLabyFichier {
 		}
 		
 	}
+	*/
 	
 	//taille non valide
 	@Test ( expected = IOException.class )
