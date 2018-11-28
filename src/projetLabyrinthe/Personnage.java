@@ -368,9 +368,11 @@ public abstract class Personnage
 
 	private boolean surPiege(char[][] map)
 	{
-		System.out.println("sur piege");
-		if (map[this.coorX][this.coorY] == 'X')
+		if (this.tile == 'X')
+		{
+			System.out.println("sur piege");
 			return true;
+		}
 		return false;
 	}
 }
