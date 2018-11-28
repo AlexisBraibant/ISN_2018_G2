@@ -16,9 +16,11 @@ public class Principale
 	public static void main(String[] args) throws IOException
 	{
 		// testSprint3_Zombie();
-		// testSprint3_Fantome();
-		testSprint4_2Zombie();
-		// testSprint2_AffichageLaby();
+		 testSprint3_Fantome();
+		//testSprint4_2Zombie();
+		 //testSprint2_AffichageLaby();
+		 //System.out.println("abc");
+		 //LabyFichier.lireFichier("./Map/laby_vide.txt");
 	}
 
 	/*private static void testSprint1() throws IOException
@@ -96,7 +98,7 @@ public class Principale
 		LabyFichier Labyrinthe = new LabyFichier("niv1.txt");
 
 		Heros H = new Heros(Labyrinthe);
-		Fantome F = new Fantome(5, 5, 4, 4, Labyrinthe);
+		Fantome F = new Fantome(3, 4, 4, 4, Labyrinthe);
 
 		while (!H.isDead())
 		{
@@ -104,10 +106,8 @@ public class Principale
 			System.out.println("");
 			String dir = Lecture.lireChaine("Dans quel direction aller?(zqsd) : ");
 			char direction = dir.charAt(0);
-			ArrayList<Personnage> ListPersonnage = new ArrayList<Personnage>();
-			ArrayList<Personnage> ListFantome = new ArrayList<Personnage>();
-			H.deplacement(direction, Labyrinthe, jouer, 'H',ListPersonnage);
-			F.deplacement(F.deplacementAleatoire(Labyrinthe), Labyrinthe, jouer, F.getTilePerso(),ListFantome);
+			H.deplacement(direction, Labyrinthe, jouer, 'H');
+			F.deplacement(F.deplacementAleatoire(Labyrinthe), Labyrinthe, jouer, F.getTilePerso());
 		}
 	}
 

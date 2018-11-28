@@ -31,6 +31,7 @@ public class testHeros {
 	public void tearDown() throws Exception {
 	}
 
+	//teste l'initialisation du héros
 	@Test
 	public void testSetHp() {
 		
@@ -44,6 +45,8 @@ public class testHeros {
 			fail();
 		}
 	}
+	
+	//CORRIGER POINTS DE VIE
 	
 	//tester attaques SPRINT 3
 	

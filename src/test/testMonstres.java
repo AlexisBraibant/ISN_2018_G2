@@ -2,12 +2,16 @@ package test;
 
 import static org.junit.Assert.assertTrue;
 
+import java.io.IOException;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import projetLabyrinthe.Fantome;
+import projetLabyrinthe.LabyFichier;
 import projetLabyrinthe.Monstre;
 
 public class testMonstres
@@ -70,5 +74,14 @@ public class testMonstres
 		assertTrue(monstreTest.coorY() == 7);
 		assertTrue(monstreTest.fantome);*/
 		// On ne peut pas vérifier les positions du monstres, ni si c'est un fantôme
+	}
+	
+	//2 tests pour fantomes mur bord et mur laby
+	@Test
+	public void testNonPassageMurLabyFantome() throws IOException 
+	{
+		LabyFichier laby = new LabyFichier("./Map/niv1.txt");
+		Fantome fantomeTest = new Fantome(3, 4, 8, 10, laby);
+		
 	}
 }
