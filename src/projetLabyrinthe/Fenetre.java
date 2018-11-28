@@ -6,6 +6,7 @@ import java.awt.event.ComponentListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -13,7 +14,7 @@ import javax.swing.JPanel;
 
 import utilensemjava.Lecture;
 
-public class Fenetre extends JFrame 
+public class Fenetre extends JFrame
 {
 
 	JPanel menu = new JPanel();
@@ -21,27 +22,22 @@ public class Fenetre extends JFrame
 	LabyFichier pan;
 	Heros H;
 	Fantome F;
-
-
+	boolean jouer;
+	ArrayList<Personnage> listePersonnages = new ArrayList<Personnage>();
 
 	public Fenetre() throws IOException
 	{
-		
-		//**********
+
+		// **********
 		this.pan = new LabyFichier("niv0.txt");
 		this.init();
 		this.pan.add(button);
-		
-		//ecouter clavier
+
+		// ecouter clavier
 		this.pan.setFocusable(true);
 		this.pan.addKeyListener(new EcouteurClavier());
-		//-----------
+		// -----------
 		this.setContentPane(pan);
-		
-
-
-
-
 
 	}
 
@@ -57,78 +53,96 @@ public class Fenetre extends JFrame
 		this.button.addActionListener(new EcouteurBoutonChanger());
 		setVisible(true);
 	}
+	
+	
 
-	//TODO gérer le key listener
-	public void lancerPartie() throws IOException{
-		//gestion du hero
-		boolean jouer = true;
+	public int getVieHero()
+	{
+		return H.hp;
+	}
+
+	public void genererPersos()
+	{
+		listePersonnages.add(new Heros(this.pan));
+		listePersonnages.add(new Zombie(3, 3, 1, 1, this.pan));
+		listePersonnages.add(new Zombie(5, 5, 1, 1, this.pan));
+	}
+
+	// TODO gérer le key listener
+	public void lancerPartie() throws IOException
+	{
+		// gestion du hero
+		jouer = true;
 		this.pan.setMapName("niv1.txt");
 		this.pan.setMap(this.pan.getMapName());
 		this.pan.add(button);
-		
+
 		button.setText("Menu");
-		// ecouter le clavier 
+		// ecouter le clavier
 		this.addKeyListener(new EcouteurClavier());
 		this.setFocusable(true);
 		this.setContentPane(pan);
-		this.revalidate();	
-		//----------------------------
+		this.revalidate();
+		// ----------------------------
+		// genererPersos();
 		H = new Heros(this.pan);
+		this.pan.setVieHero(H.hp);
 		System.out.println("**************************");
 
-		//--------------------------------------
-		
+		// --------------------------------------
+
 	}
 
-	//incrementation de la map
+	// incrementation de la map
 	public void changerMap() throws IOException
 	{
-		
-		//changement de map en lui meme 
+
+		// changement de map en lui meme
 		char numNextMap = this.pan.getMapName().charAt(3);
 		numNextMap++;
 
 		System.out.println("numNextMap : " + numNextMap);
-		if (numNextMap < '6' && numNextMap != '/' ) //incrémentation du niveau, il faut dire le nb de map
+		if (numNextMap < '6' && numNextMap != '/') // incrémentation du niveau, il faut dire le nb de map
 		{
 			this.pan.setMapName("niv" + numNextMap + ".txt");
-		} else //affichage map de la victoire
+		} else // affichage map de la victoire
 		{
 			this.pan.setMapName("win.txt");
 		}
 		this.pan.setMap(this.pan.getMapName());
 		this.setContentPane(pan);
 		this.revalidate();
-		
-		//reaparition du hero:
-		H = new  Heros(this.pan, H.hp, H.vie );		
+
+		// reaparition du hero:
+		H = new Heros(this.pan, H.hp, H.vie);
 	}
-	
-	private void deplacementHero(KeyEvent e) {
+
+	private void deplacementHero(KeyEvent e)
+	{
 		// TODO Auto-generated method stub
-					char key = e.getKeyChar();
-					System.out.println("key : "+key);
-//					Fenetre.this.pan.afficheLaby();
-					System.out.println("");
-					char direction = key;
-					H.deplacement(direction, Fenetre.this.pan, true, 'H');
-					//ariver sur le passage
-					if (H.getTile()=='O')
-					{
-						try
-						{
-							Fenetre.this.changerMap();
-						} catch (IOException e1)
-						{
-							e1.printStackTrace();
-						}
-					}
+		char key = e.getKeyChar();
+		System.out.println("key : " + key);
+		// Fenetre.this.pan.afficheLaby();
+		System.out.println("");
+		char direction = key;
+		H.deplacement(direction, Fenetre.this.pan, jouer, 'H');
+		// ariver sur le passage
+		if (H.getTile() == 'O')
+		{
+			try
+			{
+				Fenetre.this.changerMap();
+			} catch (IOException e1)
+			{
+				e1.printStackTrace();
+			}
+		}
 	}
 
 	// Ecouteur du bouton
-	public class EcouteurBoutonChanger implements ActionListener 
+	public class EcouteurBoutonChanger implements ActionListener
 	{
-		//TODO lancer la partie la première fois puis après on verra
+		// TODO lancer la partie la première fois puis après on verra
 		@Override
 		public void actionPerformed(ActionEvent clic)
 		{
@@ -143,7 +157,8 @@ public class Fenetre extends JFrame
 					e.printStackTrace();
 				}
 
-			} else {
+			} else
+			{
 
 				try
 				{
@@ -157,17 +172,17 @@ public class Fenetre extends JFrame
 		}
 	}
 
-	
-	//ecouteur clavier
-	public class EcouteurClavier implements KeyListener{
+	// ecouteur clavier
+	public class EcouteurClavier implements KeyListener
+	{
 
 		@Override
 		public void keyPressed(KeyEvent e)
 		{
 			Fenetre.this.deplacementHero(e);
-			//TODO déplacement monstres
+			// TODO déplacement monstres
 
-			//rafraichissement
+			// rafraichissement
 			Fenetre.this.setContentPane(pan);
 			Fenetre.this.revalidate();
 		}
@@ -176,19 +191,17 @@ public class Fenetre extends JFrame
 		public void keyReleased(KeyEvent e)
 		{
 			// TODO Auto-generated method stub
-//			char key = e.getKeyChar();
-//			System.out.println("key : "+key);
-			
-			
+			// char key = e.getKeyChar();
+			// System.out.println("key : "+key);
+
 		}
 
 		@Override
 		public void keyTyped(KeyEvent e)
 		{
 			// TODO Auto-generated method stub
-			
+
 		}
-		
-		
+
 	}
 }

@@ -18,7 +18,9 @@ public class LabyFichier extends JPanel
 	private char[][] map;
 	private String mapName;
 	private int imgSize = 64;
+	private int vieHero;
 	
+
 
 	public LabyFichier(String nomFichier) throws IOException
 	{
@@ -145,6 +147,10 @@ public class LabyFichier extends JPanel
 					
 				}
 			}
+			
+			//affichage de la vie du heros:
+			
+			
 
 		} catch (IOException e)
 		{
@@ -244,7 +250,16 @@ public class LabyFichier extends JPanel
 		} else System.out.println("setMap: Veuillez entrer une abscisse et une ordonn�e valide !");
 	}
 
-	
+
+	public int getVieHero()
+	{
+		return vieHero;
+	}
+
+	public void setVieHero(int vieHero)
+	{
+		this.vieHero = vieHero;
+	}
 	
 	 
 }
