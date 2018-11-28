@@ -31,6 +31,7 @@ public class testHeros {
 	public void tearDown() throws Exception {
 	}
 
+	//teste l'initialisation du héros
 	@Test
 	public void testSetHp() {
 		

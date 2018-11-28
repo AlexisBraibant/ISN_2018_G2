@@ -40,7 +40,7 @@ public class testLabyFichier {
 	public static void TestFichierVide() {
 		String lecture_f;
 		try {
-			lecture_f = LabyFichier.lireFichier("laby_special.txt");
+			lecture_f = LabyFichier.lireFichier("laby_vide.txt");
 			boolean test=false;
 			if (lecture_f==""){
 				test=true;
@@ -52,7 +52,38 @@ public class testLabyFichier {
 		
 	}
 	
-	//tester quand fichier n'existe pas/taille non valide
+	//tester quand fichier n'existe pas
+	@Test
+	public static void TestFichierNonExist() {
+		String lecture_f;
+		try {
+			lecture_f = LabyFichier.lireFichier("laby1.txt");
+			boolean test=false;
+			assertTrue(test);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	//taille non valide
+	@Test ( expected = IOException.class )
+	public void testTailleNonValide() {
+		String lecture_f;
+		try {
+			lecture_f = LabyFichier.lireFichier("laby_taille_nonval.txt");
+			int [] taille = new int [lecture_f.length()];
+			String [] toutes_lignes = lecture_f.split("\n");
+			for (int i=0; i<toutes_lignes.length ;i++) {
+				taille[i]=toutes_lignes[i].length();
+			}
+			for (int i=1; i<toutes_lignes.length ;i++) {
+				assertEquals(taille[i-1], taille[i]);
+			}
+		} catch (IOException e) {
+			fail();
+		}
+	}
 	
 	@Test ( expected = IOException.class )
 	public void testCaracteresNonValides() {
@@ -89,6 +120,7 @@ public class testLabyFichier {
 		}
 	}
 
+	
 	//cases speciales == tests spécifiques
 	//creer un laby qui regarde si c'est bien une case spé dans un fichier
 	

@@ -17,8 +17,8 @@ public class Principale
 	{
 		// testSprint3_Zombie();
 		// testSprint3_Fantome();
-		testSprint4_2Zombie();
-		// testSprint2_AffichageLaby();
+		//testSprint4_2Zombie();
+		 testSprint2_AffichageLaby();
 	}
 
 	/*private static void testSprint1() throws IOException
@@ -104,10 +104,8 @@ public class Principale
 			System.out.println("");
 			String dir = Lecture.lireChaine("Dans quel direction aller?(zqsd) : ");
 			char direction = dir.charAt(0);
-			ArrayList<Personnage> ListPersonnage = new ArrayList<Personnage>();
-			ArrayList<Personnage> ListFantome = new ArrayList<Personnage>();
-			H.deplacement(direction, Labyrinthe, jouer, 'H',ListPersonnage);
-			F.deplacement(F.deplacementAleatoire(Labyrinthe), Labyrinthe, jouer, F.getTilePerso(),ListFantome);
+			H.deplacement(direction, Labyrinthe, jouer, 'H');
+			F.deplacement(F.deplacementAleatoire(Labyrinthe), Labyrinthe, jouer, F.getTilePerso());
 		}
 	}
 
