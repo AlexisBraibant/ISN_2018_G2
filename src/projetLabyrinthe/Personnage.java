@@ -150,6 +150,13 @@ public abstract class Personnage
 						coorX += -1;
 						tile = map[this.coorX][this.coorY];
 						map[this.coorX][this.coorY] = lettre_perso;
+						if (this.getNom() == "Heros")
+						{
+							if (this.surPiege(map))
+							{
+								this.setHp(this.getHp() - 1);
+							}
+						}
 					}
 					break;
 				case 's':
@@ -187,6 +194,13 @@ public abstract class Personnage
 						coorX += 1;
 						tile = map[this.coorX][this.coorY];
 						map[this.coorX][this.coorY] = lettre_perso;
+						if (this.getNom() == "Heros")
+						{
+							if (this.surPiege(map))
+							{
+								this.setHp(this.getHp() - 1);
+							}
+						}
 					}
 					break;
 				case 'q':
@@ -224,6 +238,13 @@ public abstract class Personnage
 						coorY += -1;
 						tile = map[this.coorX][this.coorY];
 						map[this.coorX][this.coorY] = lettre_perso;
+						if (this.getNom() == "Heros")
+						{
+							if (this.surPiege(map))
+							{
+								this.setHp(this.getHp() - 1);
+							}
+						}
 					}
 					break;
 				case 'd':
@@ -261,6 +282,13 @@ public abstract class Personnage
 						coorY += +1;
 						tile = map[this.coorX][this.coorY];
 						map[this.coorX][this.coorY] = lettre_perso;
+						if (this.getNom() == "Heros")
+						{
+							if (this.surPiege(map))
+							{
+								this.setHp(this.getHp() - 1);
+							}
+						}
 					}
 					break;
 				case 'm':
@@ -336,5 +364,12 @@ public abstract class Personnage
 	public String getNom()
 	{
 		return null;
+	}
+
+	private boolean surPiege(char[][] map)
+	{
+		if (map[this.coorX][this.coorY] == 'X')
+			return true;
+		return false;
 	}
 }
