@@ -137,6 +137,10 @@ public abstract class Personnage
 									&& ListPersonnage.get(0).coorY == this.coorY)
 							{
 								this.attaquer(ListPersonnage.get(0), map, Labyrinthe);
+								if (ListPersonnage.get(0).isDead())
+								{
+									laCaseEstVide = true;
+								}
 							}
 						}
 					}
@@ -170,6 +174,10 @@ public abstract class Personnage
 									&& ListPersonnage.get(0).coorY == this.coorY)
 							{
 								this.attaquer(ListPersonnage.get(0), map, Labyrinthe);
+								if (ListPersonnage.get(0).isDead())
+								{
+									laCaseEstVide = true;
+								}
 							}
 						}
 					}
@@ -203,6 +211,10 @@ public abstract class Personnage
 									&& ListPersonnage.get(0).coorY == this.coorY - 1)
 							{
 								this.attaquer(ListPersonnage.get(0), map, Labyrinthe);
+								if (ListPersonnage.get(0).isDead())
+								{
+									laCaseEstVide = true;
+								}
 							}
 						}
 					}
@@ -236,6 +248,10 @@ public abstract class Personnage
 									&& ListPersonnage.get(0).coorY == this.coorY + 1)
 							{
 								this.attaquer(ListPersonnage.get(0), map, Labyrinthe);
+								if (ListPersonnage.get(0).isDead())
+								{
+									laCaseEstVide = true;
+								}
 							}
 						}
 					}
