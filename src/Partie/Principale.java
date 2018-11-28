@@ -16,19 +16,19 @@ public class Principale
 	public static void main(String[] args) throws IOException
 	{
 		// testSprint3_Zombie();
+		// testSprint3_Fantome();
+		testSprint4_2Zombie();
 		// testSprint2_AffichageLaby();
-		 testSprint3_Fantome();
-		//testSprint4_2Zombie();
 	}
 
 	/*private static void testSprint1() throws IOException
 	{
 		System.out.println("--- testSprint1: affichage console du laby + déplacement héros ---");
 		boolean jouer = true;
-
+	
 		LabyFichier Labyrinthe = new LabyFichier("laby_special.txt");
 		Heros H = new Heros(Labyrinthe);
-
+	
 		while (!H.isDead())
 		{
 			Labyrinthe.afficheLaby();
@@ -71,12 +71,12 @@ public class Principale
 		System.out.println(
 				"--- testSprint3: affichage console du laby + déplacement héros + deplacement zombie (sans gestion de collision)");
 		boolean jouer = true;
-
+	
 		LabyFichier Labyrinthe = new LabyFichier("niv1.txt");
-
+	
 		Heros H = new Heros(Labyrinthe);
 		Zombie Z = new Zombie(5, 5, 4, 4, Labyrinthe);
-
+	
 		while (!H.isDead())
 		{
 			Labyrinthe.afficheLaby();
@@ -94,7 +94,6 @@ public class Principale
 				"--- testSprint3: affichage console du laby + déplacement héros + deplacement fantome (sans gestion de collision)");
 		boolean jouer = true;
 		LabyFichier Labyrinthe = new LabyFichier("niv1.txt");
-
 
 		Heros H = new Heros(Labyrinthe);
 		Fantome F = new Fantome(5, 5, 4, 4, Labyrinthe);
@@ -137,11 +136,11 @@ public class Principale
 			System.out.println("");
 			String dir = Lecture.lireChaine("Dans quel direction aller?(zqsd) : ");
 			char direction = dir.charAt(0);
-			H.deplacement(direction, Labyrinthe, jouer, 'H', ListPersonnage);
+			H.deplacementCollision(direction, Labyrinthe, jouer, 'H', ListPersonnage);
 			for (int i = 0; i < ListZombie.size(); i++)
 			{
 				Zombie nom = ListZombie.get(i);
-				nom.deplacement(nom.deplacementAleatoire(Labyrinthe), Labyrinthe, jouer, nom.getTilePerso(),
+				nom.deplacementCollision(nom.deplacementAleatoire(Labyrinthe), Labyrinthe, jouer, nom.getTilePerso(),
 						ListPersonnage);
 			}
 		}

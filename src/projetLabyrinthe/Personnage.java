@@ -105,7 +105,7 @@ public abstract class Personnage
 		return true;
 	}
 
-	public void deplacement(char direction, LabyFichier Labyrinthe, boolean jouer, char lettre_perso,
+	public void deplacementCollision(char direction, LabyFichier Labyrinthe, boolean jouer, char lettre_perso,
 			ArrayList<Personnage> ListPersonnage)
 	{
 		char[][] map = Labyrinthe.getMap();
@@ -258,6 +258,49 @@ public abstract class Personnage
 		}
 	}
 
+	public void deplacement(char direction, LabyFichier Labyrinthe, boolean jouer, char lettre_perso)
+	{
+		char[][] map = Labyrinthe.getMap();
+
+		if (deplacementPossible(direction, Labyrinthe))
+		{
+			switch (direction)
+			{
+				case 'z':
+					map[this.coorX][this.coorY] = tile;
+					coorX += -1;
+					tile = map[this.coorX][this.coorY];
+					map[this.coorX][this.coorY] = lettre_perso;
+					break;
+				case 's':
+					map[this.coorX][this.coorY] = tile;
+					coorX += 1;
+					tile = map[this.coorX][this.coorY];
+					map[this.coorX][this.coorY] = lettre_perso;
+					break;
+				case 'q':
+					map[this.coorX][this.coorY] = tile;
+					coorY += -1;
+					tile = map[this.coorX][this.coorY];
+					map[this.coorX][this.coorY] = lettre_perso;
+					break;
+				case 'd':
+					map[this.coorX][this.coorY] = tile;
+					coorY += +1;
+					tile = map[this.coorX][this.coorY];
+					map[this.coorX][this.coorY] = lettre_perso;
+					break;
+				case 'm':
+					this.enVie = false;
+					System.out.println("\n\nLa partie est terminée");
+					break;
+				default:
+					System.out.println("~~~ Mauvais input ~~~\n");
+					Labyrinthe.setMap(map);
+			}
+		}
+	}
+
 	public void attaquer(Personnage autre, char[][] map, LabyFichier Lab)
 	{
 		autre.recevoirDegat(this.getDegat(), map, Lab);
@@ -268,9 +311,7 @@ public abstract class Personnage
 		this.hp -= MontantDeDegat;
 		if (hp <= 0)
 			this.enVie = false;
-		this.tilePerso = ' ';
-		this.tile = ' ';
-		map[this.coorX][this.coorY] = ' ';
+		map[this.coorX][this.coorY] = this.tile;
 		Lab.setMap(map);
 	}
 
