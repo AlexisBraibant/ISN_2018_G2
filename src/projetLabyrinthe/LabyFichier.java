@@ -18,14 +18,14 @@ public class LabyFichier extends JPanel
 	private char[][] map;
 	private String mapName;
 	private int imgSize = 64;
-	
+	private int vieHero;
 
 	public LabyFichier(String nomFichier) throws IOException
 	{
-		map = fileToArray("./Map/"+nomFichier);
+		map = fileToArray("./Map/" + nomFichier);
 		mapName = nomFichier;
 	}
-	
+
 	public String getMapName()
 	{
 		return mapName;
@@ -36,26 +36,24 @@ public class LabyFichier extends JPanel
 		this.mapName = mapName;
 	}
 
-	
-	public LabyFichier() {
-		//juste utile pour rï¿½cupï¿½rer largeur et hauteur 
+	public LabyFichier()
+	{
+		// juste utile pour récupérer largeur et hauteur
 	}
-	
+
 	public char[][] getMap()
 	{
 		return map;
 	}
-	
-	
+
 	public void setMap(char[][] map)
 	{
 		this.map = map;
 	}
-	
-	
+
 	public void setMap(String nomFichier) throws IOException
 	{
-		this.map = fileToArray("./Map/"+nomFichier);
+		this.map = fileToArray("./Map/" + nomFichier);
 	}
 
 	public void afficheLaby()
@@ -69,14 +67,14 @@ public class LabyFichier extends JPanel
 			System.out.println();
 		}
 	}
-	
+
 	public void paintComponent(Graphics g)
 	{
 		try
 		{
-			
+
 			char[][] map = this.getMap();
-			System.out.println("Labyrinthe affichï¿½:");
+			System.out.println("Labyrinthe affiché:");
 			this.afficheLaby();
 			Image mur = ImageIO.read(new File("./Textures/mur.png"));
 			Image vide = ImageIO.read(new File("./Textures/vide.png"));
@@ -88,8 +86,9 @@ public class LabyFichier extends JPanel
 			Image hero = ImageIO.read(new File("./Textures/hero.png"));
 			Image fantome = ImageIO.read(new File("./Textures/fantome.png"));
 			Image zombie = ImageIO.read(new File("./Textures/zombie.png"));
+			Image coeur = ImageIO.read(new File("./Textures/coeur.png"));
 
-			//dessin de la map
+			// dessin de la map
 			for (int i = 0; i < map.length; i++)
 			{
 				for (int j = 0; j < map[i].length; j++)
@@ -123,7 +122,7 @@ public class LabyFichier extends JPanel
 					}
 				}
 			}
-			
+
 			// dessin des persos
 			for (int i = 0; i < map.length; i++)
 			{
@@ -142,8 +141,14 @@ public class LabyFichier extends JPanel
 					default:
 						break;
 					}
-					
+
 				}
+			}
+
+			// affichage de la vie du heros:
+			for (int i = 0; i < vieHero; i++)
+			{
+				g.drawImage(coeur, 10,  i*imgSize , imgSize/2, imgSize/2, this);
 			}
 
 		} catch (IOException e)
@@ -151,11 +156,6 @@ public class LabyFichier extends JPanel
 			e.printStackTrace();
 		}
 	}
-	
-	
-	
-	
-	
 
 	private static char[][] fileToArray(String nomFichier) throws IOException
 	{
@@ -175,36 +175,35 @@ public class LabyFichier extends JPanel
 				// ************************
 				switch (ligne[j])
 				{
-				//mur
+				// mur
 				case "1":
 					res[i][j] = '#';
 					break;
-				//emplacement vide
-				case "0": 
+				// emplacement vide
+				case "0":
 					res[i][j] = ' ';
 					break;
-				//entree du laby
-				case "2": 
+				// entree du laby
+				case "2":
 					res[i][j] = 'E';
 					break;
-				//case piege
+				// case piege
 				case "3":
 					res[i][j] = 'X';
 					break;
-				//case passage
+				// case passage
 				case "4":
 					res[i][j] = 'O';
 					break;
-				//case magique 
+				// case magique
 				case "5":
 					res[i][j] = '*';
 					break;
-				//case trï¿½sor
+				// case trésor
 				case "6":
 					res[i][j] = '$';
 					break;
-				
-					
+
 				default:
 					break;
 				}
@@ -233,18 +232,24 @@ public class LabyFichier extends JPanel
 		return (chaine_totale);
 	}
 
-	
-
-	public void setMap (int abscisse, int ordonnee, char carac) // change un caractï¿½re de la map
+	public void setMap(int abscisse, int ordonnee, char carac) // change un caractï¿½re de la map
 	{
 		// le caractere en haut a gauche est le [0][0]
-		if (abscisse>=0 && ordonnee>=0 && abscisse<this.HAUTEUR && ordonnee<this.LARGEUR)
+		if (abscisse >= 0 && ordonnee >= 0 && abscisse < this.HAUTEUR && ordonnee < this.LARGEUR)
 		{
-			this.map[abscisse][ordonnee]=carac;
-		} else System.out.println("setMap: Veuillez entrer une abscisse et une ordonnï¿½e valide !");
+			this.map[abscisse][ordonnee] = carac;
+		} else
+			System.out.println("setMap: Veuillez entrer une abscisse et une ordonnï¿½e valide !");
 	}
 
-	
-	
-	 
+	public int getVieHero()
+	{
+		return vieHero;
+	}
+
+	public void setVieHero(int vieHero)
+	{
+		this.vieHero = vieHero;
+	}
+
 }
