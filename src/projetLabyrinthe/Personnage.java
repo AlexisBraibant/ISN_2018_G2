@@ -326,9 +326,11 @@ public abstract class Personnage
 	{
 		this.hp -= MontantDeDegat;
 		if (hp <= 0)
+		{
 			this.enVie = false;
-		map[this.coorX][this.coorY] = this.tile;
-		Lab.setMap(map);
+			map[this.coorX][this.coorY] = this.tile;
+			Lab.setMap(map);
+		}
 	}
 
 	public String getNom()
