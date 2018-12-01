@@ -41,15 +41,17 @@ public abstract class Monstre extends Personnage
 	public static void deplacementDesMonstre(LabyFichier Labyrinthe, boolean jouer, ArrayList<Zombie> listeZombie,
 			ArrayList<Fantome> listeFantome, ArrayList<Personnage> listePersonnage)
 	{
-		for (int i = 0; i < listeZombie.size(); i++)
+		System.out.println("liste fantome " + listeFantome);
+		/*for (int i = 0; i < listeZombie.size(); i++)
 		{
 			Zombie temp = listeZombie.get(i);
 			temp.deplacementCollision(temp.directionAleatoire(), Labyrinthe, jouer, temp.tilePerso, listePersonnage);
-		}
+		}*/
 
 		for (int i = 0; i < listeFantome.size(); i++)
 		{
 			Fantome temp = listeFantome.get(i);
+			System.out.println("fantome n°" + i + temp);
 			temp.deplacementCollision(temp.directionAleatoire(), Labyrinthe, jouer, temp.tilePerso, listePersonnage);
 		}
 	}
