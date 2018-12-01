@@ -13,8 +13,8 @@ public class Zombie extends Monstre
 
 		do
 		{
-			x = (int) (Math.random() * Lab.HAUTEUR);
-			y = (int) (Math.random() * Lab.LARGEUR);
+			y = (int) (Math.random() * Lab.HAUTEUR);
+			x = (int) (Math.random() * Lab.LARGEUR);
 
 		} while (Lab.getMap()[x][y] != '#' && Lab.getMap()[x][y] != 'H' && Lab.getMap()[x][y] != 'Z'
 				&& Lab.getMap()[x][y] != 'F');
