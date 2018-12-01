@@ -1,5 +1,6 @@
 package projetLabyrinthe;
 
+import java.awt.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ComponentListener;
@@ -21,7 +22,7 @@ public class Fenetre extends JFrame
 
 	JPanel menu = new JPanel();
 	JButton button = new JButton("Start");
-	String [] maps = {;
+	String [] maps = {"niv0.txt","niv1.txt","niv2.txt","niv3.txt","niv4.txt","niv5.txt","win.txt"};
 	JComboBox<String> comboBox = new JComboBox<String>(maps);
 	LabyFichier pan;
 	Heros H;
@@ -69,16 +70,13 @@ public class Fenetre extends JFrame
 
 	public void genererPersos()
 	{
+		listePersonnages = new ArrayList<Personnage>();
+		listeZombie = new ArrayList<Zombie>();
+		listeFantome = new ArrayList<Fantome>();
 		listePersonnages.add(H);
-		Zombie Z1 = new Zombie(3, 3, 1, 1, this.pan);
-		Zombie Z2 = new Zombie(5, 5, 1, 1, this.pan);
-		Fantome F = new Fantome(4, 4, 1, 1, this.pan);
-		listeZombie.add(Z1);
-		listeZombie.add(Z2);
-		listeFantome.add(F);
-		listePersonnages.add(Z1);
-		listePersonnages.add(Z2);
-		listePersonnages.add(F);
+		Zombie Z1 = new Zombie(1, 1, this.pan, listeZombie, listePersonnages);
+		Zombie Z2 = new Zombie(1, 1, this.pan, listeZombie, listePersonnages);
+		Fantome F = new Fantome(1, 1, this.pan, listeFantome, listePersonnages);
 	}
 
 	// TODO gérer le key listener
