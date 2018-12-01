@@ -9,7 +9,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
 import utilensemjava.Lecture;
@@ -19,6 +21,8 @@ public class Fenetre extends JFrame
 
 	JPanel menu = new JPanel();
 	JButton button = new JButton("Start");
+	String [] maps = {;
+	JComboBox<String> comboBox = new JComboBox<String>(maps);
 	LabyFichier pan;
 	Heros H;
 	Fantome F;
@@ -68,10 +72,13 @@ public class Fenetre extends JFrame
 		listePersonnages.add(H);
 		Zombie Z1 = new Zombie(3, 3, 1, 1, this.pan);
 		Zombie Z2 = new Zombie(5, 5, 1, 1, this.pan);
+		Fantome F = new Fantome(4, 4, 1, 1, this.pan);
 		listeZombie.add(Z1);
 		listeZombie.add(Z2);
+		listeFantome.add(F);
 		listePersonnages.add(Z1);
 		listePersonnages.add(Z2);
+		listePersonnages.add(F);
 	}
 
 	// TODO gérer le key listener
@@ -92,7 +99,7 @@ public class Fenetre extends JFrame
 		// ----------------------------
 		// generation des personnages
 		H = new Heros(this.pan);
-		//genererPersos();
+		genererPersos();
 		this.pan.setVieHero(H.hp);
 		System.out.println("**************************");
 
@@ -127,15 +134,14 @@ public class Fenetre extends JFrame
 	private void deplacementHero(KeyEvent e)
 	{
 		
-		// TODO Auto-generated method stub
 		char key = e.getKeyChar();
 		System.out.println("key : " + key);
 		// Fenetre.this.pan.afficheLaby();
 		System.out.println("");
 		char direction = key;
 		// gestion vie
-		this.pan.setVieHero(H.getHp());
 		H.deplacementCollision(direction, this.pan, jouer, 'H', listePersonnages);
+		this.pan.setVieHero(H.getHp());
 		// ariver sur le passage
 		if (H.getTile() == 'O')
 		{
@@ -146,7 +152,7 @@ public class Fenetre extends JFrame
 			{
 				e1.printStackTrace();
 			}
-		}
+		} 
 	}
 
 
@@ -168,17 +174,11 @@ public class Fenetre extends JFrame
 		@Override
 		public void keyReleased(KeyEvent e)
 		{
-			// TODO Auto-generated method stub
-			// char key = e.getKeyChar();
-			// System.out.println("key : "+key);
-
 		}
 
 		@Override
 		public void keyTyped(KeyEvent e)
 		{
-			// TODO Auto-generated method stub
-
 		}
 
 	}
