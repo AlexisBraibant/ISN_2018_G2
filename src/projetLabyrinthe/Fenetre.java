@@ -23,7 +23,6 @@ public class Fenetre extends JFrame
 	JPanel menu = new JPanel();
 	JButton button = new JButton("Start");
 	String [] maps = {"niv0.txt","niv1.txt","niv2.txt","niv3.txt","niv4.txt","niv5.txt","win.txt"};
-	int numMap = 0;
 	JComboBox<String> comboBox = new JComboBox<String>(maps);
 	LabyFichier pan;
 	Heros H;
@@ -109,15 +108,25 @@ public class Fenetre extends JFrame
 	// incrementation de la map
 	public void changerMap() throws IOException
 	{
-		
-		
-		this.pan.setMap(maps[++numMap]);
+
+		// changement de map en lui meme
+		char numNextMap = this.pan.getMapName().charAt(3);
+		numNextMap++;
+
+		System.out.println("numNextMap : " + numNextMap);
+		if (numNextMap < '6' && numNextMap != '/') // incrémentation du niveau, il faut dire le nb de map
+		{
+			this.pan.setMapName("niv" + numNextMap + ".txt");
+		} else // affichage map de la victoire
+		{
+			this.pan.setMapName("win.txt");
+		}
+		this.pan.setMap(this.pan.getMapName());
 		this.setContentPane(pan);
 		this.revalidate();
 
 		// reaparition du hero:
 		H = new Heros(this.pan, H.hp, H.vie);
-		genererPersos();
 	}
 
 	private void deplacementHero(KeyEvent e)
