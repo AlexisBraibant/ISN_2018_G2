@@ -53,7 +53,7 @@ public class Heros extends Personnage
 				}
 			}
 		}
-		listePersonnages.add(this);
+		listePersonnages.set(0, this);
 	}
 
 	public Heros(LabyFichier Lab, int hp, int vie)
@@ -103,7 +103,7 @@ public class Heros extends Personnage
 				}
 			}
 		}
-		listePersonnages.add(this);
+		listePersonnages.set(0, this);
 	}
 
 	public Heros(LabyFichier Lab, int hp, int vie, int bourse)
