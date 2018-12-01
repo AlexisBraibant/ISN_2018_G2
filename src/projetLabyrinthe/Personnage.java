@@ -110,9 +110,6 @@ public abstract class Personnage
 	{
 		char[][] map = Labyrinthe.getMap();
 
-		System.out.println("Mort " + this.isDead());
-		System.out.println("deplacement possible " + deplacementPossible(direction, Labyrinthe));
-
 		if (!this.isDead() && deplacementPossible(direction, Labyrinthe))
 		{
 			boolean laCaseEstVide = true;

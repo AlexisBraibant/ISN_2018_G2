@@ -24,6 +24,9 @@ public class Zombie extends Monstre
 		this.tilePerso = 'Z';
 		Lab.setMap(x, y, this.tilePerso);
 
+		this.coorX = x;
+		this.coorY = y;
+
 		listeZombie.add(this);
 		listePersonnages.add(this);
 	}

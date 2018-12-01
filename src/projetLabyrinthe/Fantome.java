@@ -25,6 +25,9 @@ public class Fantome extends Monstre
 		this.tilePerso = 'F';
 		Lab.setMap(x, y, this.tilePerso);
 
+		this.coorX = x;
+		this.coorY = y;
+
 		listeFantome.add(this);
 		listePersonnages.add(this);
 	}
