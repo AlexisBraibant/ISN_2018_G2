@@ -17,8 +17,8 @@ public class Principale
 	{
 		// testSprint3_Zombie();
 		// testSprint3_Fantome();
-		testSprint4_2Zombie();
-		// testSprint2_AffichageLaby();
+		// testSprint4_2Zombie();
+		testSprint2_AffichageLaby();
 		// System.out.println("abc");
 		// LabyFichier.lireFichier("./Map/laby_vide.txt");
 	}

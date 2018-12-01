@@ -140,7 +140,8 @@ public abstract class Personnage
 								if (ListPersonnage.get(0).isDead())
 								{
 									laCaseEstVide = true;
-								}
+								} else
+									laCaseEstVide = false;
 							}
 						}
 					}
@@ -184,7 +185,8 @@ public abstract class Personnage
 								if (ListPersonnage.get(0).isDead())
 								{
 									laCaseEstVide = true;
-								}
+								} else
+									laCaseEstVide = false;
 							}
 						}
 					}
@@ -228,7 +230,8 @@ public abstract class Personnage
 								if (ListPersonnage.get(0).isDead())
 								{
 									laCaseEstVide = true;
-								}
+								} else
+									laCaseEstVide = false;
 							}
 						}
 					}
@@ -272,7 +275,8 @@ public abstract class Personnage
 								if (ListPersonnage.get(0).isDead())
 								{
 									laCaseEstVide = true;
-								}
+								} else
+									laCaseEstVide = false;
 							}
 						}
 					}
