@@ -16,6 +16,15 @@ public abstract class Monstre extends Personnage
 		this.degat = 1;
 	}
 
+	public Monstre(int h, int v, LabyFichier Lab)
+	{
+		this.hp = h;
+		this.vie = v;
+		this.tile = Lab.getMap()[coorX][coorY];
+		this.enVie = true;
+		this.degat = 1;
+	}
+
 	public char directionAleatoire()
 	{
 		char[] liste_dir =

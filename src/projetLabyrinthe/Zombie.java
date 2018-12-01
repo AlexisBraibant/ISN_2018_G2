@@ -4,6 +4,25 @@ package projetLabyrinthe;
 
 public class Zombie extends Monstre
 {
+	public Zombie(int h, int v, LabyFichier Lab)
+	{
+		super(h, v, Lab);
+
+		int x = 0;
+		int y = 0;
+
+		do
+		{
+			x = (int) (Math.random() * Lab.HAUTEUR);
+			y = (int) (Math.random() * Lab.LARGEUR);
+
+		} while (Lab.getMap()[x][y] != '#' && Lab.getMap()[x][y] != 'H' && Lab.getMap()[x][y] != 'Z'
+				&& Lab.getMap()[x][y] != 'F');
+
+		this.tilePerso = 'Z';
+		Lab.setMap(x, y, this.tilePerso);
+	}
+
 	public Zombie(int x, int y, int h, int v, LabyFichier Lab)
 	{
 		super(x, y, h, v, Lab);
