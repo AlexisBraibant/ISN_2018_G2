@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class Zombie extends Monstre
 {
-	public Zombie(int h, int v, LabyFichier Lab, ArrayList<Zombie> listeZombie)
+	public Zombie(int h, int v, LabyFichier Lab, ArrayList<Zombie> listeZombie, ArrayList<Personnage> listePersonnages)
 	{
 		super(h, v, Lab);
 
@@ -25,6 +25,7 @@ public class Zombie extends Monstre
 		Lab.setMap(x, y, this.tilePerso);
 
 		listeZombie.add(this);
+		listePersonnages.add(this);
 	}
 
 	public Zombie(int x, int y, int h, int v, LabyFichier Lab)

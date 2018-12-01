@@ -1,5 +1,7 @@
 package projetLabyrinthe;
 
+import java.util.ArrayList;
+
 public class Heros extends Personnage
 {
 
@@ -53,7 +55,7 @@ public class Heros extends Personnage
 		}
 	}
 
-	public Heros(LabyFichier Lab, int hp, int vie, int bourse)
+	public Heros(LabyFichier Lab, int hp, int vie, int bourse, ArrayList<Personnage> listePersonnages)
 	{
 		super(-1, -1, hp, vie); // On met le héros au position -1 -1 et apres on le remet sur l'entrée du niveau
 								// qui est un E (ici ligne 18)
@@ -76,6 +78,7 @@ public class Heros extends Personnage
 				}
 			}
 		}
+		listePersonnages.add(this);
 	}
 
 	public String getNom()
