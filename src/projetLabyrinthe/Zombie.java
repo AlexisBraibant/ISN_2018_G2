@@ -1,10 +1,12 @@
 package projetLabyrinthe;
 
+import java.util.ArrayList;
+
 // Monstre qui se déplace de la meme maniere que le heros
 
 public class Zombie extends Monstre
 {
-	public Zombie(int h, int v, LabyFichier Lab)
+	public Zombie(int h, int v, LabyFichier Lab, ArrayList<Zombie> listeZombie)
 	{
 		super(h, v, Lab);
 
@@ -21,6 +23,8 @@ public class Zombie extends Monstre
 
 		this.tilePerso = 'Z';
 		Lab.setMap(x, y, this.tilePerso);
+
+		listeZombie.add(this);
 	}
 
 	public Zombie(int x, int y, int h, int v, LabyFichier Lab)
