@@ -357,6 +357,7 @@ public abstract class Personnage
 
 	public void attaquer(Personnage autre, char[][] map, LabyFichier Lab)
 	{
+		System.out.println(this.getClass());
 		autre.recevoirDegat(this.getDegat(), map, Lab);
 	}
 
