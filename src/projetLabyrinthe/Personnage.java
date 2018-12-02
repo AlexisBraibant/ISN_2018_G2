@@ -12,6 +12,7 @@ public abstract class Personnage
 	protected boolean enVie;
 	protected char tile; // enregistre la case dans laquelle le personnage se trouve
 	protected char tilePerso; // valeur à afficher qui est l'image du personnage
+	protected int bourse;
 
 	public Personnage()
 	{
@@ -153,10 +154,7 @@ public abstract class Personnage
 						map[this.coorX][this.coorY] = lettre_perso;
 						if (this.getNom() == "Heros")
 						{
-							if (this.surPiege(map))
-							{
-								this.setHp(this.getHp() - 1);
-							}
+							caseSpe(map);
 						}
 					}
 					break;
@@ -198,10 +196,7 @@ public abstract class Personnage
 						map[this.coorX][this.coorY] = lettre_perso;
 						if (this.getNom() == "Heros")
 						{
-							if (this.surPiege(map))
-							{
-								this.setHp(this.getHp() - 1);
-							}
+							caseSpe(map);
 						}
 					}
 					break;
@@ -243,10 +238,7 @@ public abstract class Personnage
 						map[this.coorX][this.coorY] = lettre_perso;
 						if (this.getNom() == "Heros")
 						{
-							if (this.surPiege(map))
-							{
-								this.setHp(this.getHp() - 1);
-							}
+							caseSpe(map);
 						}
 					}
 					break;
@@ -288,10 +280,7 @@ public abstract class Personnage
 						map[this.coorX][this.coorY] = lettre_perso;
 						if (this.getNom() == "Heros")
 						{
-							if (this.surPiege(map))
-							{
-								this.setHp(this.getHp() - 1);
-							}
+							caseSpe(map);
 						}
 					}
 					break;
@@ -368,6 +357,33 @@ public abstract class Personnage
 	public String getNom()
 	{
 		return null;
+	}
+
+	private void caseSpe(char[][] map)
+	{
+		char currentTile = map[this.coorX][this.coorY];
+		if (this.getNom() == "Heros" && (currentTile == '*' || currentTile == 'X' || currentTile == '$'))
+		{
+			System.out.println("on est sur une case spécial");
+			if (currentTile == 'X')
+			{
+				System.out.println("un piege aïe");
+				this.setHp(this.getHp() - 1);
+			} else if (currentTile == '*')
+			{
+				System.out.println("une case magique oui !");
+				if (this.getHp() < this.getVie())
+				{
+					this.setHp(this.getHp() + 1);
+				}
+				this.tile = ' ';
+			} else if (currentTile == '$')
+			{
+				System.out.println("$.$ de l'argent");
+				this.bourse++;
+				this.tile = ' ';
+			}
+		}
 	}
 
 	private boolean surPiege(char[][] map)
