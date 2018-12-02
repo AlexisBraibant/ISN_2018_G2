@@ -22,12 +22,12 @@ public class Zombie extends Monstre
 				&& Lab.getMap()[x][y] != 'F'));
 
 		this.tilePerso = 'Z';
-		Lab.setMap(x, y, this.tilePerso);
 
 		this.coorX = x;
 		this.coorY = y;
 
 		this.tile = Lab.getMap()[coorX][coorY];
+		Lab.setMap(x, y, this.tilePerso);
 
 		listeZombie.add(this);
 		listePersonnages.add(this);

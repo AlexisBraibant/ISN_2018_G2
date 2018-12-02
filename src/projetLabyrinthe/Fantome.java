@@ -23,12 +23,12 @@ public class Fantome extends Monstre
 		} while (!(Lab.getMap()[x][y] != 'H' && Lab.getMap()[x][y] != 'Z' && Lab.getMap()[x][y] != 'F'));
 
 		this.tilePerso = 'F';
-		Lab.setMap(x, y, this.tilePerso);
 
 		this.coorX = x;
 		this.coorY = y;
 
 		this.tile = Lab.getMap()[coorX][coorY];
+		Lab.setMap(x, y, this.tilePerso);
 
 		listeFantome.add(this);
 		listePersonnages.add(this);

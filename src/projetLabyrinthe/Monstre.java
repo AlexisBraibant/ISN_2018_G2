@@ -45,13 +45,25 @@ public abstract class Monstre extends Personnage
 		for (int i = 0; i < listeZombie.size(); i++)
 		{
 			Zombie temp = listeZombie.get(i);
-			temp.deplacementCollision(temp.directionAleatoire(), Labyrinthe, jouer, temp.tilePerso, listePersonnage);
+			char direction;
+			do
+			{
+				direction = temp.directionAleatoire();
+			} while (temp.deplacementPossible(direction, Labyrinthe));
+
+			temp.deplacementCollision(direction, Labyrinthe, jouer, temp.tilePerso, listePersonnage);
 		}
 
 		for (int i = 0; i < listeFantome.size(); i++)
 		{
 			Fantome temp = listeFantome.get(i);
-			temp.deplacementCollision(temp.directionAleatoire(), Labyrinthe, jouer, temp.tilePerso, listePersonnage);
+			char direction;
+			do
+			{
+				direction = temp.directionAleatoire();
+			} while (temp.deplacementPossibleFantome(direction, Labyrinthe));
+
+			temp.deplacementCollision(direction, Labyrinthe, jouer, temp.tilePerso, listePersonnage);
 		}
 	}
 }
