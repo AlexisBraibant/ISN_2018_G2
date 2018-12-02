@@ -135,7 +135,7 @@ public class Fenetre extends JFrame
 		this.revalidate();
 
 		// reaparition du hero:
-		H = new Heros(this.pan, H.hp, H.vie);
+		H = new Heros(this.pan, H.getHp(), H.getVie(), H.getBourse());
 		genererPersos();
 	}
 

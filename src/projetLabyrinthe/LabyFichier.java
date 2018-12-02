@@ -94,6 +94,7 @@ public class LabyFichier extends JPanel
 			{
 				for (int j = 0; j < map[i].length; j++)
 				{
+					g.drawImage(vide, j * imgSize, i * imgSize, imgSize, imgSize, this);
 					switch (map[i][j])
 					{
 					case '#':
@@ -101,9 +102,6 @@ public class LabyFichier extends JPanel
 						break;
 					case 'E':
 						g.drawImage(entree, j * imgSize, i * imgSize, imgSize, imgSize, this);
-						break;
-					case ' ':
-						g.drawImage(vide, j * imgSize, i * imgSize, imgSize, imgSize, this);
 						break;
 					case '$':
 						g.drawImage(tresor, j * imgSize, i * imgSize, imgSize, imgSize, this);
@@ -154,7 +152,7 @@ public class LabyFichier extends JPanel
 			// affichage bourse heros
 			for (int i = 0; i < bourse; i++)
 			{
-				g.drawImage(tresor, 10,  i*imgSize , imgSize, imgSize, this);
+				g.drawImage(tresor, i*imgSize/4,  64*6 , imgSize/2, imgSize/2, this);
 			}			
 
 		} catch (IOException e)
