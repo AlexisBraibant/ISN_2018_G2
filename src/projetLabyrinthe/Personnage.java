@@ -144,6 +144,10 @@ public abstract class Personnage
 								} else
 									laCaseEstVide = false;
 							}
+							if (map[this.coorX - 1][this.coorY] == 'F' || map[this.coorX - 1][this.coorY] == 'Z')
+							{
+								laCaseEstVide = false;
+							}
 						}
 					}
 					if (laCaseEstVide)
@@ -185,6 +189,10 @@ public abstract class Personnage
 									laCaseEstVide = true;
 								} else
 									laCaseEstVide = false;
+							}
+							if (map[this.coorX + 1][this.coorY] == 'F' || map[this.coorX + 1][this.coorY] == 'Z')
+							{
+								laCaseEstVide = false;
 							}
 						}
 					}
@@ -228,6 +236,10 @@ public abstract class Personnage
 								} else
 									laCaseEstVide = false;
 							}
+							if (map[this.coorX][this.coorY - 1] == 'F' || map[this.coorX][this.coorY - 1] == 'Z')
+							{
+								laCaseEstVide = false;
+							}
 						}
 					}
 					if (laCaseEstVide)
@@ -269,6 +281,10 @@ public abstract class Personnage
 									laCaseEstVide = true;
 								} else
 									laCaseEstVide = false;
+							}
+							if (map[this.coorX][this.coorY + 1] == 'F' || map[this.coorX][this.coorY + 1] == 'Z')
+							{
+								laCaseEstVide = false;
 							}
 						}
 					}
