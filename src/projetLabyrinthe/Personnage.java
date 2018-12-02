@@ -30,6 +30,16 @@ public abstract class Personnage
 		this.enVie = true;
 	}
 
+	public int getBourse()
+	{
+		return bourse;
+	}
+
+	public void setBourse(int bourse)
+	{
+		this.bourse = bourse;
+	}
+
 	public void setHp(int hp)
 	{
 		this.hp = hp;
@@ -390,11 +400,10 @@ public abstract class Personnage
 			} else if (currentTile == '$')
 			{
 				System.out.println("$.$ de l'argent");
-				System.out.println(this.bourse + " argent");
-				this.bourse++;
-				System.out.println(this.bourse + " argent");
+				this.setBourse(this.getBourse() + 1);
 				this.tile = ' ';
 			}
 		}
 	}
+
 }
