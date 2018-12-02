@@ -5,6 +5,16 @@ import java.util.ArrayList;
 public class Heros extends Personnage
 {
 
+	public int getBourse()
+	{
+		return bourse;
+	}
+
+	public void setBourse(int bourse)
+	{
+		this.bourse = bourse;
+	}
+
 	public int bourse;
 
 	public Heros(LabyFichier Lab)

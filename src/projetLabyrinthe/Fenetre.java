@@ -15,6 +15,8 @@ import javax.swing.JFrame;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
+import org.omg.Messaging.SyncScopeHelper;
+
 import utilensemjava.Lecture;
 
 public class Fenetre extends JFrame
@@ -22,8 +24,12 @@ public class Fenetre extends JFrame
 
 	JPanel menu = new JPanel();
 	JButton button = new JButton("Start");
-	String [] maps = {"niv0.txt","niv1.txt","niv2.txt","niv3.txt","niv4.txt","niv5.txt","win.txt"};
-	JComboBox<String> comboBox = new JComboBox<String>(maps);
+	String[] maps =
+	{ "niv0.txt", "niv1.txt", "niv2.txt", "niv3.txt", "niv4.txt", "niv5.txt", "win.txt" };
+	Integer[] listeNumMaps =
+	{ 1, 2, 3, 4, 5 };
+	int numMap = 0;
+	JComboBox<Integer> comboBox = new JComboBox<Integer>(listeNumMaps);
 	LabyFichier pan;
 	Heros H;
 	Fantome F;
@@ -38,6 +44,7 @@ public class Fenetre extends JFrame
 		// **********
 		this.pan = new LabyFichier("niv0.txt");
 		this.init();
+		this.pan.add(comboBox);
 		this.pan.add(button);
 
 		// ecouter clavier
@@ -60,8 +67,6 @@ public class Fenetre extends JFrame
 		this.button.addActionListener(new EcouteurBoutonChanger());
 		setVisible(true);
 	}
-	
-	
 
 	public int getVieHero()
 	{
@@ -74,9 +79,10 @@ public class Fenetre extends JFrame
 		listeZombie = new ArrayList<Zombie>();
 		listeFantome = new ArrayList<Fantome>();
 		listePersonnages.add(H);
-		Zombie Z1 = new Zombie(1, 1, this.pan, listeZombie, listePersonnages);
-		Zombie Z2 = new Zombie(1, 1, this.pan, listeZombie, listePersonnages);
-		Fantome F = new Fantome(1, 1, this.pan, listeFantome, listePersonnages);
+//		Zombie Z1 = new Zombie(1, 1, this.pan, listeZombie, listePersonnages);
+//		Zombie Z2 = new Zombie(1, 1, this.pan, listeZombie, listePersonnages);
+		// Fantome F = new Fantome(1, 1, this.pan, listeFantome, listePersonnages);
+//		System.out.println(listePersonnages);
 	}
 
 	// TODO gérer le key listener
@@ -85,6 +91,7 @@ public class Fenetre extends JFrame
 		// gestion du hero
 		jouer = true;
 		this.pan.setMapName("niv1.txt");
+		numMap=1;
 		this.pan.setMap(this.pan.getMapName());
 		this.pan.add(button);
 
@@ -110,28 +117,46 @@ public class Fenetre extends JFrame
 	{
 
 		// changement de map en lui meme
-		char numNextMap = this.pan.getMapName().charAt(3);
-		numNextMap++;
+		/*
+		 * char numNextMap = this.pan.getMapName().charAt(3); numNextMap++;
+		 * 
+		 * System.out.println("numNextMap : " + numNextMap); if (numNextMap < '6' &&
+		 * numNextMap != '/') // incrémentation du niveau, il faut dire le nb de map {
+		 * this.pan.setMapName("niv" + numNextMap + ".txt"); } else // affichage map de
+		 * la victoire { this.pan.setMapName("win.txt"); }
+		 * this.pan.setMap(this.pan.getMapName()); this.setContentPane(pan);
+		 * this.revalidate();
+		 * 
+		 * // reaparition du hero: H = new Heros(this.pan, H.hp, H.vie);
+		 */
 
-		System.out.println("numNextMap : " + numNextMap);
-		if (numNextMap < '6' && numNextMap != '/') // incrémentation du niveau, il faut dire le nb de map
-		{
-			this.pan.setMapName("niv" + numNextMap + ".txt");
-		} else // affichage map de la victoire
-		{
-			this.pan.setMapName("win.txt");
-		}
-		this.pan.setMap(this.pan.getMapName());
+		this.pan.setMap(maps[++numMap]);
 		this.setContentPane(pan);
 		this.revalidate();
 
 		// reaparition du hero:
 		H = new Heros(this.pan, H.hp, H.vie);
+		genererPersos();
+	}
+
+	public void changerMap(int numeroMap) throws IOException
+	{
+
+		// changement de map en lui meme
+		numMap = numeroMap+1;
+		System.out.println("--> "+numMap);
+		this.pan.setMap(maps[numMap]);
+		this.setContentPane(pan);
+		this.revalidate();
+
+		// reaparition du hero:
+		H = new Heros(this.pan);
+		genererPersos();
 	}
 
 	private void deplacementHero(KeyEvent e)
 	{
-		
+
 		char key = e.getKeyChar();
 		System.out.println("key : " + key);
 		// Fenetre.this.pan.afficheLaby();
@@ -150,9 +175,8 @@ public class Fenetre extends JFrame
 			{
 				e1.printStackTrace();
 			}
-		} 
+		}
 	}
-
 
 	// ecouteur clavier
 	public class EcouteurClavier implements KeyListener
@@ -162,7 +186,8 @@ public class Fenetre extends JFrame
 		public void keyPressed(KeyEvent e)
 		{
 			Fenetre.this.deplacementHero(e);
-			// TODO déplacement monstres
+			// System.out.println("dep Monstres "+listePersonnages);
+			// System.out.println(listeFantome);
 			Monstre.deplacementDesMonstre(Fenetre.this.pan, jouer, listeZombie, listeFantome, listePersonnages);
 			// rafraichissement
 			Fenetre.this.setContentPane(pan);
@@ -180,7 +205,6 @@ public class Fenetre extends JFrame
 		}
 
 	}
-	
 
 	// Ecouteur du bouton
 	public class EcouteurBoutonChanger implements ActionListener
@@ -205,7 +229,7 @@ public class Fenetre extends JFrame
 
 				try
 				{
-					Fenetre.this.changerMap();
+					Fenetre.this.changerMap(comboBox.getSelectedIndex());
 				} catch (Exception e)
 				{
 					e.printStackTrace();
