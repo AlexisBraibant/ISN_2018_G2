@@ -27,6 +27,8 @@ public class Zombie extends Monstre
 		this.coorX = x;
 		this.coorY = y;
 
+		this.tile = Lab.getMap()[coorX][coorY];
+
 		listeZombie.add(this);
 		listePersonnages.add(this);
 	}

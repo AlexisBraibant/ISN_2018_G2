@@ -28,6 +28,8 @@ public class Fantome extends Monstre
 		this.coorX = x;
 		this.coorY = y;
 
+		this.tile = Lab.getMap()[coorX][coorY];
+
 		listeFantome.add(this);
 		listePersonnages.add(this);
 	}
