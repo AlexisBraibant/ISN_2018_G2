@@ -127,9 +127,10 @@ public abstract class Personnage
 			switch (direction)
 			{
 				case 'z':
-					for (int i = 0; i < ListPersonnage.size(); i++)
+
+					if (this.getNom() == "Heros")
 					{
-						if (this.getNom() == "Heros")
+						for (int i = 1; i < ListPersonnage.size(); i++)
 						{
 							if (ListPersonnage.get(i).coorX == this.coorX - 1
 									&& ListPersonnage.get(i).coorY == this.coorY)
@@ -142,22 +143,22 @@ public abstract class Personnage
 									laCaseEstVide = false;
 							}
 						}
-						if (this.getNom() == "Monstre")
+					}
+					if (this.getNom() == "Monstre")
+					{
+						if (ListPersonnage.get(0).coorX == this.coorX - 1 && ListPersonnage.get(0).coorY == this.coorY)
 						{
-							if (ListPersonnage.get(0).coorX == this.coorX - 1
-									&& ListPersonnage.get(0).coorY == this.coorY)
+							this.attaquer(ListPersonnage.get(0), map, Labyrinthe);
+							if (ListPersonnage.get(0).isDead())
 							{
-								this.attaquer(ListPersonnage.get(0), map, Labyrinthe);
-								if (ListPersonnage.get(0).isDead())
-								{
-									laCaseEstVide = true;
-								} else
-									laCaseEstVide = false;
-							}
-							if (map[this.coorX - 1][this.coorY] == 'F' || map[this.coorX - 1][this.coorY] == 'Z')
-							{
+								laCaseEstVide = true;
+							} else
 								laCaseEstVide = false;
-							}
+						}
+						if (map[this.coorX - 1][this.coorY] == 'F' || map[this.coorX - 1][this.coorY] == 'Z')
+						{
+							laCaseEstVide = false;
+
 						}
 					}
 					if (laCaseEstVide)
@@ -169,10 +170,11 @@ public abstract class Personnage
 					}
 					break;
 				case 's':
-					for (int i = 0; i < ListPersonnage.size(); i++)
+					if (this.getNom() == "Heros")
 					{
-						if (this.getNom() == "Heros")
+						for (int i = 1; i < ListPersonnage.size(); i++)
 						{
+
 							if (ListPersonnage.get(i).coorX == this.coorX + 1
 									&& ListPersonnage.get(i).coorY == this.coorY)
 							{
@@ -184,24 +186,24 @@ public abstract class Personnage
 									laCaseEstVide = false;
 							}
 						}
-						if (this.getNom() == "Monstre")
+					}
+					if (this.getNom() == "Monstre")
+					{
+						if (ListPersonnage.get(0).coorX == this.coorX + 1 && ListPersonnage.get(0).coorY == this.coorY)
 						{
-							if (ListPersonnage.get(0).coorX == this.coorX + 1
-									&& ListPersonnage.get(0).coorY == this.coorY)
+							this.attaquer(ListPersonnage.get(0), map, Labyrinthe);
+							if (ListPersonnage.get(0).isDead())
 							{
-								this.attaquer(ListPersonnage.get(0), map, Labyrinthe);
-								if (ListPersonnage.get(0).isDead())
-								{
-									laCaseEstVide = true;
-								} else
-									laCaseEstVide = false;
-							}
-							if (map[this.coorX + 1][this.coorY] == 'F' || map[this.coorX + 1][this.coorY] == 'Z')
-							{
+								laCaseEstVide = true;
+							} else
 								laCaseEstVide = false;
-							}
+						}
+						if (map[this.coorX + 1][this.coorY] == 'F' || map[this.coorX + 1][this.coorY] == 'Z')
+						{
+							laCaseEstVide = false;
 						}
 					}
+
 					if (laCaseEstVide)
 					{
 						map[this.coorX][this.coorY] = tile;
@@ -212,10 +214,12 @@ public abstract class Personnage
 					}
 					break;
 				case 'q':
-					for (int i = 0; i < ListPersonnage.size(); i++)
+
+					if (this.getNom() == "Heros")
 					{
-						if (this.getNom() == "Heros")
+						for (int i = 1; i < ListPersonnage.size(); i++)
 						{
+
 							if (ListPersonnage.get(i).coorX == this.coorX
 									&& ListPersonnage.get(i).coorY == this.coorY - 1)
 							{
@@ -227,24 +231,24 @@ public abstract class Personnage
 									laCaseEstVide = false;
 							}
 						}
-						if (this.getNom() == "Monstre")
+					}
+					if (this.getNom() == "Monstre")
+					{
+						if (ListPersonnage.get(0).coorX == this.coorX && ListPersonnage.get(0).coorY == this.coorY - 1)
 						{
-							if (ListPersonnage.get(0).coorX == this.coorX
-									&& ListPersonnage.get(0).coorY == this.coorY - 1)
+							this.attaquer(ListPersonnage.get(0), map, Labyrinthe);
+							if (ListPersonnage.get(0).isDead())
 							{
-								this.attaquer(ListPersonnage.get(0), map, Labyrinthe);
-								if (ListPersonnage.get(0).isDead())
-								{
-									laCaseEstVide = true;
-								} else
-									laCaseEstVide = false;
-							}
-							if (map[this.coorX][this.coorY - 1] == 'F' || map[this.coorX][this.coorY - 1] == 'Z')
-							{
+								laCaseEstVide = true;
+							} else
 								laCaseEstVide = false;
-							}
+						}
+						if (map[this.coorX][this.coorY - 1] == 'F' || map[this.coorX][this.coorY - 1] == 'Z')
+						{
+							laCaseEstVide = false;
 						}
 					}
+
 					if (laCaseEstVide)
 					{
 						map[this.coorX][this.coorY] = tile;
@@ -255,10 +259,12 @@ public abstract class Personnage
 					}
 					break;
 				case 'd':
-					for (int i = 0; i < ListPersonnage.size(); i++)
+
+					if (this.getNom() == "Heros")
 					{
-						if (this.getNom() == "Heros")
+						for (int i = 1; i < ListPersonnage.size(); i++)
 						{
+
 							if (ListPersonnage.get(i).coorX == this.coorX
 									&& ListPersonnage.get(i).coorY == this.coorY + 1)
 							{
@@ -270,24 +276,24 @@ public abstract class Personnage
 									laCaseEstVide = false;
 							}
 						}
-						if (this.getNom() == "Monstre")
+					}
+					if (this.getNom() == "Monstre")
+					{
+						if (ListPersonnage.get(0).coorX == this.coorX && ListPersonnage.get(0).coorY == this.coorY + 1)
 						{
-							if (ListPersonnage.get(0).coorX == this.coorX
-									&& ListPersonnage.get(0).coorY == this.coorY + 1)
+							this.attaquer(ListPersonnage.get(0), map, Labyrinthe);
+							if (ListPersonnage.get(0).isDead())
 							{
-								this.attaquer(ListPersonnage.get(0), map, Labyrinthe);
-								if (ListPersonnage.get(0).isDead())
-								{
-									laCaseEstVide = true;
-								} else
-									laCaseEstVide = false;
-							}
-							if (map[this.coorX][this.coorY + 1] == 'F' || map[this.coorX][this.coorY + 1] == 'Z')
-							{
+								laCaseEstVide = true;
+							} else
 								laCaseEstVide = false;
-							}
+						}
+						if (map[this.coorX][this.coorY + 1] == 'F' || map[this.coorX][this.coorY + 1] == 'Z')
+						{
+							laCaseEstVide = false;
 						}
 					}
+
 					if (laCaseEstVide)
 					{
 						map[this.coorX][this.coorY] = tile;
