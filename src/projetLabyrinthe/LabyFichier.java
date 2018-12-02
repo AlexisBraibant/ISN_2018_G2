@@ -19,6 +19,7 @@ public class LabyFichier extends JPanel
 	private String mapName;
 	private int imgSize = 64;
 	private int vieHero;
+	private int bourse;
 
 	public LabyFichier(String nomFichier) throws IOException
 	{
@@ -150,6 +151,11 @@ public class LabyFichier extends JPanel
 			{
 				g.drawImage(coeur, 10,  i*imgSize/4 , imgSize/4, imgSize/4, this);
 			}
+			// affichage bourse heros
+			for (int i = 0; i < bourse; i++)
+			{
+				g.drawImage(tresor, 10,  i*imgSize , imgSize, imgSize, this);
+			}			
 
 		} catch (IOException e)
 		{
@@ -251,5 +257,17 @@ public class LabyFichier extends JPanel
 	{
 		this.vieHero = vieHero;
 	}
+
+	public int getBourse()
+	{
+		return bourse;
+	}
+
+	public void setBourse(int bourse)
+	{
+		this.bourse = bourse;
+	}
+	
+	
 
 }

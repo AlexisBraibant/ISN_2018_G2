@@ -79,8 +79,8 @@ public class Fenetre extends JFrame
 		listeZombie = new ArrayList<Zombie>();
 		listeFantome = new ArrayList<Fantome>();
 		listePersonnages.add(H);
-//		Zombie Z1 = new Zombie(1, 1, this.pan, listeZombie, listePersonnages);
-//		Zombie Z2 = new Zombie(1, 1, this.pan, listeZombie, listePersonnages);
+		Zombie Z1 = new Zombie(1, 1, this.pan, listeZombie, listePersonnages);
+		Zombie Z2 = new Zombie(1, 1, this.pan, listeZombie, listePersonnages);
 		// Fantome F = new Fantome(1, 1, this.pan, listeFantome, listePersonnages);
 //		System.out.println(listePersonnages);
 	}
@@ -95,7 +95,7 @@ public class Fenetre extends JFrame
 		this.pan.setMap(this.pan.getMapName());
 		this.pan.add(button);
 
-		button.setText("Menu");
+		button.setText("Select level");
 		// ecouter le clavier
 		this.addKeyListener(new EcouteurClavier());
 		this.setFocusable(true);
@@ -165,6 +165,8 @@ public class Fenetre extends JFrame
 		// gestion vie
 		H.deplacementCollision(direction, this.pan, jouer, 'H', listePersonnages);
 		this.pan.setVieHero(H.getHp());
+		System.out.println("BOURSE: "+H.getBourse());
+		this.pan.setBourse(H.getBourse());
 		// ariver sur le passage
 		if (H.getTile() == 'O')
 		{
@@ -186,8 +188,6 @@ public class Fenetre extends JFrame
 		public void keyPressed(KeyEvent e)
 		{
 			Fenetre.this.deplacementHero(e);
-			// System.out.println("dep Monstres "+listePersonnages);
-			// System.out.println(listeFantome);
 			Monstre.deplacementDesMonstre(Fenetre.this.pan, jouer, listeZombie, listeFantome, listePersonnages);
 			// rafraichissement
 			Fenetre.this.setContentPane(pan);
