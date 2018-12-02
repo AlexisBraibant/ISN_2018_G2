@@ -390,7 +390,9 @@ public abstract class Personnage
 			} else if (currentTile == '$')
 			{
 				System.out.println("$.$ de l'argent");
+				System.out.println(this.bourse + " argent");
 				this.bourse++;
+				System.out.println(this.bourse + " argent");
 				this.tile = ' ';
 			}
 		}
