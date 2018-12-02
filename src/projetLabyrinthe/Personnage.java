@@ -356,7 +356,10 @@ public abstract class Personnage
 		if (hp <= 0)
 		{
 			this.enVie = false;
-			map[this.coorX][this.coorY] = this.tile;
+			if (this.getNom() != "Heros")
+			{
+				map[this.coorX][this.coorY] = this.tile;
+			}
 			Lab.setMap(map);
 		}
 	}
@@ -382,8 +385,8 @@ public abstract class Personnage
 				if (this.getHp() < this.getVie())
 				{
 					this.setHp(this.getHp() + 1);
+					this.tile = ' ';
 				}
-				this.tile = ' ';
 			} else if (currentTile == '$')
 			{
 				System.out.println("$.$ de l'argent");
