@@ -156,10 +156,6 @@ public abstract class Personnage
 						coorX += -1;
 						tile = map[this.coorX][this.coorY];
 						map[this.coorX][this.coorY] = lettre_perso;
-						if (this.getNom() == "Heros")
-						{
-							caseSpe(map);
-						}
 					}
 					break;
 				case 's':
@@ -202,10 +198,7 @@ public abstract class Personnage
 						coorX += 1;
 						tile = map[this.coorX][this.coorY];
 						map[this.coorX][this.coorY] = lettre_perso;
-						if (this.getNom() == "Heros")
-						{
-							caseSpe(map);
-						}
+
 					}
 					break;
 				case 'q':
@@ -248,10 +241,7 @@ public abstract class Personnage
 						coorY += -1;
 						tile = map[this.coorX][this.coorY];
 						map[this.coorX][this.coorY] = lettre_perso;
-						if (this.getNom() == "Heros")
-						{
-							caseSpe(map);
-						}
+
 					}
 					break;
 				case 'd':
@@ -294,10 +284,7 @@ public abstract class Personnage
 						coorY += +1;
 						tile = map[this.coorX][this.coorY];
 						map[this.coorX][this.coorY] = lettre_perso;
-						if (this.getNom() == "Heros")
-						{
-							caseSpe(map);
-						}
+
 					}
 					break;
 				case 'm':
@@ -307,6 +294,10 @@ public abstract class Personnage
 				default:
 					System.out.println("~~~ Mauvais input ~~~\n");
 					Labyrinthe.setMap(map);
+			}
+			if (this.getNom() == "Heros")
+			{
+				caseSpe(map);
 			}
 		}
 	}
@@ -377,8 +368,8 @@ public abstract class Personnage
 
 	private void caseSpe(char[][] map)
 	{
-		char currentTile = map[this.coorX][this.coorY];
-		if (this.getNom() == "Heros" && (currentTile == '*' || currentTile == 'X' || currentTile == '$'))
+		char currentTile = this.tile;
+		if (currentTile == '*' || currentTile == 'X' || currentTile == '$')
 		{
 			System.out.println("on est sur une case spécial");
 			if (currentTile == 'X')
@@ -400,15 +391,5 @@ public abstract class Personnage
 				this.tile = ' ';
 			}
 		}
-	}
-
-	private boolean surPiege(char[][] map)
-	{
-		if (this.tile == 'X')
-		{
-			System.out.println("sur piege");
-			return true;
-		}
-		return false;
 	}
 }
