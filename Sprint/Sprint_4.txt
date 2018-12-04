@@ -1,10 +1,12 @@
 Sprint 4
-
+Date de création: 28/11/2018
+Dernière modification: 04/12/2018
+Fin du sprint: 04/12/2018 20:00
 Alexis
 	-Affichage vie du héros et implémentation menu selection niveau
 
 Benoit
 	-Ajout des collisions et degat entre le héros et les monstres
 Diana
-	-Creation de points de vie pour monstres
+	-Creation de points de vie pour monstres/tests sur les héros, le labyrinthe
 Jonathan
