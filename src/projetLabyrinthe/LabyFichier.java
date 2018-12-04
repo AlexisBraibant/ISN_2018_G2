@@ -23,6 +23,8 @@ public class LabyFichier extends JPanel
 	private boolean drawPerso=true;
 	private boolean gameOver=false;
 	private boolean victory=false;
+	private boolean monstreAttaque=false;
+	private boolean heroAttaque=false;
 	
 
 	public LabyFichier(String nomFichier) throws IOException
@@ -38,6 +40,26 @@ public class LabyFichier extends JPanel
 	
 	
 	
+
+	public boolean isMonstreAttaque()
+	{
+		return monstreAttaque;
+	}
+
+	public void setMonstreAttaque(boolean monstreAttaque)
+	{
+		this.monstreAttaque = monstreAttaque;
+	}
+
+	public boolean isHeroAttaque()
+	{
+		return heroAttaque;
+	}
+
+	public void setHeroAttaque(boolean heroAttaque)
+	{
+		this.heroAttaque = heroAttaque;
+	}
 
 	public boolean isVictory()
 	{
@@ -127,6 +149,8 @@ public class LabyFichier extends JPanel
 			Image coeur = ImageIO.read(new File("./Textures/coeur.png"));
 			Image go = ImageIO.read(new File("./Textures/gameover.png"));
 			Image win = ImageIO.read(new File("./Textures/youWin.png"));
+			Image hAtk = ImageIO.read(new File("./Textures/heroAttaque.png"));
+			Image mAtk = ImageIO.read(new File("./Textures/monstreAttaque.png"));
 
 			// dessin de la map
 			for (int i = 0; i < map.length; i++)
@@ -184,7 +208,15 @@ public class LabyFichier extends JPanel
 
 					}
 				}
-
+				// affichage de l'attatque
+				if (heroAttaque)
+				{
+					g.drawImage(hAtk,9*64, 0, imgSize, imgSize, this);
+				}
+				if (monstreAttaque)
+				{
+					g.drawImage(mAtk,8*64, 0, imgSize, imgSize, this);
+				}
 				// affichage de la vie du heros:
 				for (int i = 0; i < vieHero; i++)
 				{
@@ -195,7 +227,10 @@ public class LabyFichier extends JPanel
 				{
 					g.drawImage(tresor, i * imgSize / 4, 64 * 6, imgSize / 2, imgSize / 2, this);
 				}
+				
+			
 			}
+			// gestion fin du jeu
 			if (gameOver)
 			{
 				g.drawImage(go,64, 64, imgSize*8, imgSize*5, this);

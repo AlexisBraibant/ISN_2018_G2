@@ -200,6 +200,22 @@ public class Fenetre extends JFrame
 		{
 			Fenetre.this.deplacementHero(e);
 			Monstre.deplacementDesMonstre(Fenetre.this.pan, jouer, listeZombie, listeFantome, listePersonnages);
+			//affichage des attaques
+			if (H.isAttacking)
+			{
+				Fenetre.this.pan.setHeroAttaque(true);
+			} else {
+				Fenetre.this.pan.setHeroAttaque(false);
+			}
+			for (int i = 1; i < listePersonnages.size(); i++)
+			{
+				if (listePersonnages.get(i).isAttacking)
+				{
+					Fenetre.this.pan.setMonstreAttaque(true);
+				} else {
+					Fenetre.this.pan.setMonstreAttaque(false);
+				}
+			}
 			//gestion de la mort du heros
 			if (H.isDead())
 			{
