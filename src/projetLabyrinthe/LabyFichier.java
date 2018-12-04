@@ -32,6 +32,17 @@ public class LabyFichier extends JPanel
 	{
 		return mapName;
 	}
+	
+
+	public boolean isDrawPerso()
+	{
+		return drawPerso;
+	}
+
+	public void setDrawPerso(boolean drawPerso)
+	{
+		this.drawPerso = drawPerso;
+	}
 
 	public void setMapName(String mapName)
 	{

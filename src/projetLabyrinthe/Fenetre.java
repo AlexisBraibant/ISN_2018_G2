@@ -14,6 +14,7 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
+import javax.swing.text.html.StyleSheet.ListPainter;
 
 import org.omg.Messaging.SyncScopeHelper;
 
@@ -75,6 +76,7 @@ public class Fenetre extends JFrame
 
 	public void genererPersos()
 	{
+		
 		listePersonnages = new ArrayList<Personnage>();
 		listeZombie = new ArrayList<Zombie>();
 		listeFantome = new ArrayList<Fantome>();
@@ -83,6 +85,7 @@ public class Fenetre extends JFrame
 		Zombie Z2 = new Zombie(1, 1, this.pan, listeZombie, listePersonnages);
 		Fantome F = new Fantome(1, 1, this.pan, listeFantome, listePersonnages);
 		// System.out.println(listePersonnages);
+		
 	}
 
 
@@ -137,9 +140,10 @@ public class Fenetre extends JFrame
 
 		// reaparition du hero:
 		H = new Heros(this.pan, H.getHp(), H.getVie(), H.getBourse());
+		genererPersos();
 		if (numMap > 5)
 		{
-			genererPersos();
+			this.pan.setDrawPerso(false);
 		}
 
 	}
