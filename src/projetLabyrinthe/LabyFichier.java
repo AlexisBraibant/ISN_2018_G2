@@ -20,6 +20,7 @@ public class LabyFichier extends JPanel
 	private int imgSize = 64;
 	private int vieHero;
 	private int bourse;
+	private boolean drawPerso=true;
 
 	public LabyFichier(String nomFichier) throws IOException
 	{
@@ -121,40 +122,42 @@ public class LabyFichier extends JPanel
 					}
 				}
 			}
-
-			// dessin des persos
-			for (int i = 0; i < map.length; i++)
+			if (drawPerso)
 			{
-				for (int j = 0; j < map[i].length; j++)
-				{
-					switch (map[i][j])
-					{
-					case 'H':
-						g.drawImage(hero, j * imgSize, i * imgSize, imgSize, imgSize, this);
-						break;
-					case 'F':
-						g.drawImage(fantome, j * imgSize, i * imgSize, imgSize, imgSize, this);
-						break;
-					case 'Z':
-						g.drawImage(zombie, j * imgSize, i * imgSize, imgSize, imgSize, this);
-					default:
-						break;
-					}
 
+				// dessin des persos
+				for (int i = 0; i < map.length; i++)
+				{
+					for (int j = 0; j < map[i].length; j++)
+					{
+						switch (map[i][j])
+						{
+						case 'H':
+							g.drawImage(hero, j * imgSize, i * imgSize, imgSize, imgSize, this);
+							break;
+						case 'F':
+							g.drawImage(fantome, j * imgSize, i * imgSize, imgSize, imgSize, this);
+							break;
+						case 'Z':
+							g.drawImage(zombie, j * imgSize, i * imgSize, imgSize, imgSize, this);
+						default:
+							break;
+						}
+
+					}
+				}
+
+				// affichage de la vie du heros:
+				for (int i = 0; i < vieHero; i++)
+				{
+					g.drawImage(coeur, 10, i * imgSize / 4, imgSize / 4, imgSize / 4, this);
+				}
+				// affichage bourse heros
+				for (int i = 0; i < bourse; i++)
+				{
+					g.drawImage(tresor, i * imgSize / 4, 64 * 6, imgSize / 2, imgSize / 2, this);
 				}
 			}
-
-			// affichage de la vie du heros:
-			for (int i = 0; i < vieHero; i++)
-			{
-				g.drawImage(coeur, 10,  i*imgSize/4 , imgSize/4, imgSize/4, this);
-			}
-			// affichage bourse heros
-			for (int i = 0; i < bourse; i++)
-			{
-				g.drawImage(tresor, i*imgSize/4,  64*6 , imgSize/2, imgSize/2, this);
-			}			
-
 		} catch (IOException e)
 		{
 			e.printStackTrace();
@@ -265,7 +268,5 @@ public class LabyFichier extends JPanel
 	{
 		this.bourse = bourse;
 	}
-	
-	
 
 }

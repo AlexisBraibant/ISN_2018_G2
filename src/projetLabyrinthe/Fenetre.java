@@ -28,7 +28,7 @@ public class Fenetre extends JFrame
 	{ "niv0.txt", "niv1.txt", "niv2.txt", "niv3.txt", "niv4.txt", "niv5.txt", "win.txt" };
 	Integer[] listeNumMaps =
 	{ 1, 2, 3, 4, 5 };
-	int numMap = 0;
+	public int numMap = 0;
 	JComboBox<Integer> comboBox = new JComboBox<Integer>(listeNumMaps);
 	LabyFichier pan;
 	Heros H;
@@ -81,9 +81,10 @@ public class Fenetre extends JFrame
 		listePersonnages.add(H);
 		Zombie Z1 = new Zombie(1, 1, this.pan, listeZombie, listePersonnages);
 		Zombie Z2 = new Zombie(1, 1, this.pan, listeZombie, listePersonnages);
-		// Fantome F = new Fantome(1, 1, this.pan, listeFantome, listePersonnages);
-//		System.out.println(listePersonnages);
+		Fantome F = new Fantome(1, 1, this.pan, listeFantome, listePersonnages);
+		// System.out.println(listePersonnages);
 	}
+
 
 	// TODO gérer le key listener
 	public void lancerPartie() throws IOException
@@ -91,7 +92,7 @@ public class Fenetre extends JFrame
 		// gestion du hero
 		jouer = true;
 		this.pan.setMapName("niv1.txt");
-		numMap=1;
+		numMap = 1;
 		this.pan.setMap(this.pan.getMapName());
 		this.pan.add(button);
 
@@ -136,15 +137,19 @@ public class Fenetre extends JFrame
 
 		// reaparition du hero:
 		H = new Heros(this.pan, H.getHp(), H.getVie(), H.getBourse());
-		genererPersos();
+		if (numMap > 5)
+		{
+			genererPersos();
+		}
+
 	}
 
 	public void changerMap(int numeroMap) throws IOException
 	{
 
 		// changement de map en lui meme
-		numMap = numeroMap+1;
-		System.out.println("--> "+numMap);
+		numMap = numeroMap + 1;
+		System.out.println("--> " + numMap);
 		this.pan.setMap(maps[numMap]);
 		this.setContentPane(pan);
 		this.revalidate();
@@ -152,6 +157,17 @@ public class Fenetre extends JFrame
 		// reaparition du hero:
 		H = new Heros(this.pan);
 		genererPersos();
+	}
+
+	
+	public int getNumMap()
+	{
+		return numMap;
+	}
+
+	public void setNumMap(int numMap)
+	{
+		this.numMap = numMap;
 	}
 
 	private void deplacementHero(KeyEvent e)
@@ -165,7 +181,7 @@ public class Fenetre extends JFrame
 		// gestion vie
 		H.deplacementCollision(direction, this.pan, jouer, 'H', listePersonnages);
 		this.pan.setVieHero(H.getHp());
-		System.out.println("BOURSE: "+H.getBourse());
+		// System.out.println("BOURSE: "+H.getBourse());
 		this.pan.setBourse(H.getBourse());
 		// ariver sur le passage
 		if (H.getTile() == 'O')
