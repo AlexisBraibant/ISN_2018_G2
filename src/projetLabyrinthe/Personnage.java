@@ -13,12 +13,14 @@ public abstract class Personnage
 	protected char tile; // enregistre la case dans laquelle le personnage se trouve
 	protected char tilePerso; // valeur à afficher qui est l'image du personnage
 	protected int bourse;
+	protected boolean isAttacking;
 
 	public Personnage()
 	{
 		setHp(0);
 		setVie(0);
 		this.enVie = true;
+		isAttacking = false;
 	}
 
 	public Personnage(int xx, int yy, int h, int v)
@@ -28,6 +30,7 @@ public abstract class Personnage
 		hp = h;
 		vie = v;
 		this.enVie = true;
+		isAttacking = false;
 	}
 
 	public int getBourse()
@@ -122,6 +125,14 @@ public abstract class Personnage
 			ArrayList<Personnage> ListPersonnage)
 	{
 		char[][] map = Labyrinthe.getMap();
+
+		if (this.getNom() == "Heros")
+		{
+			for (int i = 0; i < ListPersonnage.size(); i++)
+			{
+				ListPersonnage.get(i).isAttacking = false;
+			}
+		}
 
 		if (!this.isDead() && deplacementPossible(direction, Labyrinthe))
 		{
@@ -365,6 +376,7 @@ public abstract class Personnage
 
 	public void attaquer(Personnage autre, char[][] map, LabyFichier Lab)
 	{
+		isAttacking = true;
 		System.out.println(this.getClass());
 		autre.recevoirDegat(this.getDegat(), map, Lab);
 	}
