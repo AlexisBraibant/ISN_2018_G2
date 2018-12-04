@@ -150,7 +150,9 @@ public class Fenetre extends JFrame
 
 	public void changerMap(int numeroMap) throws IOException
 	{
-
+		this.pan.setGameOver(false);
+		this.pan.setDrawPerso(true);
+		H.setBourse(0);
 		// changement de map en lui meme
 		numMap = numeroMap + 1;
 		System.out.println("--> " + numMap);
@@ -209,10 +211,12 @@ public class Fenetre extends JFrame
 		{
 			Fenetre.this.deplacementHero(e);
 			Monstre.deplacementDesMonstre(Fenetre.this.pan, jouer, listeZombie, listeFantome, listePersonnages);
+			//gestion de la mort du heros
 			if (H.isDead())
 			{
 				Fenetre.this.pan.setDrawPerso(false);
 				Fenetre.this.pan.setGameOver(true);
+				
 			}
 			// rafraichissement
 			Fenetre.this.setContentPane(pan);

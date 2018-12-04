@@ -184,7 +184,7 @@ public class LabyFichier extends JPanel
 			}
 			if (gameOver)
 			{
-				g.drawImage(go,64, 64, imgSize*5, imgSize*5, this);
+				g.drawImage(go,64*2, 64, imgSize*5, imgSize*5, this);
 			}
 			
 		} catch (IOException e)
