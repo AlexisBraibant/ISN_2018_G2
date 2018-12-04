@@ -165,6 +165,8 @@ public abstract class Personnage
 
 		if (this.getNom() == "Heros")
 		{
+
+			Labyrinthe.setMonstreAttaque(false);
 			for (int i = 0; i < ListPersonnage.size(); i++)
 			{
 				ListPersonnage.get(i).isAttacking = false;
@@ -184,6 +186,7 @@ public abstract class Personnage
 
 					if (this.getNom() == "Heros")
 					{
+
 						for (int i = 1; i < ListPersonnage.size(); i++)
 						{
 							if (ListPersonnage.get(i).coorX == this.coorX - 1
