@@ -68,7 +68,7 @@ public class Fantome extends Monstre
 		do
 		{
 			dir_al = this.directionAleatoire();
-			deplPoss = this.deplacementPossibleFantome(dir_al, Lab);
+			deplPoss = this.deplacementPossible(dir_al, Lab);
 		} while (!deplPoss);
 		return dir_al;
 	}

@@ -66,7 +66,7 @@ public abstract class Monstre extends Personnage
 				do
 				{
 					direction = temp.directionAleatoire();
-				} while (!(temp.deplacementPossibleFantome(direction, Labyrinthe)));
+				} while (!(temp.deplacementPossible(direction, Labyrinthe)));
 
 				temp.deplacementCollision(direction, Labyrinthe, jouer, temp.tilePerso, listePersonnage);
 			}
