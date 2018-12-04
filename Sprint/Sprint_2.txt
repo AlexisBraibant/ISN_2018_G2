@@ -1,7 +1,7 @@
 
 Sprint 2 v1.0
 Date de création: 24/10/2018
-Dernière modification: 24/10/2018
+Dernière modification: 04/12/2018
 Fin du sprint: 07/11/2018 20:00
 
 Alexis
@@ -12,7 +12,7 @@ Benoit
 	test JUnit pour le placement des monstres dans le labyrinthe        
 
 Diana
-	Placement des de manière aléatoire dans le labyrinthe.        
+	Placement et implémentation des monstres de manière aléatoire dans le labyrinthe.        
 
 Jonathan
         
