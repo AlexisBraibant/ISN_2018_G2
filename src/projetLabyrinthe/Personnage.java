@@ -146,7 +146,7 @@ public abstract class Personnage
 						for (int i = 1; i < ListPersonnage.size(); i++)
 						{
 							if (ListPersonnage.get(i).coorX == this.coorX - 1
-									&& ListPersonnage.get(i).coorY == this.coorY)
+									&& ListPersonnage.get(i).coorY == this.coorY && ListPersonnage.get(i).tile!='#')
 							{
 								this.attaquer(ListPersonnage.get(i), map, Labyrinthe);
 								if (ListPersonnage.get(i).isDead())
@@ -189,7 +189,7 @@ public abstract class Personnage
 						{
 
 							if (ListPersonnage.get(i).coorX == this.coorX + 1
-									&& ListPersonnage.get(i).coorY == this.coorY)
+									&& ListPersonnage.get(i).coorY == this.coorY&& ListPersonnage.get(i).tile!='#'))
 							{
 								this.attaquer(ListPersonnage.get(i), map, Labyrinthe);
 								if (ListPersonnage.get(i).isDead())
@@ -234,7 +234,7 @@ public abstract class Personnage
 						{
 
 							if (ListPersonnage.get(i).coorX == this.coorX
-									&& ListPersonnage.get(i).coorY == this.coorY - 1)
+									&& ListPersonnage.get(i).coorY == this.coorY - 1&& ListPersonnage.get(i).tile!='#'))
 							{
 								this.attaquer(ListPersonnage.get(i), map, Labyrinthe);
 								if (ListPersonnage.get(i).isDead())
@@ -279,7 +279,7 @@ public abstract class Personnage
 						{
 
 							if (ListPersonnage.get(i).coorX == this.coorX
-									&& ListPersonnage.get(i).coorY == this.coorY + 1)
+									&& ListPersonnage.get(i).coorY == this.coorY + 1&& ListPersonnage.get(i).tile!='#'))
 							{
 								this.attaquer(ListPersonnage.get(i), map, Labyrinthe);
 								if (ListPersonnage.get(i).isDead())
