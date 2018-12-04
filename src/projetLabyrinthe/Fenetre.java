@@ -209,6 +209,11 @@ public class Fenetre extends JFrame
 		{
 			Fenetre.this.deplacementHero(e);
 			Monstre.deplacementDesMonstre(Fenetre.this.pan, jouer, listeZombie, listeFantome, listePersonnages);
+			if (H.isDead())
+			{
+				Fenetre.this.pan.setDrawPerso(false);
+				Fenetre.this.pan.setGameOver(true);
+			}
 			// rafraichissement
 			Fenetre.this.setContentPane(pan);
 			Fenetre.this.revalidate();
