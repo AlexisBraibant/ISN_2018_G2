@@ -4,11 +4,11 @@ Il faut executer le fichier labyrinthe.jar avec java.
 
 # Comment jouer :
 
-Pour se déplacer, il faut utiliser les touches zqsd,
-z : pour aller vers le haut
-q : pour aller vers la gauche
-s : pour aller vers le bas
-d : pour aller vers la droite
+Pour se déplacer, il faut utiliser les touches zqsd:
+- z : pour aller vers le haut
+- q : pour aller vers la gauche
+- s : pour aller vers le bas
+- d : pour aller vers la droite
 
 # Case Speciale :
 
