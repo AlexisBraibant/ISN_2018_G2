@@ -121,10 +121,47 @@ public abstract class Personnage
 		return true;
 	}
 
+	protected boolean deplacementPossible(char direction, LabyFichier Labyrinthe, ArrayList<Personnage> listePerso)
+	{
+		int xApres = this.coorX;
+		int yApres = this.coorY;
+
+		if (direction == 'z')
+			xApres -= 1;
+		if (direction == 's')
+			xApres += 1;
+		if (direction == 'q')
+			yApres -= 1;
+		if (direction == 'd')
+			yApres += 1;
+
+		if (xApres < 0 || xApres >= Labyrinthe.HAUTEUR || yApres < 0 || yApres >= Labyrinthe.LARGEUR)
+		{
+			return false;
+		}
+		System.out.println();
+		if (Labyrinthe.getMap()[xApres][yApres] == '#')
+		{
+			return false;
+		}
+		for (int i = 1; i < listePerso.size(); i++)
+		{
+			Personnage temp = listePerso.get(i);
+			if (xApres == temp.coorX && yApres == temp.coorY && temp.tile == '#')
+			{
+				return false;
+			}
+
+		}
+		return true;
+	}
+
 	public void deplacementCollision(char direction, LabyFichier Labyrinthe, boolean jouer, char lettre_perso,
 			ArrayList<Personnage> ListPersonnage)
 	{
 		char[][] map = Labyrinthe.getMap();
+
+		boolean seDeplacer = true;
 
 		if (this.getNom() == "Heros")
 		{
@@ -132,9 +169,13 @@ public abstract class Personnage
 			{
 				ListPersonnage.get(i).isAttacking = false;
 			}
+			if (!deplacementPossible(direction, Labyrinthe, ListPersonnage))
+			{
+				seDeplacer = false;
+			}
 		}
 
-		if (!this.isDead() && deplacementPossible(direction, Labyrinthe))
+		if (seDeplacer && !this.isDead() && deplacementPossible(direction, Labyrinthe))
 		{
 			boolean laCaseEstVide = true;
 			switch (direction)
