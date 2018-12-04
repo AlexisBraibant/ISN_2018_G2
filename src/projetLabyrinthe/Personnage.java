@@ -419,7 +419,8 @@ public abstract class Personnage
 
 	public void attaquer(Personnage autre, char[][] map, LabyFichier Lab)
 	{
-		isAttacking = true;
+		if (!autre.isDead())
+			isAttacking = true;
 		System.out.println(this.getClass());
 		autre.recevoirDegat(this.getDegat(), map, Lab);
 	}
