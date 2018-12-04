@@ -206,7 +206,7 @@ public class Fenetre extends JFrame
 				Fenetre.this.pan.setHeroAttaque(true);
 			} else {
 				Fenetre.this.pan.setHeroAttaque(false);
-			}
+			}/*
 			for (int i = 1; i < listePersonnages.size(); i++)
 			{
 				if (listePersonnages.get(i).isAttacking)
@@ -215,7 +215,7 @@ public class Fenetre extends JFrame
 				} else {
 					Fenetre.this.pan.setMonstreAttaque(false);
 				}
-			}
+			}*/
 			//gestion de la mort du heros
 			if (H.isDead())
 			{
