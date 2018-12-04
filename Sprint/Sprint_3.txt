@@ -1,4 +1,7 @@
 Sprint 3.0
+Date de création: 07/11/2018
+Dernière modification: 03/12/2018
+Fin du sprint: 27/11/2018 20:00
 Alexis
 	Dans l'affichage graphique: affichage du héros en graphique et implémenter le changement de niveau.	
 
