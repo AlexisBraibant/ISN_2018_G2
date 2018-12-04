@@ -121,19 +121,6 @@ public class Fenetre extends JFrame
 	{
 
 		// changement de map en lui meme
-		/*
-		 * char numNextMap = this.pan.getMapName().charAt(3); numNextMap++;
-		 * 
-		 * System.out.println("numNextMap : " + numNextMap); if (numNextMap < '6' &&
-		 * numNextMap != '/') // incrémentation du niveau, il faut dire le nb de map {
-		 * this.pan.setMapName("niv" + numNextMap + ".txt"); } else // affichage map de
-		 * la victoire { this.pan.setMapName("win.txt"); }
-		 * this.pan.setMap(this.pan.getMapName()); this.setContentPane(pan);
-		 * this.revalidate();
-		 * 
-		 * // reaparition du hero: H = new Heros(this.pan, H.hp, H.vie);
-		 */
-
 		this.pan.setMap(maps[++numMap]);
 		this.setContentPane(pan);
 		this.revalidate();
@@ -144,6 +131,7 @@ public class Fenetre extends JFrame
 		if (numMap > 5)
 		{
 			this.pan.setDrawPerso(false);
+			this.pan.setVictory(true);;
 		}
 
 	}
@@ -152,6 +140,7 @@ public class Fenetre extends JFrame
 	{
 		this.pan.setGameOver(false);
 		this.pan.setDrawPerso(true);
+		this.pan.setVictory(false);
 		H.setBourse(0);
 		// changement de map en lui meme
 		numMap = numeroMap + 1;
