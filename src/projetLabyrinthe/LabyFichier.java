@@ -22,6 +22,7 @@ public class LabyFichier extends JPanel
 	private int bourse;
 	private boolean drawPerso=true;
 	private boolean gameOver=false;
+	private boolean victory=false;
 	
 
 	public LabyFichier(String nomFichier) throws IOException
@@ -35,6 +36,18 @@ public class LabyFichier extends JPanel
 		return mapName;
 	}
 	
+	
+	
+
+	public boolean isVictory()
+	{
+		return victory;
+	}
+
+	public void setVictory(boolean victory)
+	{
+		this.victory = victory;
+	}
 
 	public boolean isGameOver()
 	{
@@ -113,6 +126,7 @@ public class LabyFichier extends JPanel
 			Image zombie = ImageIO.read(new File("./Textures/zombie.png"));
 			Image coeur = ImageIO.read(new File("./Textures/coeur.png"));
 			Image go = ImageIO.read(new File("./Textures/gameover.png"));
+			Image win = ImageIO.read(new File("./Textures/youWin.png"));
 
 			// dessin de la map
 			for (int i = 0; i < map.length; i++)
@@ -141,7 +155,7 @@ public class LabyFichier extends JPanel
 						g.drawImage(passage, j * imgSize, i * imgSize, imgSize, imgSize, this);
 						break;
 					default:
-						g.drawImage(vide, j * imgSize, i * imgSize, imgSize, imgSize, this);
+						//g.drawImage(vide, j * imgSize, i * imgSize, imgSize, imgSize, this);
 						break;
 					}
 				}
@@ -184,7 +198,12 @@ public class LabyFichier extends JPanel
 			}
 			if (gameOver)
 			{
-				g.drawImage(go,64*2, 64, imgSize*5, imgSize*5, this);
+				g.drawImage(go,64, 64, imgSize*8, imgSize*5, this);
+			}
+			
+			if (victory)
+			{
+				g.drawImage(win,64, 64, imgSize*8, imgSize*5, this);
 			}
 			
 		} catch (IOException e)
