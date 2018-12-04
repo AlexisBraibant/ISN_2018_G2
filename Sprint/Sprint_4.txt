@@ -10,3 +10,4 @@ Benoit
 Diana
 	-Creation de points de vie pour monstres/tests sur les héros, le labyrinthe
 Jonathan
+	-Redaction du rapport et création du PowerPoint
