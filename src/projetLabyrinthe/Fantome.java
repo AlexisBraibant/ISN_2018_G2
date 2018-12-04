@@ -40,22 +40,17 @@ public class Fantome extends Monstre
 		this.tilePerso = 'F';
 	}
 
-	// Edit du deplacement de Personnage
-	public boolean deplacementPossibleFantome(char direction, LabyFichier Labyrinthe)
+	protected boolean deplacementPossible(char direction, LabyFichier Labyrinthe)
 	{
 		int xApres = this.coorX;
 		int yApres = this.coorY;
 
-		// traitement du sens du déplacement et si c'est un mur
 		if (direction == 'z')
 			xApres -= 1;
-
 		if (direction == 's')
 			xApres += 1;
-
 		if (direction == 'q')
 			yApres -= 1;
-
 		if (direction == 'd')
 			yApres += 1;
 
@@ -63,7 +58,6 @@ public class Fantome extends Monstre
 		{
 			return false;
 		}
-		System.out.println();
 		return true;
 	}
 
