@@ -77,7 +77,9 @@ public abstract class Personnage
 
 	public boolean isDead()
 	{
-		return !this.enVie;
+		if (hp <= 0)
+			return true;
+		return false;
 	}
 
 	public char getTile()
