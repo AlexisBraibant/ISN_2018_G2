@@ -79,6 +79,7 @@ public class Principale
 		Heros H = new Heros(Labyrinthe);
 		Zombie Z = new Zombie(5, 5, 4, 4, Labyrinthe);
 	
+	
 		while (!H.isDead())
 		{
 			Labyrinthe.afficheLaby();
