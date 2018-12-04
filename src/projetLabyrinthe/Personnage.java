@@ -434,12 +434,11 @@ public abstract class Personnage
 			{
 				map[this.coorX][this.coorY] = this.tile;
 			}
-			if (this.getNom() == "Heros")
-			{
-				Lab.setMonstreAttaque(true);
-			}
-
 			Lab.setMap(map);
+		}
+		if (this.getNom() == "Heros")
+		{
+			Lab.setMonstreAttaque(true);
 		}
 	}
 
