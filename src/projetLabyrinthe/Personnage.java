@@ -421,7 +421,6 @@ public abstract class Personnage
 	{
 		if (!autre.isDead())
 			isAttacking = true;
-		System.out.println(this.getClass());
 		autre.recevoirDegat(this.getDegat(), map, Lab);
 	}
 
@@ -435,6 +434,11 @@ public abstract class Personnage
 			{
 				map[this.coorX][this.coorY] = this.tile;
 			}
+			if (this.getNom() == "Heros")
+			{
+				Lab.setMonstreAttaque(true);
+			}
+
 			Lab.setMap(map);
 		}
 	}
