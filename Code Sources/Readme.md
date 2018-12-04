@@ -1,6 +1,6 @@
 # Pour lancer le jeu :
 
-Il faut executer le fichier labyrinthe.jar avec java.
+Il faut executer le fichier labyrinthe.jar avec java, en ayant les repertoires Map et Textures dans le même repertoire.
 
 # Comment jouer :
 
